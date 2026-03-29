@@ -28,9 +28,6 @@ public class SecurityConfig {
         return provider;
     }
 
-    /**
-     * Exposed for future JWT filter: authenticationManager.authenticate(token)
-     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
@@ -42,17 +39,25 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authenticationProvider(authenticationProvider())
             .authorizeHttpRequests(auth -> auth
-                // Public pages
+                // Public
                 .requestMatchers("/login", "/setup-password", "/actuator/**").permitAll()
-                // Public REST endpoints (token validation, password setup, login)
                 .requestMatchers("/api/auth/**").permitAll()
-                // Admin web pages and REST API — require ADMIN role
+                // Admin only
                 .requestMatchers("/admin/**", "/api/admin/**").hasRole("ADMIN")
+                // Approvers and admins
+                .requestMatchers("/approvals/**").hasAnyRole("APPROVER", "ADMIN")
+                // Requesters and admins
+                .requestMatchers("/requests/**").hasAnyRole("REQUESTER", "ADMIN")
+                // Accountants and admins
+                .requestMatchers("/accounting/**").hasAnyRole("ACCOUNTANT", "ADMIN")
+                // Audit log — admin only
+                .requestMatchers("/audit").hasRole("ADMIN")
+                // Dashboard and everything else — any authenticated user
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/admin/users", true)
+                .defaultSuccessUrl("/dashboard", true)
                 .permitAll()
             )
             .logout(logout -> logout

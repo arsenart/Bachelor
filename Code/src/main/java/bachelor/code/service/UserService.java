@@ -10,4 +10,5 @@ public interface UserService {
     void resendSetupLink(Long userId);
     boolean authenticate(String email, String rawPassword);
     List<User> findAll();
+    User findByEmail(String email);
 }
