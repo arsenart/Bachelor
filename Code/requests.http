@@ -1,0 +1,43 @@
+### Переменные
+@baseUrl = http://localhost:8080
+@adminUser = admin
+@adminPassword = adminpass
+
+### 1️⃣ Проверка токена (публичный, не требует auth)
+GET {{baseUrl}}/api/auth/setup-password/validate?token=test-token
+
+### 2️⃣ Создание пользователя (требует Basic Auth: admin:adminpass)
+POST {{baseUrl}}/api/admin/users
+Authorization: Basic YWRtaW46YWRtaW5wYXNz
+Content-Type: application/json
+
+{
+  "email": "ivan@company.com",
+  "firstName": "Ivan",
+  "lastName": "Ivanov",
+  "department": "Finance",
+  "roles": ["REQUESTER"]
+}
+
+### 3️⃣ Установка пароля (публичный, не требует auth)
+POST {{baseUrl}}/api/auth/setup-password
+Content-Type: application/json
+
+{
+  "token": "скопируй-токен-из-логов-приложения",
+  "newPassword": "MySecure123!"
+}
+
+### 4️⃣ Логин (публичный, не требует auth)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ivan@company.com",
+  "password": "MySecure123!"
+}
+
+### 5️⃣ Повторная отправка ссылки (требует Basic Auth: admin:adminpass)
+POST {{baseUrl}}/api/admin/users/1/resend-setup-link
+Authorization: Basic YWRtaW46YWRtaW5wYXNz
+Content-Type: application/json

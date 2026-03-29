@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bachelor
+    username: arsenart
+    password:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: your-smtp-username
+    password: your-smtp-password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+
+app:
+  base-url: https://my-app.com
