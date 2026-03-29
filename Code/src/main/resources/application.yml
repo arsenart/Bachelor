@@ -14,8 +14,8 @@ spring:
   mail:
     host: smtp.mailtrap.io
     port: 2525
-    username: your-smtp-username
-    password: your-smtp-password
+    username: 0f9e58606c838b
+    password: 7105bc4ba9f5c6
     properties:
       mail:
         smtp:
@@ -23,4 +23,7 @@ spring:
           starttls.enable: true
 
 app:
-  base-url: https://my-app.com
+  base-url: http://localhost:8080
+  admin:
+    email: admin@company.com
+    password: admin123

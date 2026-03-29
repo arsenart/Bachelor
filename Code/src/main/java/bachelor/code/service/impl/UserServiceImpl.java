@@ -13,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -55,6 +57,11 @@ public class UserServiceImpl implements UserService {
 
         PasswordSetupToken token = passwordSetupService.generateTokenForUser(user);
         emailService.sendPasswordSetupEmail(user.getEmail(), token.getToken());
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
     @Override
