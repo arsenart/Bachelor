@@ -4,7 +4,7 @@
 <body>
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    <a class="navbar-brand fw-bold" th:href="@{/dashboard}">Procurement System</a>
+    <a class="navbar-brand fw-bold" th:href="@{/dashboard}" th:text="#{app.name}">Procurement System</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
@@ -15,41 +15,49 @@
 
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/dashboard}"
-                   th:classappend="${currentUri == '/dashboard'} ? 'active'">
-                    Dashboard
-                </a>
+                   th:classappend="${currentUri == '/dashboard'} ? 'active'"
+                   th:text="#{nav.dashboard}">Dashboard</a>
             </li>
 
             <li class="nav-item" sec:authorize="hasAnyRole('REQUESTER','ADMIN')">
                 <a class="nav-link" th:href="@{/requests}"
-                   th:classappend="${currentUri.startsWith('/requests')} ? 'active'">
-                    My Requests
-                </a>
+                   th:classappend="${currentUri.startsWith('/requests')} ? 'active'"
+                   th:text="#{nav.my_requests}">My Requests</a>
             </li>
 
             <li class="nav-item" sec:authorize="hasAnyRole('APPROVER','ADMIN')">
                 <a class="nav-link" th:href="@{/approvals}"
-                   th:classappend="${currentUri.startsWith('/approvals')} ? 'active'">
-                    Approvals
-                </a>
+                   th:classappend="${currentUri.startsWith('/approvals')} ? 'active'"
+                   th:text="#{nav.approvals}">Approvals</a>
             </li>
 
             <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                 <a class="nav-link" th:href="@{/admin/users}"
-                   th:classappend="${currentUri.startsWith('/admin')} ? 'active'">
-                    Admin
-                </a>
+                   th:classappend="${currentUri.startsWith('/admin')} ? 'active'"
+                   th:text="#{nav.admin}">Admin</a>
             </li>
 
         </ul>
 
         <ul class="navbar-nav ms-auto align-items-center">
+
+            <!-- Language switcher -->
+            <li class="nav-item me-2">
+                <div class="btn-group btn-group-sm">
+                    <a th:href="@{''(lang='cs')}" class="btn btn-outline-light btn-sm"
+                       th:text="#{lang.switch.cs}">CS</a>
+                    <a th:href="@{''(lang='en')}" class="btn btn-outline-light btn-sm"
+                       th:text="#{lang.switch.en}">EN</a>
+                </div>
+            </li>
+
             <li class="nav-item me-3">
                 <span class="text-light small" sec:authentication="name"></span>
             </li>
             <li class="nav-item">
                 <form method="post" th:action="@{/logout}">
-                    <button type="submit" class="btn btn-outline-light btn-sm">Sign out</button>
+                    <button type="submit" class="btn btn-outline-light btn-sm"
+                            th:text="#{nav.sign_out}">Sign out</button>
                 </form>
             </li>
         </ul>

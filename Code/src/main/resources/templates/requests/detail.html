@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="'Request #' + ${request.id}">Request Detail</title>
+    <title th:text="#{request.detail.page_title} + ${request.id}">Request Detail</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -26,7 +26,7 @@
         <div class="col-lg-8">
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <span class="fw-semibold" th:text="'Request #' + ${request.id} + ': ' + ${request.title}"></span>
+                    <span class="fw-semibold" th:text="'#' + ${request.id} + ': ' + ${request.title}"></span>
                     <span th:text="${request.status}"
                           th:class="${'badge fs-6 ' + (
                             request.status.name() == 'NEW'                   ? 'bg-secondary' :
@@ -39,35 +39,37 @@
                 </div>
                 <div class="card-body">
                     <dl class="row mb-0">
-                        <dt class="col-sm-4">Type</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.type}">Type</dt>
                         <dd class="col-sm-8" th:text="${request.type}"></dd>
 
-                        <dt class="col-sm-4">Amount</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.amount}">Amount</dt>
                         <dd class="col-sm-8"
                             th:text="${#numbers.formatDecimal(request.amount,1,'COMMA',2,'POINT') + ' ' + request.currency}"></dd>
 
-                        <dt class="col-sm-4">Supplier</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.supplier}">Supplier</dt>
                         <dd class="col-sm-8" th:text="${request.supplier ?: '—'}"></dd>
 
-                        <dt class="col-sm-4">Department</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.department}">Department</dt>
                         <dd class="col-sm-8" th:text="${request.department ?: '—'}"></dd>
 
-                        <dt class="col-sm-4">Needed by</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.needed_by}">Needed by</dt>
                         <dd class="col-sm-8"
                             th:text="${request.requestedDate != null ? #temporals.format(request.requestedDate,'dd.MM.yyyy') : '—'}"></dd>
 
-                        <dt class="col-sm-4">Requested by</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.requested_by}">Requested by</dt>
                         <dd class="col-sm-8"
                             th:text="${request.requestedBy.firstName + ' ' + request.requestedBy.lastName}"></dd>
 
-                        <dt class="col-sm-4">Created</dt>
+                        <dt class="col-sm-4" th:text="#{request.detail.field.created}">Created</dt>
                         <dd class="col-sm-8"
                             th:text="${#temporals.format(request.createdAt,'dd.MM.yyyy HH:mm')}"></dd>
 
-                        <dt class="col-sm-4" th:if="${request.description}">Description</dt>
+                        <dt class="col-sm-4" th:if="${request.description}"
+                            th:text="#{request.detail.field.description}">Description</dt>
                         <dd class="col-sm-8" th:if="${request.description}" th:text="${request.description}"></dd>
 
-                        <dt class="col-sm-4" th:if="${request.justification}">Justification</dt>
+                        <dt class="col-sm-4" th:if="${request.justification}"
+                            th:text="#{request.detail.field.justification}">Justification</dt>
                         <dd class="col-sm-8" th:if="${request.justification}" th:text="${request.justification}"></dd>
                     </dl>
                 </div>
@@ -76,21 +78,24 @@
                 <div class="card-footer d-flex gap-2" th:if="${isOwner}">
                     <a th:if="${request.isEditable()}"
                        th:href="@{/requests/{id}/edit(id=${request.id})}"
-                       class="btn btn-sm btn-outline-secondary">Edit</a>
+                       class="btn btn-sm btn-outline-secondary"
+                       th:text="#{request.detail.btn.edit}">Edit</a>
 
                     <form th:if="${request.isSubmittable()}"
                           method="post"
                           th:action="@{/requests/{id}/submit(id=${request.id})}">
-                        <button type="submit" class="btn btn-sm btn-primary">Submit for Approval</button>
+                        <button type="submit" class="btn btn-sm btn-primary"
+                                th:text="#{request.detail.btn.submit}">Submit for Approval</button>
                     </form>
 
-                    <a th:href="@{/requests}" class="btn btn-sm btn-outline-secondary">← Back</a>
+                    <a th:href="@{/requests}" class="btn btn-sm btn-outline-secondary"
+                       th:text="#{request.detail.btn.back}">← Back</a>
                 </div>
             </div>
 
             <!-- Approval Steps Timeline -->
             <div class="card shadow-sm mt-3" th:if="${!#lists.isEmpty(request.steps)}">
-                <div class="card-header fw-semibold">Approval Steps</div>
+                <div class="card-header fw-semibold" th:text="#{request.detail.steps.title}">Approval Steps</div>
                 <div class="card-body">
                     <div th:each="step, i : ${request.steps}" class="d-flex mb-3">
                         <div class="me-3 text-center" style="min-width:32px">
@@ -122,7 +127,7 @@
         <!-- Audit Log -->
         <div class="col-lg-4">
             <div class="card shadow-sm">
-                <div class="card-header fw-semibold">Activity Log</div>
+                <div class="card-header fw-semibold" th:text="#{request.detail.audit.title}">Activity Log</div>
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush">
                         <li th:each="log : ${auditLog}" class="list-group-item py-2 px-3">
@@ -135,9 +140,9 @@
                             <div class="small fst-italic text-secondary"
                                  th:if="${log.comment}" th:text="${log.comment}"></div>
                         </li>
-                        <li th:if="${#lists.isEmpty(auditLog)}" class="list-group-item text-muted small py-3 text-center">
-                            No activity recorded.
-                        </li>
+                        <li th:if="${#lists.isEmpty(auditLog)}"
+                            class="list-group-item text-muted small py-3 text-center"
+                            th:text="#{request.detail.audit.empty}">No activity recorded.</li>
                     </ul>
                 </div>
             </div>
