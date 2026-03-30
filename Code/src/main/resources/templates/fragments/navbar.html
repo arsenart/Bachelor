@@ -15,28 +15,28 @@
 
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/dashboard}"
-                   th:classappend="${#httpServletRequest.requestURI == '/dashboard'} ? 'active'">
+                   th:classappend="${currentUri == '/dashboard'} ? 'active'">
                     Dashboard
                 </a>
             </li>
 
             <li class="nav-item" sec:authorize="hasAnyRole('REQUESTER','ADMIN')">
                 <a class="nav-link" th:href="@{/requests}"
-                   th:classappend="${#httpServletRequest.requestURI.startsWith('/requests')} ? 'active'">
+                   th:classappend="${currentUri.startsWith('/requests')} ? 'active'">
                     My Requests
                 </a>
             </li>
 
             <li class="nav-item" sec:authorize="hasAnyRole('APPROVER','ADMIN')">
                 <a class="nav-link" th:href="@{/approvals}"
-                   th:classappend="${#httpServletRequest.requestURI.startsWith('/approvals')} ? 'active'">
+                   th:classappend="${currentUri.startsWith('/approvals')} ? 'active'">
                     Approvals
                 </a>
             </li>
 
             <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                 <a class="nav-link" th:href="@{/admin/users}"
-                   th:classappend="${#httpServletRequest.requestURI.startsWith('/admin')} ? 'active'">
+                   th:classappend="${currentUri.startsWith('/admin')} ? 'active'">
                     Admin
                 </a>
             </li>

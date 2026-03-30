@@ -5,7 +5,8 @@
       "name": "Spring Boot API",
       "runtimeExecutable": "bash",
       "runtimeArgs": ["-c", "cd /Users/arsenart/Bachelor/Code && ./mvnw spring-boot:run"],
-      "port": 8080
+      "port": 8080,
+      "autoPort": false
     }
   ]
 }
