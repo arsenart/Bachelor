@@ -8,6 +8,8 @@ import bachelor.code.service.ApprovalWorkflowService;
 import bachelor.code.service.AuditLogService;
 import bachelor.code.service.ApprovalRequestService;
 import bachelor.code.service.UserService;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -23,15 +25,18 @@ public class WebApprovalController {
     private final ApprovalRequestService requestService;
     private final AuditLogService auditLogService;
     private final UserService userService;
+    private final MessageSource messageSource;
 
     public WebApprovalController(ApprovalWorkflowService workflowService,
                                  ApprovalRequestService requestService,
                                  AuditLogService auditLogService,
-                                 UserService userService) {
+                                 UserService userService,
+                                 MessageSource messageSource) {
         this.workflowService = workflowService;
         this.requestService = requestService;
         this.auditLogService = auditLogService;
         this.userService = userService;
+        this.messageSource = messageSource;
     }
 
     @GetMapping
@@ -58,7 +63,9 @@ public class WebApprovalController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         try {
             workflowService.approve(id, currentUser, dto.getComment());
-            redirectAttributes.addFlashAttribute("success", "Request #" + id + " approved.");
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.approval.approved",
+                    new Object[]{id}, LocaleContextHolder.getLocale()));
         } catch (BusinessRuleViolationException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/approvals/" + id;
@@ -74,7 +81,9 @@ public class WebApprovalController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         try {
             workflowService.reject(id, currentUser, dto.getComment());
-            redirectAttributes.addFlashAttribute("success", "Request #" + id + " rejected.");
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.approval.rejected",
+                    new Object[]{id}, LocaleContextHolder.getLocale()));
         } catch (BusinessRuleViolationException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/approvals/" + id;
@@ -90,7 +99,9 @@ public class WebApprovalController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         try {
             workflowService.returnForRevision(id, currentUser, dto.getComment());
-            redirectAttributes.addFlashAttribute("success", "Request #" + id + " returned for revision.");
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.approval.returned",
+                    new Object[]{id}, LocaleContextHolder.getLocale()));
         } catch (BusinessRuleViolationException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/approvals/" + id;

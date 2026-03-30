@@ -1,6 +1,8 @@
 package bachelor.code.service.impl;
 
 import bachelor.code.service.EmailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,6 +12,8 @@ import java.math.BigDecimal;
 
 @Service
 public class EmailServiceImpl implements EmailService {
+
+    private static final Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
 
     private final JavaMailSender mailSender;
     private final String appBaseUrl;
@@ -62,10 +66,15 @@ public class EmailServiceImpl implements EmailService {
     }
 
     private void send(String to, String subject, String text) {
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(to);
-        msg.setSubject(subject);
-        msg.setText(text);
-        mailSender.send(msg);
+        try {
+            SimpleMailMessage msg = new SimpleMailMessage();
+            msg.setTo(to);
+            msg.setSubject(subject);
+            msg.setText(text);
+            mailSender.send(msg);
+            log.info("Email sent to {} | subject: {}", to, subject);
+        } catch (Exception e) {
+            log.error("Failed to send email to {} | subject: {} | error: {}", to, subject, e.getMessage());
+        }
     }
 }

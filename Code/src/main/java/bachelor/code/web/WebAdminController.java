@@ -5,6 +5,8 @@ import bachelor.code.exception.BusinessRuleViolationException;
 import bachelor.code.exception.ResourceNotFoundException;
 import bachelor.code.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,9 +22,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class WebAdminController {
 
     private final UserService userService;
+    private final MessageSource messageSource;
 
-    public WebAdminController(UserService userService) {
+    public WebAdminController(UserService userService, MessageSource messageSource) {
         this.userService = userService;
+        this.messageSource = messageSource;
     }
 
     @GetMapping("/users")
@@ -47,7 +51,9 @@ public class WebAdminController {
         try {
             userService.createUser(request);
             redirectAttributes.addFlashAttribute("success",
-                "Пользователь " + request.getEmail() + " создан. Письмо с ссылкой отправлено.");
+                messageSource.getMessage("flash.user.created",
+                    new Object[]{request.getEmail()},
+                    LocaleContextHolder.getLocale()));
         } catch (BusinessRuleViolationException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }
@@ -59,7 +65,8 @@ public class WebAdminController {
     public String resendSetupLink(@PathVariable Long id, RedirectAttributes redirectAttributes) {
         try {
             userService.resendSetupLink(id);
-            redirectAttributes.addFlashAttribute("success", "Письмо отправлено повторно.");
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.user.resent", null, LocaleContextHolder.getLocale()));
         } catch (ResourceNotFoundException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }

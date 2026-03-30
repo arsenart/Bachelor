@@ -9,6 +9,8 @@ import bachelor.code.service.ApprovalRequestService;
 import bachelor.code.service.AuditLogService;
 import bachelor.code.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -24,13 +26,16 @@ public class WebRequestController {
     private final ApprovalRequestService requestService;
     private final AuditLogService auditLogService;
     private final UserService userService;
+    private final MessageSource messageSource;
 
     public WebRequestController(ApprovalRequestService requestService,
                                 AuditLogService auditLogService,
-                                UserService userService) {
+                                UserService userService,
+                                MessageSource messageSource) {
         this.requestService = requestService;
         this.auditLogService = auditLogService;
         this.userService = userService;
+        this.messageSource = messageSource;
     }
 
     @GetMapping
@@ -61,7 +66,10 @@ public class WebRequestController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         ApprovalRequest saved = requestService.createDraft(dto, currentUser);
 
-        redirectAttributes.addFlashAttribute("success", "Request \"" + saved.getTitle() + "\" created as draft.");
+        redirectAttributes.addFlashAttribute("success",
+            messageSource.getMessage("flash.request.created",
+                new Object[]{saved.getTitle()},
+                LocaleContextHolder.getLocale()));
         return "redirect:/requests/" + saved.getId();
     }
 
@@ -128,7 +136,8 @@ public class WebRequestController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         requestService.updateDraft(id, dto, currentUser);
 
-        redirectAttributes.addFlashAttribute("success", "Request updated.");
+        redirectAttributes.addFlashAttribute("success",
+            messageSource.getMessage("flash.request.updated", null, LocaleContextHolder.getLocale()));
         return "redirect:/requests/" + id;
     }
 
@@ -139,7 +148,8 @@ public class WebRequestController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         try {
             requestService.submit(id, currentUser);
-            redirectAttributes.addFlashAttribute("success", "Request submitted for approval.");
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.request.submitted", null, LocaleContextHolder.getLocale()));
         } catch (BusinessRuleViolationException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }

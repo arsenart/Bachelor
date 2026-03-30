@@ -16,7 +16,7 @@ spring:
       hibernate:
         format_sql: true
   mail:
-    host: smtp.mailtrap.io
+    host: sandbox.smtp.mailtrap.io
     port: 2525
     username: 0f9e58606c838b
     password: 7105bc4ba9f5c6

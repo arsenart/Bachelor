@@ -45,7 +45,9 @@ public class WebAuthController {
             model.addAttribute("error", reason);
         }
 
-        model.addAttribute("setupRequest", new SetupPasswordRequest());
+        SetupPasswordRequest setupRequest = new SetupPasswordRequest();
+        setupRequest.setToken(token);
+        model.addAttribute("setupRequest", setupRequest);
         return "setup-password";
     }
 
