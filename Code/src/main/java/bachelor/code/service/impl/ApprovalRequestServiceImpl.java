@@ -11,6 +11,7 @@ import bachelor.code.repository.ApprovalRequestRepository;
 import bachelor.code.service.ApprovalRequestService;
 import bachelor.code.service.ApprovalRoutingService;
 import bachelor.code.service.AuditLogService;
+import bachelor.code.service.EmailService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,13 +23,16 @@ public class ApprovalRequestServiceImpl implements ApprovalRequestService {
     private final ApprovalRequestRepository requestRepository;
     private final ApprovalRoutingService routingService;
     private final AuditLogService auditLogService;
+    private final EmailService emailService;
 
     public ApprovalRequestServiceImpl(ApprovalRequestRepository requestRepository,
                                       ApprovalRoutingService routingService,
-                                      AuditLogService auditLogService) {
+                                      AuditLogService auditLogService,
+                                      EmailService emailService) {
         this.requestRepository = requestRepository;
         this.routingService = routingService;
         this.auditLogService = auditLogService;
+        this.emailService = emailService;
     }
 
     @Override
@@ -96,6 +100,17 @@ public class ApprovalRequestServiceImpl implements ApprovalRequestService {
         auditLogService.log("ApprovalRequest", saved.getId(), "SUBMITTED",
                 requester, RequestStatus.NEW.name(), RequestStatus.PENDING_APPROVAL.name(), null);
 
+        // Notify first approver
+        ApprovalStep firstStep = saved.getActiveStep();
+        if (firstStep != null) {
+            emailService.sendApprovalNeededEmail(
+                    firstStep.getApprover().getEmail(),
+                    requester.getFirstName() + " " + requester.getLastName(),
+                    saved.getTitle(),
+                    saved.getAmount(),
+                    saved.getCurrency());
+        }
+
         return saved;
     }
 
@@ -129,6 +144,34 @@ public class ApprovalRequestServiceImpl implements ApprovalRequestService {
     @Transactional(readOnly = true)
     public long countByRequesterAndStatus(User requester, RequestStatus status) {
         return requestRepository.countByRequestedByAndStatus(requester, status);
+    }
+
+    @Override
+    @Transactional
+    public void markAsRealized(Long requestId, User user) {
+        ApprovalRequest request = getById(requestId);
+        if (request.getStatus() != RequestStatus.APPROVED) {
+            throw new BusinessRuleViolationException(
+                    "Request #" + requestId + " must be APPROVED before marking as realized.");
+        }
+        request.setStatus(RequestStatus.REALIZED);
+        requestRepository.save(request);
+        auditLogService.log("ApprovalRequest", requestId, "REALIZED",
+                user, RequestStatus.APPROVED.name(), RequestStatus.REALIZED.name(), null);
+    }
+
+    @Override
+    @Transactional
+    public void markAsClosed(Long requestId, User user) {
+        ApprovalRequest request = getById(requestId);
+        if (request.getStatus() != RequestStatus.REALIZED) {
+            throw new BusinessRuleViolationException(
+                    "Request #" + requestId + " must be REALIZED before closing.");
+        }
+        request.setStatus(RequestStatus.CLOSED);
+        requestRepository.save(request);
+        auditLogService.log("ApprovalRequest", requestId, "CLOSED",
+                user, RequestStatus.REALIZED.name(), RequestStatus.CLOSED.name(), null);
     }
 
     private void applyDto(ApprovalRequest request, CreateApprovalRequestDto dto) {

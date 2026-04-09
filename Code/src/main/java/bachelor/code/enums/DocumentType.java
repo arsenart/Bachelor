@@ -1,9 +1,10 @@
 package bachelor.code.enums;
 
 public enum DocumentType {
+    ADVANCE_INVOICE,
     INVOICE,
-    CONTRACT,
-    RECEIPT,
-    DELIVERY_NOTE,
+    CASH_RECEIPT,
+    CASH_REIMBURSEMENT,
+    OTHER_LIABILITY,
     OTHER
 }

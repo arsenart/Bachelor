@@ -75,7 +75,7 @@
                 </div>
 
                 <!-- Actions for owner -->
-                <div class="card-footer d-flex gap-2" th:if="${isOwner}">
+                <div class="card-footer d-flex gap-2 flex-wrap" th:if="${isOwner}">
                     <a th:if="${request.isEditable()}"
                        th:href="@{/requests/{id}/edit(id=${request.id})}"
                        class="btn btn-sm btn-outline-secondary"
@@ -86,6 +86,25 @@
                           th:action="@{/requests/{id}/submit(id=${request.id})}">
                         <button type="submit" class="btn btn-sm btn-primary"
                                 th:text="#{request.detail.btn.submit}">Submit for Approval</button>
+                    </form>
+
+                    <form th:if="${request.status.name() == 'APPROVED'}"
+                          method="post"
+                          th:action="@{/requests/{id}/realize(id=${request.id})}">
+                        <button type="submit" class="btn btn-sm btn-success"
+                                th:text="#{request.detail.btn.realize}">Mark as Realized</button>
+                    </form>
+
+                    <a th:if="${request.status.name() == 'APPROVED' or request.status.name() == 'REALIZED'}"
+                       th:href="@{/accounting/new(requestId=${request.id})}"
+                       class="btn btn-sm btn-outline-primary"
+                       th:text="#{request.detail.btn.add_document}">+ Add Document</a>
+
+                    <form th:if="${request.status.name() == 'REALIZED'}"
+                          method="post"
+                          th:action="@{/requests/{id}/close(id=${request.id})}">
+                        <button type="submit" class="btn btn-sm btn-dark"
+                                th:text="#{request.detail.btn.close}">Close</button>
                     </form>
 
                     <a th:href="@{/requests}" class="btn btn-sm btn-outline-secondary"

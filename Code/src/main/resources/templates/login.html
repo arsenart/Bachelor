@@ -34,8 +34,7 @@
                     <div th:if="${param.logout}" class="alert alert-secondary py-2"
                          th:text="#{login.logout}">You have been signed out.</div>
                     <div th:if="${param.passwordSet}" class="alert alert-success py-2"
-                         th:text="#{login.password_set}">Password set successfully.</div>
-
+                         th:text="#{login.password_set}">Password set successfully.</div>}
                     <form method="post" th:action="@{/login}">
                         <div class="mb-3">
                             <label class="form-label" th:text="#{login.email}">Email</label>

@@ -155,4 +155,34 @@ public class WebRequestController {
         }
         return "redirect:/requests/" + id;
     }
+
+    @PostMapping("/{id}/realize")
+    public String realizeRequest(@PathVariable Long id,
+                                  @AuthenticationPrincipal UserDetails userDetails,
+                                  RedirectAttributes redirectAttributes) {
+        User currentUser = userService.findByEmail(userDetails.getUsername());
+        try {
+            requestService.markAsRealized(id, currentUser);
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.request.realized", null, LocaleContextHolder.getLocale()));
+        } catch (BusinessRuleViolationException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
+        return "redirect:/requests/" + id;
+    }
+
+    @PostMapping("/{id}/close")
+    public String closeRequest(@PathVariable Long id,
+                                @AuthenticationPrincipal UserDetails userDetails,
+                                RedirectAttributes redirectAttributes) {
+        User currentUser = userService.findByEmail(userDetails.getUsername());
+        try {
+            requestService.markAsClosed(id, currentUser);
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.request.closed", null, LocaleContextHolder.getLocale()));
+        } catch (BusinessRuleViolationException e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
+        return "redirect:/requests/" + id;
+    }
 }

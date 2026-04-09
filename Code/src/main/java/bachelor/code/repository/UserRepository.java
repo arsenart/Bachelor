@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // Used by ApprovalRoutingService for role-based routing
     Optional<User> findFirstByRolesContainingAndActiveTrue(bachelor.code.enums.RoleType role);
+
+    java.util.List<User> findByRolesContainingAndActiveTrue(bachelor.code.enums.RoleType role);
 }

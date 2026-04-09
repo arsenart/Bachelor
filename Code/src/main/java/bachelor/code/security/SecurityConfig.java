@@ -48,8 +48,8 @@ public class SecurityConfig {
                 .requestMatchers("/approvals/**").hasAnyRole("APPROVER", "ADMIN")
                 // Requesters and admins
                 .requestMatchers("/requests/**").hasAnyRole("REQUESTER", "ADMIN")
-                // Accountants and admins
-                .requestMatchers("/accounting/**").hasAnyRole("ACCOUNTANT", "ADMIN")
+                // Accounting: accountants, requesters (who create docs), and admins
+                .requestMatchers("/accounting/**").hasAnyRole("ACCOUNTANT", "REQUESTER", "ADMIN")
                 // Audit log — admin only
                 .requestMatchers("/audit").hasRole("ADMIN")
                 // Dashboard and everything else — any authenticated user

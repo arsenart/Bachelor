@@ -65,6 +65,21 @@ public class EmailServiceImpl implements EmailService {
              + "\n\nThis is an automated notification.");
     }
 
+    @Override
+    public void sendDocumentStatusEmail(String to, String documentInfo,
+                                        String newStatus, String comment) {
+        String link = appBaseUrl + "/accounting";
+        String commentLine = (comment != null && !comment.isBlank())
+                ? "\n  Comment: " + comment
+                : "";
+        send(to,
+             "[MyApp] Document update: " + documentInfo,
+             "Hello,\n\n"
+             + "Accounting document \"" + documentInfo + "\" status changed to: " + newStatus + "." + commentLine + "\n\n"
+             + "View details here:\n" + link
+             + "\n\nThis is an automated notification.");
+    }
+
     private void send(String to, String subject, String text) {
         try {
             SimpleMailMessage msg = new SimpleMailMessage();

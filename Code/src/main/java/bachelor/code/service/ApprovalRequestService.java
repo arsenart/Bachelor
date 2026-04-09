@@ -26,4 +26,8 @@ public interface ApprovalRequestService {
     List<ApprovalRequest> getAll();
 
     long countByRequesterAndStatus(User requester, RequestStatus status);
+
+    void markAsRealized(Long requestId, User user);
+
+    void markAsClosed(Long requestId, User user);
 }

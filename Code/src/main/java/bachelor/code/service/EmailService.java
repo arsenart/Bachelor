@@ -13,4 +13,8 @@ public interface EmailService {
     // Notify requester about the decision on their request
     void sendRequestDecisionEmail(String to, String requestTitle,
                                   String decision, String comment);
+
+    // Notify about accounting document status change
+    void sendDocumentStatusEmail(String to, String documentInfo,
+                                 String newStatus, String comment);
 }
