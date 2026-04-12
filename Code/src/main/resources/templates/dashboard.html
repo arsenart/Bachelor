@@ -96,6 +96,70 @@
         </div>
     </div>
 
+    <!-- ACCOUNTANT stats -->
+    <div sec:authorize="hasAnyRole('ACCOUNTANT','ADMIN')">
+        <h6 class="text-muted text-uppercase mb-3" th:text="#{dashboard.section.accounting}">Accounting</h6>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="card text-bg-info h-100">
+                    <div class="card-body">
+                        <div class="fs-2 fw-bold" th:text="${pendingDocumentsCount ?: 0}">0</div>
+                        <div class="small" th:text="#{dashboard.card.pending_docs}">Pending Review</div>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                           th:text="#{dashboard.btn.review}">Review →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MY DOCUMENTS stats -->
+    <div sec:authorize="hasAnyRole('REQUESTER','ACCOUNTANT','ADMIN')">
+        <h6 class="text-muted text-uppercase mb-3" th:text="#{dashboard.section.my_docs}">My Documents</h6>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="card text-bg-secondary h-100">
+                    <div class="card-body">
+                        <div class="fs-2 fw-bold" th:text="${myDocsNewCount ?: 0}">0</div>
+                        <div class="small" th:text="#{dashboard.card.doc_drafts}">Draft Documents</div>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                           th:text="#{dashboard.btn.view}">View →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-bg-success h-100">
+                    <div class="card-body">
+                        <div class="fs-2 fw-bold" th:text="${myDocsPostedCount ?: 0}">0</div>
+                        <div class="small" th:text="#{dashboard.card.doc_posted}">Posted</div>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                           th:text="#{dashboard.btn.view}">View →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-bg-primary h-100">
+                    <div class="card-body">
+                        <div class="fs-2 fw-bold" th:text="${myDocsPaidCount ?: 0}">0</div>
+                        <div class="small" th:text="#{dashboard.card.doc_paid}">Paid</div>
+                    </div>
+                    <div class="card-footer">
+                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                           th:text="#{dashboard.btn.view}">View →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a th:href="@{/accounting/new}" class="btn btn-outline-primary mb-4"
+           th:text="#{dashboard.btn.new_document}">+ New Document</a>
+    </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
