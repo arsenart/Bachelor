@@ -44,83 +44,213 @@ public class DataInitializer implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) {
-        User admin = seedAdmin();
-        seedApprovalRules(admin);
+        seedEmployees();
+        seedApprovalRules();
     }
 
-    private User seedAdmin() {
-        return userRepository.findByEmail(adminEmail).orElseGet(() -> {
-            User admin = new User(adminEmail, "Admin", "Admin", "Management",
-                    Set.of(RoleType.ADMIN, RoleType.APPROVER, RoleType.ACCOUNTANT));
-            admin.setPasswordHash(passwordEncoder.encode(adminPassword));
-            admin.setPasswordSet(true);
-            admin.setActive(true);
-            User saved = userRepository.save(admin);
+    // ────────────────────────────────────────────
+    //  EMPLOYEES — full Medicton staff from thesis
+    // ────────────────────────────────────────────
 
-            log.info("==============================================");
-            log.info("Default admin created:");
-            log.info("  Email:    {}", adminEmail);
-            log.info("  Password: {}", adminPassword);
-            log.info("  URL:      http://localhost:8080/login");
-            log.info("==============================================");
+    private void seedEmployees() {
+        // ── Management / Vedení ─────────────────────────
+        createUser("dobias@medicton.com", "Martin", "Dobiáš",
+                "vedení/management", Set.of(RoleType.ADMIN, RoleType.APPROVER, RoleType.REQUESTER));
 
+        createUser("fabian@medicton.com", "Vratislav", "Fabián",
+                "vedení/management", Set.of(RoleType.ADMIN, RoleType.APPROVER, RoleType.REQUESTER));
+
+        // ── Management (vedoucí skupin) ─────────────────
+        createUser("valentova@medicton.com", "Tereza", "Valentová",
+                "management", Set.of(RoleType.APPROVER, RoleType.REQUESTER));  // manažer dispečinku
+
+        createUser("korba@medicton.com", "Matyáš", "Korba",
+                "management", Set.of(RoleType.APPROVER, RoleType.REQUESTER));  // servisní manažer
+
+        createUser("vlcek@medicton.com", "Tomáš", "Vlček",
+                "management", Set.of(RoleType.APPROVER, RoleType.REQUESTER));  // manažer jakosti a provozu
+
+        createUser("matera@medicton.com", "Lukáš", "Matera",
+                "management", Set.of(RoleType.APPROVER, RoleType.REQUESTER));  // manažer nákupu
+
+        createUser("vesela@medicton.com", "Lenka", "Veselá",
+                "management", Set.of(RoleType.REQUESTER));  // asistentka vedení
+
+        // ── Účetní / Back office ────────────────────────
+        createUser("rohova@medicton.com", "Ivana", "Říhová",
+                "management", Set.of(RoleType.ACCOUNTANT, RoleType.REQUESTER));  // finanční manažer, hlavní účetní
+
+        createUser("klimova@medicton.com", "Ivana", "Klímová",
+                "Back office", Set.of(RoleType.ACCOUNTANT, RoleType.REQUESTER));  // asistentka fin. oddělení
+
+        // ── Dispečink ───────────────────────────────────
+        createUser("cerna@medicton.com", "Alena", "Černá",
+                "dispečink", Set.of(RoleType.REQUESTER));
+
+        createUser("klodnerova@medicton.com", "Anežka", "Klodnerová",
+                "dispečink", Set.of(RoleType.REQUESTER));
+
+        createUser("scheibova@medicton.com", "Linda", "Scheibová",
+                "dispečink", Set.of(RoleType.REQUESTER));
+
+        createUser("buresova@medicton.com", "Lucie", "Burešová",
+                "dispečink", Set.of(RoleType.REQUESTER));
+
+        // ── Servis ──────────────────────────────────────
+        createUser("pyskaty@medicton.com", "David", "Pyskatý",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("sida@medicton.com", "Jaromír", "Šída",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("masin@medicton.com", "Miroslav", "Mašín",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("botos@medicton.com", "Ondřej", "Botoš",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("pyskaty.p@medicton.com", "Petr", "Pyskatý",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("kalasova@medicton.com", "Lucie", "Kalašová",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("jurencak@medicton.com", "Stanislav", "Juřenčák",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("janis@medicton.com", "Tomáš", "Janiš",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        createUser("slezak@medicton.com", "Milan", "Slezák",
+                "servis", Set.of(RoleType.REQUESTER));
+
+        // ── Obchod ──────────────────────────────────────
+        createUser("miziova@medicton.com", "Lucie", "Miziová",
+                "obchod", Set.of(RoleType.REQUESTER));
+
+        createUser("chromcova@medicton.com", "Markéta", "Protivová",
+                "obchod", Set.of(RoleType.REQUESTER));
+
+        createUser("jagerova@medicton.com", "Renata", "Jágerová",
+                "obchod", Set.of(RoleType.REQUESTER));
+
+        createUser("tajbl@medicton.com", "Václav", "Tajbl",
+                "obchod", Set.of(RoleType.REQUESTER));
+
+        createUser("bartovic@medicton.com", "Juraj", "Bartovic",
+                "obchod", Set.of(RoleType.REQUESTER));
+
+        // ── Back office (ostatní) ───────────────────────
+        createUser("dvorak@medicton.com", "Jiří", "Dvořák",
+                "Back office", Set.of(RoleType.REQUESTER));  // skladník a logistik
+
+        createUser("furisova@medicton.com", "Renata", "Furišová",
+                "Back office", Set.of(RoleType.REQUESTER));  // asistent servisu
+
+        // ── IT ──────────────────────────────────────────
+        createUser("navratil@medicton.com", "Jiří", "Navrátil",
+                "IT", Set.of(RoleType.REQUESTER));
+
+        createUser("erlebach@medicton.com", "Jonáš", "Erlebach",
+                "IT", Set.of(RoleType.REQUESTER));
+
+        log.info("Employee seed complete — {} users in database.", userRepository.count());
+    }
+
+    /**
+     * Creates a user only if the email doesn't already exist.
+     * New employees get passwordSet=false so they must set their password via email link.
+     */
+    private User createUser(String email, String firstName, String lastName,
+                            String department, Set<RoleType> roles) {
+        return userRepository.findByEmail(email).orElseGet(() -> {
+            User u = new User(email, firstName, lastName, department, roles);
+            // Admin accounts get a pre-set password; regular employees do not
+            if (email.equals(adminEmail)) {
+                u.setPasswordHash(passwordEncoder.encode(adminPassword));
+                u.setPasswordSet(true);
+            }
+            u.setActive(true);
+            User saved = userRepository.save(u);
+            log.info("  Created user: {} {} <{}> [{}]", firstName, lastName, email, roles);
             return saved;
         });
     }
 
+    // ────────────────────────────────────────────
+    //  APPROVAL RULES — L1 / L2 / L3 + Purchase
+    // ────────────────────────────────────────────
+
     /**
-     * Seeds default ApprovalRules using the admin user as approver.
-     * In a real setup, the admin configures rules through the UI or database.
+     * Approval rules from thesis:
      *
-     * EXPENSE rules (Czech CZK thresholds):
-     *   0 – 3,000      → step 1: admin (group manager)
-     *   3,001 – 50,000 → step 1: admin (financial director)
-     *   50,001+        → step 1: admin (management)
+     * EXPENSE (běžné výdaje):
+     *   L1:  0 – 3 000 Kč   → vedoucí skupiny (approverRole = APPROVER — resolved per group)
+     *   L2:  3 001 – 50 000  → finanční ředitel (Dobiáš)
+     *   L3:  50 001+         → vedení společnosti (Dobiáš + Fabián, 2-step)
      *
-     * PURCHASE rules (any amount, two steps):
-     *   step 1: admin (purchase manager)
-     *   step 2: admin (management)
+     * PURCHASE (nákup zboží):
+     *   Step 1: manažer nákupu (Matera)
+     *   Step 2: vedení společnosti (Fabián)
      */
-    private void seedApprovalRules(User admin) {
+    private void seedApprovalRules() {
         if (ruleRepository.count() > 0) {
-            return; // Already seeded
+            return; // already seeded
         }
 
-        // EXPENSE: up to 3,000
+        User dobias = userRepository.findByEmail("dobias@medicton.com").orElse(null);
+        User fabian = userRepository.findByEmail("fabian@medicton.com").orElse(null);
+        User matera = userRepository.findByEmail("matera@medicton.com").orElse(null);
+
+        if (dobias == null || fabian == null || matera == null) {
+            log.warn("Cannot seed approval rules — key users not found. Seed employees first.");
+            return;
+        }
+
+        // ── EXPENSE L1: до 3 000 Kč → vedoucí skupiny (role-based) ──
         ruleRepository.save(rule(RequestType.EXPENSE,
                 BigDecimal.ZERO, new BigDecimal("3000"),
-                admin, 1, "Expense up to 3,000 CZK → Group Manager"));
+                null, RoleType.APPROVER, 1,
+                "L1: Výdaj do 3 000 Kč → vedoucí skupiny"));
 
-        // EXPENSE: 3,001 – 50,000
+        // ── EXPENSE L2: 3 001 – 50 000 Kč → finanční ředitel (Dobiáš) ──
         ruleRepository.save(rule(RequestType.EXPENSE,
                 new BigDecimal("3001"), new BigDecimal("50000"),
-                admin, 1, "Expense 3,001–50,000 CZK → Financial Director"));
+                dobias, null, 1,
+                "L2: Výdaj 3 001–50 000 Kč → finanční ředitel"));
 
-        // EXPENSE: over 50,000
+        // ── EXPENSE L3: nad 50 000 Kč → vedení (Dobiáš step 1, Fabián step 2) ──
         ruleRepository.save(rule(RequestType.EXPENSE,
                 new BigDecimal("50001"), null,
-                admin, 1, "Expense over 50,000 CZK → Management"));
+                dobias, null, 1,
+                "L3: Výdaj nad 50 000 Kč → finanční ředitel (krok 1)"));
+        ruleRepository.save(rule(RequestType.EXPENSE,
+                new BigDecimal("50001"), null,
+                fabian, null, 2,
+                "L3: Výdaj nad 50 000 Kč → jednatel (krok 2)"));
 
-        // PURCHASE: step 1
+        // ── PURCHASE: manažer nákupu → vedení ──
         ruleRepository.save(rule(RequestType.PURCHASE,
                 BigDecimal.ZERO, null,
-                admin, 1, "Purchase step 1 → Purchase Manager"));
-
-        // PURCHASE: step 2
+                matera, null, 1,
+                "Nákup zboží → manažer nákupu (krok 1)"));
         ruleRepository.save(rule(RequestType.PURCHASE,
                 BigDecimal.ZERO, null,
-                admin, 2, "Purchase step 2 → Management"));
+                fabian, null, 2,
+                "Nákup zboží → jednatel (krok 2)"));
 
-        log.info("Default approval rules seeded (approver: {}). Update them via the database or Admin UI.", adminEmail);
+        log.info("Approval rules seeded: L1 (role-based), L2 (Dobiáš), L3 (Dobiáš+Fabián), PURCHASE (Matera+Fabián)");
     }
 
     private ApprovalRule rule(RequestType type, BigDecimal min, BigDecimal max,
-                              User approver, int stepOrder, String description) {
+                              User approver, RoleType approverRole,
+                              int stepOrder, String description) {
         ApprovalRule r = new ApprovalRule();
         r.setRequestType(type);
         r.setMinAmount(min);
         r.setMaxAmount(max);
         r.setApprover(approver);
+        r.setApproverRole(approverRole);
         r.setStepOrder(stepOrder);
         r.setDescription(description);
         r.setActive(true);
