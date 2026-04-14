@@ -31,7 +31,7 @@
                    th:text="#{nav.approvals}">Approvals</a>
             </li>
 
-            <li class="nav-item" sec:authorize="hasAnyRole('ACCOUNTANT','ADMIN')">
+            <li class="nav-item" sec:authorize="hasAnyRole('ACCOUNTANT','REQUESTER','ADMIN')">
                 <a class="nav-link" th:href="@{/accounting}"
                    th:classappend="${currentUri.startsWith('/accounting')} ? 'active'"
                    th:text="#{nav.accounting}">Accounting</a>
@@ -41,6 +41,12 @@
                 <a class="nav-link" th:href="@{/admin/users}"
                    th:classappend="${currentUri.startsWith('/admin')} ? 'active'"
                    th:text="#{nav.admin}">Admin</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" th:href="@{/audit}"
+                   th:classappend="${currentUri == '/audit'} ? 'active'"
+                   th:text="#{nav.audit}">Audit</a>
             </li>
 
         </ul>

@@ -72,4 +72,48 @@ public class WebAdminController {
         }
         return "redirect:/admin/users";
     }
+
+    @GetMapping("/users/{id}/edit")
+    public String editUserPage(@PathVariable Long id, Model model) {
+        bachelor.code.entity.User user = userService.findById(id);
+        CreateUserRequest editRequest = new CreateUserRequest();
+        editRequest.setEmail(user.getEmail());
+        editRequest.setFirstName(user.getFirstName());
+        editRequest.setLastName(user.getLastName());
+        editRequest.setDepartment(user.getDepartment());
+        editRequest.setRoles(user.getRoles());
+        model.addAttribute("editRequest", editRequest);
+        model.addAttribute("editUserId", id);
+        model.addAttribute("roles", bachelor.code.enums.RoleType.values());
+        return "admin/edit-user";
+    }
+
+    @PostMapping("/users/{id}/edit")
+    public String updateUser(@PathVariable Long id,
+                             @Valid @ModelAttribute("editRequest") CreateUserRequest request,
+                             BindingResult bindingResult,
+                             Model model,
+                             RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("editUserId", id);
+            model.addAttribute("roles", bachelor.code.enums.RoleType.values());
+            return "admin/edit-user";
+        }
+        try {
+            userService.updateUser(id, request);
+            redirectAttributes.addFlashAttribute("success",
+                messageSource.getMessage("flash.user.updated", null, LocaleContextHolder.getLocale()));
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
+        return "redirect:/admin/users";
+    }
+
+    @PostMapping("/users/{id}/toggle-active")
+    public String toggleActive(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        userService.toggleActive(id);
+        redirectAttributes.addFlashAttribute("success",
+            messageSource.getMessage("flash.user.toggled", null, LocaleContextHolder.getLocale()));
+        return "redirect:/admin/users";
+    }
 }

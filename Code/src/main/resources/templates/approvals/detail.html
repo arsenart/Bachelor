@@ -58,6 +58,13 @@
                         <dt class="col-sm-4" th:if="${request.justification}"
                             th:text="#{approval.detail.field.justification}">Justification</dt>
                         <dd class="col-sm-8" th:if="${request.justification}" th:text="${request.justification}"></dd>
+
+                        <dt class="col-sm-4" th:if="${request.documentLink}"
+                            th:text="#{approval.detail.field.document_link}">Document Link</dt>
+                        <dd class="col-sm-8" th:if="${request.documentLink}">
+                            <a th:href="${request.documentLink}" target="_blank" rel="noopener"
+                               th:text="${request.documentLink}" class="text-break"></a>
+                        </dd>
                     </dl>
                 </div>
             </div>

@@ -184,5 +184,6 @@ public class ApprovalRequestServiceImpl implements ApprovalRequestService {
         request.setJustification(dto.getJustification());
         request.setDepartment(dto.getDepartment());
         request.setRequestedDate(dto.getRequestedDate());
+        request.setDocumentLink(dto.getDocumentLink());
     }
 }

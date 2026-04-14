@@ -6,6 +6,8 @@ import bachelor.code.exception.InvalidTokenException;
 import bachelor.code.exception.TokenExpiredException;
 import bachelor.code.service.PasswordSetupService;
 import jakarta.validation.Valid;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class WebAuthController {
 
     private final PasswordSetupService passwordSetupService;
+    private final MessageSource messageSource;
 
-    public WebAuthController(PasswordSetupService passwordSetupService) {
+    public WebAuthController(PasswordSetupService passwordSetupService, MessageSource messageSource) {
         this.passwordSetupService = passwordSetupService;
+        this.messageSource = messageSource;
     }
 
     @GetMapping("/login")
@@ -36,13 +40,9 @@ public class WebAuthController {
         model.addAttribute("validToken", validation.isValid());
 
         if (!validation.isValid()) {
-            String reason = switch (validation.getReason()) {
-                case "EXPIRED"   -> "Ссылка устарела. Обратитесь к администратору для получения новой.";
-                case "USED"      -> "Пароль уже был установлен через эту ссылку.";
-                case "NOT_FOUND" -> "Ссылка недействительна.";
-                default          -> "Неверная ссылка.";
-            };
-            model.addAttribute("error", reason);
+            String key = "setup.error." + validation.getReason().toLowerCase();
+            String msg = messageSource.getMessage(key, null, key, LocaleContextHolder.getLocale());
+            model.addAttribute("error", msg);
         }
 
         SetupPasswordRequest setupRequest = new SetupPasswordRequest();

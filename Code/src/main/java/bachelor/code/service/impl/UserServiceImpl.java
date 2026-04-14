@@ -71,6 +71,31 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User #" + id + " not found"));
+    }
+
+    @Override
+    @Transactional
+    public User updateUser(Long id, CreateUserRequest dto) {
+        User user = findById(id);
+        user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setDepartment(dto.getDepartment());
+        user.setRoles(dto.getRoles());
+        return userRepository.save(user);
+    }
+
+    @Override
+    @Transactional
+    public void toggleActive(Long id) {
+        User user = findById(id);
+        user.setActive(!user.isActive());
+        userRepository.save(user);
+    }
+
+    @Override
     public boolean authenticate(String email, String rawPassword) {
         return userRepository.findByEmail(email)
                 .map(u -> u.isActive() && u.isPasswordSet() && passwordEncoder.matches(rawPassword, u.getPasswordHash()))

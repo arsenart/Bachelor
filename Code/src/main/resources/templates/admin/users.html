@@ -114,7 +114,21 @@
                                 <span th:unless="${user.passwordSet}" class="badge bg-warning text-dark"
                                       th:text="#{admin.users.status.pending}">Pending Activation</span>
                             </td>
-                            <td>
+                            <td class="d-flex gap-1 flex-wrap">
+                                <a th:href="@{/admin/users/{id}/edit(id=${user.id})}"
+                                   class="btn btn-outline-primary btn-sm"
+                                   th:text="#{btn.edit}">Edit</a>
+                                <form method="post"
+                                      th:action="@{/admin/users/{id}/toggle-active(id=${user.id})}">
+                                    <button type="submit"
+                                            th:class="${user.active ? 'btn btn-outline-warning btn-sm' : 'btn btn-outline-success btn-sm'}"
+                                            th:if="${user.active}"
+                                            th:text="#{admin.users.btn.deactivate}">Deactivate</button>
+                                    <button type="submit"
+                                            th:class="'btn btn-outline-success btn-sm'"
+                                            th:unless="${user.active}"
+                                            th:text="#{admin.users.btn.activate}">Activate</button>
+                                </form>
                                 <form th:unless="${user.passwordSet}"
                                       method="post"
                                       th:action="@{/admin/users/{id}/resend-setup-link(id=${user.id})}">

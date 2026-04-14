@@ -11,4 +11,7 @@ public interface UserService {
     boolean authenticate(String email, String rawPassword);
     List<User> findAll();
     User findByEmail(String email);
+    User findById(Long id);
+    User updateUser(Long id, CreateUserRequest dto);
+    void toggleActive(Long id);
 }

@@ -53,6 +53,17 @@ public class DataInitializer implements ApplicationRunner {
     // ────────────────────────────────────────────
 
     private void seedEmployees() {
+        // ── System admin account (from application.yml) ─
+        if (!userRepository.existsByEmail(adminEmail)) {
+            User admin = new User(adminEmail, "Admin", "System", "IT",
+                    Set.of(RoleType.ADMIN, RoleType.APPROVER, RoleType.ACCOUNTANT));
+            admin.setPasswordHash(passwordEncoder.encode(adminPassword));
+            admin.setPasswordSet(true);
+            admin.setActive(true);
+            userRepository.save(admin);
+            log.info("  System admin created: {}", adminEmail);
+        }
+
         // ── Management / Vedení ─────────────────────────
         createUser("dobias@medicton.com", "Martin", "Dobiáš",
                 "vedení/management", Set.of(RoleType.ADMIN, RoleType.APPROVER, RoleType.REQUESTER));

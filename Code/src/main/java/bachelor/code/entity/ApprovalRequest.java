@@ -53,6 +53,9 @@ public class ApprovalRequest {
 
     private LocalDate requestedDate;
 
+    @Column(length = 500)
+    private String documentLink;
+
     // Steps are ordered by stepOrder; only the lowest-order PENDING step is active
     @OneToMany(mappedBy = "request", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("stepOrder ASC")
@@ -114,6 +117,9 @@ public class ApprovalRequest {
 
     public List<ApprovalStep> getSteps() { return steps; }
     public void setSteps(List<ApprovalStep> steps) { this.steps = steps; }
+
+    public String getDocumentLink() { return documentLink; }
+    public void setDocumentLink(String documentLink) { this.documentLink = documentLink; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }

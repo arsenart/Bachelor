@@ -113,6 +113,7 @@ public class WebRequestController {
         dto.setJustification(request.getJustification());
         dto.setDepartment(request.getDepartment());
         dto.setRequestedDate(request.getRequestedDate());
+        dto.setDocumentLink(request.getDocumentLink());
 
         model.addAttribute("requestDto", dto);
         model.addAttribute("requestId", id);
