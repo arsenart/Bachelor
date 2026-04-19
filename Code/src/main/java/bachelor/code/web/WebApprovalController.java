@@ -40,9 +40,32 @@ public class WebApprovalController {
     }
 
     @GetMapping
-    public String pendingApprovals(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+    public String pendingApprovals(@AuthenticationPrincipal UserDetails userDetails,
+                                   @RequestParam(required = false) String type,
+                                   @RequestParam(required = false) String search,
+                                   Model model) {
         User currentUser = userService.findByEmail(userDetails.getUsername());
-        model.addAttribute("requests", workflowService.getPendingForApprover(currentUser));
+        java.util.List<ApprovalRequest> all = workflowService.getPendingForApprover(currentUser);
+
+        if (type != null && !type.isBlank()) {
+            all = all.stream()
+                    .filter(r -> r.getType().name().equals(type))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        if (search != null && !search.isBlank()) {
+            String q = search.toLowerCase();
+            all = all.stream()
+                    .filter(r -> (r.getTitle() != null && r.getTitle().toLowerCase().contains(q))
+                              || (r.getSupplier() != null && r.getSupplier().toLowerCase().contains(q))
+                              || (r.getRequestedBy().getFirstName() + " " + r.getRequestedBy().getLastName())
+                                      .toLowerCase().contains(q))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+
+        model.addAttribute("requests", all);
+        model.addAttribute("requestTypes", bachelor.code.enums.RequestType.values());
+        model.addAttribute("selectedType", type);
+        model.addAttribute("search", search);
         return "approvals/list";
     }
 

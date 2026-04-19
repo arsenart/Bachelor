@@ -39,7 +39,10 @@ public class WebAccountingController {
     }
 
     @GetMapping
-    public String listDocuments(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+    public String listDocuments(@AuthenticationPrincipal UserDetails userDetails,
+                                @RequestParam(required = false) String status,
+                                @RequestParam(required = false) String search,
+                                Model model) {
         User currentUser = userService.findByEmail(userDetails.getUsername());
         boolean isAccountant = userDetails.getAuthorities().stream()
                 .anyMatch(a -> a.getAuthority().equals("ROLE_ACCOUNTANT") || a.getAuthority().equals("ROLE_ADMIN"));
@@ -47,8 +50,27 @@ public class WebAccountingController {
         if (isAccountant) {
             model.addAttribute("pendingDocuments", documentService.getPendingForAccountant());
         }
-        model.addAttribute("myDocuments", documentService.getBySubmitter(currentUser));
+
+        java.util.List<AccountingDocument> myDocs = documentService.getBySubmitter(currentUser);
+
+        if (status != null && !status.isBlank()) {
+            myDocs = myDocs.stream()
+                    .filter(d -> d.getStatus().name().equals(status))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        if (search != null && !search.isBlank()) {
+            String q = search.toLowerCase();
+            myDocs = myDocs.stream()
+                    .filter(d -> (d.getSupplierName() != null && d.getSupplierName().toLowerCase().contains(q))
+                              || (d.getDescription() != null && d.getDescription().toLowerCase().contains(q)))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+
+        model.addAttribute("myDocuments", myDocs);
         model.addAttribute("isAccountant", isAccountant);
+        model.addAttribute("docStatuses", bachelor.code.enums.DocumentStatus.values());
+        model.addAttribute("selectedStatus", status);
+        model.addAttribute("search", search);
         return "accounting/list";
     }
 

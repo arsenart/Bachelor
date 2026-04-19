@@ -65,6 +65,28 @@
 
     <!-- My documents -->
     <h6 class="text-muted text-uppercase mb-3" th:text="#{accounting.section.my}">My Documents</h6>
+
+    <!-- Filters for my documents -->
+    <form method="get" th:action="@{/accounting}" class="row g-2 mb-3">
+        <div class="col-auto">
+            <input type="text" name="search" class="form-control form-control-sm"
+                   th:placeholder="#{filter.search}" th:value="${search}">
+        </div>
+        <div class="col-auto">
+            <select name="status" class="form-select form-select-sm">
+                <option value="" th:text="#{filter.all_statuses}">All statuses</option>
+                <option th:each="s : ${docStatuses}" th:value="${s.name()}" th:text="${s}"
+                        th:selected="${s.name() == selectedStatus}"></option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-secondary btn-sm" th:text="#{filter.btn}">Filter</button>
+        </div>
+        <div class="col-auto" th:if="${selectedStatus != null or search != null}">
+            <a th:href="@{/accounting}" class="btn btn-outline-danger btn-sm" th:text="#{filter.clear}">Clear</a>
+        </div>
+    </form>
+
     <div class="card shadow-sm">
         <div class="card-body p-0">
             <table class="table table-hover mb-0">

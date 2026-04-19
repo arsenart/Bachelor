@@ -39,9 +39,41 @@ public class WebRequestController {
     }
 
     @GetMapping
-    public String listRequests(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+    public String listRequests(@AuthenticationPrincipal UserDetails userDetails,
+                               @RequestParam(required = false) String status,
+                               @RequestParam(required = false) String type,
+                               @RequestParam(required = false) String search,
+                               Model model) {
         User currentUser = userService.findByEmail(userDetails.getUsername());
-        model.addAttribute("requests", requestService.getByRequester(currentUser));
+        java.util.List<ApprovalRequest> all = requestService.getByRequester(currentUser);
+
+        // Filter by status
+        if (status != null && !status.isBlank()) {
+            all = all.stream()
+                    .filter(r -> r.getStatus().name().equals(status))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        // Filter by type
+        if (type != null && !type.isBlank()) {
+            all = all.stream()
+                    .filter(r -> r.getType().name().equals(type))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        // Search by title or supplier
+        if (search != null && !search.isBlank()) {
+            String q = search.toLowerCase();
+            all = all.stream()
+                    .filter(r -> (r.getTitle() != null && r.getTitle().toLowerCase().contains(q))
+                              || (r.getSupplier() != null && r.getSupplier().toLowerCase().contains(q)))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+
+        model.addAttribute("requests", all);
+        model.addAttribute("statuses", bachelor.code.enums.RequestStatus.values());
+        model.addAttribute("requestTypes", RequestType.values());
+        model.addAttribute("selectedStatus", status);
+        model.addAttribute("selectedType", type);
+        model.addAttribute("search", search);
         return "requests/list";
     }
 

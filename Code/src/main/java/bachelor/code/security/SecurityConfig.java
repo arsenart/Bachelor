@@ -36,7 +36,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
+            .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/api/**")  // REST API uses its own auth
+            )
             .authenticationProvider(authenticationProvider())
             .authorizeHttpRequests(auth -> auth
                 // Public
