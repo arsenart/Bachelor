@@ -23,7 +23,7 @@
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span class="fw-semibold" th:text="'#' + ${request.id} + ': ' + ${request.title}"></span>
-                    <span th:text="${request.status}"
+                    <span th:text="#{status.request.__${request.status.name().toLowerCase()}__}"
                           th:class="${'badge fs-6 ' + (
                             request.status.name() == 'PENDING_APPROVAL' ? 'bg-warning text-dark' : 'bg-secondary')}">
                     </span>
@@ -31,7 +31,7 @@
                 <div class="card-body">
                     <dl class="row mb-0">
                         <dt class="col-sm-4" th:text="#{approval.detail.field.type}">Type</dt>
-                        <dd class="col-sm-8" th:text="${request.type}"></dd>
+                        <dd class="col-sm-8" th:text="#{type.request.__${request.type.name().toLowerCase()}__}"></dd>
 
                         <dt class="col-sm-4" th:text="#{approval.detail.field.amount}">Amount</dt>
                         <dd class="col-sm-8 fw-bold text-primary"

@@ -1,8 +1,12 @@
 package bachelor.code.web;
 
 import bachelor.code.dto.CreateUserRequest;
+import bachelor.code.entity.ApprovalRequest;
+import bachelor.code.enums.RequestStatus;
+import bachelor.code.enums.RequestType;
 import bachelor.code.exception.BusinessRuleViolationException;
 import bachelor.code.exception.ResourceNotFoundException;
+import bachelor.code.service.ApprovalRequestService;
 import bachelor.code.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.context.MessageSource;
@@ -22,11 +26,51 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class WebAdminController {
 
     private final UserService userService;
+    private final ApprovalRequestService requestService;
     private final MessageSource messageSource;
 
-    public WebAdminController(UserService userService, MessageSource messageSource) {
+    public WebAdminController(UserService userService,
+                               ApprovalRequestService requestService,
+                               MessageSource messageSource) {
         this.userService = userService;
+        this.requestService = requestService;
         this.messageSource = messageSource;
+    }
+
+    @GetMapping("/requests")
+    public String allRequestsPage(@org.springframework.web.bind.annotation.RequestParam(required = false) String status,
+                                   @org.springframework.web.bind.annotation.RequestParam(required = false) String type,
+                                   @org.springframework.web.bind.annotation.RequestParam(required = false) String search,
+                                   Model model) {
+        java.util.List<ApprovalRequest> all = requestService.getAll();
+
+        if (status != null && !status.isBlank()) {
+            all = all.stream()
+                    .filter(r -> r.getStatus().name().equals(status))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        if (type != null && !type.isBlank()) {
+            all = all.stream()
+                    .filter(r -> r.getType().name().equals(type))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+        if (search != null && !search.isBlank()) {
+            String q = search.toLowerCase();
+            all = all.stream()
+                    .filter(r -> (r.getTitle() != null && r.getTitle().toLowerCase().contains(q))
+                              || (r.getSupplier() != null && r.getSupplier().toLowerCase().contains(q))
+                              || (r.getRequestedBy().getFirstName() + " " + r.getRequestedBy().getLastName())
+                                      .toLowerCase().contains(q))
+                    .collect(java.util.stream.Collectors.toList());
+        }
+
+        model.addAttribute("requests", all);
+        model.addAttribute("statuses", RequestStatus.values());
+        model.addAttribute("requestTypes", RequestType.values());
+        model.addAttribute("selectedStatus", status);
+        model.addAttribute("selectedType", type);
+        model.addAttribute("search", search);
+        return "admin/requests";
     }
 
     @GetMapping("/users")

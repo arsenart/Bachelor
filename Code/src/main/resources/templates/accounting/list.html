@@ -47,7 +47,7 @@
                     <tbody>
                     <tr th:each="doc : ${pendingDocuments}">
                         <td th:text="${doc.id}"></td>
-                        <td><span class="badge bg-info text-dark" th:text="${doc.type}"></span></td>
+                        <td><span class="badge bg-info text-dark" th:text="#{type.document.__${doc.type.name().toLowerCase()}__}"></span></td>
                         <td th:text="${doc.supplierName}"></td>
                         <td th:text="${#numbers.formatDecimal(doc.amountWithoutVat, 1, 'COMMA', 2, 'POINT') + ' CZK'}"></td>
                         <td th:text="${doc.submittedBy.firstName + ' ' + doc.submittedBy.lastName}"></td>
@@ -104,11 +104,11 @@
                 <tbody>
                 <tr th:each="doc : ${myDocuments}">
                     <td th:text="${doc.id}"></td>
-                    <td><span class="badge bg-info text-dark" th:text="${doc.type}"></span></td>
+                    <td><span class="badge bg-info text-dark" th:text="#{type.document.__${doc.type.name().toLowerCase()}__}"></span></td>
                     <td th:text="${doc.supplierName}"></td>
                     <td th:text="${#numbers.formatDecimal(doc.amountWithoutVat, 1, 'COMMA', 2, 'POINT') + ' CZK'}"></td>
                     <td>
-                        <span th:text="${doc.status}"
+                        <span th:text="#{status.document.__${doc.status.name().toLowerCase()}__}"
                               th:class="${'badge ' + (
                                 doc.status.name() == 'NEW'                      ? 'bg-secondary' :
                                 doc.status.name() == 'SUBMITTED_TO_ACCOUNTING'  ? 'bg-warning text-dark' :

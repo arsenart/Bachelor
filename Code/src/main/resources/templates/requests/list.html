@@ -74,13 +74,13 @@
                     <td th:text="${req.id}"></td>
                     <td th:text="${req.title}"></td>
                     <td>
-                        <span th:text="${req.type}"
+                        <span th:text="#{type.request.__${req.type.name().toLowerCase()}__}"
                               th:classappend="${req.type.name() == 'EXPENSE'} ? 'badge bg-info text-dark' : 'badge bg-secondary'"></span>
                     </td>
                     <td th:text="${#numbers.formatDecimal(req.amount, 1, 'COMMA', 2, 'POINT') + ' ' + req.currency}"></td>
                     <td th:text="${req.supplier ?: '—'}"></td>
                     <td>
-                        <span th:text="${req.status}"
+                        <span th:text="#{status.request.__${req.status.name().toLowerCase()}__}"
                               th:class="${'badge ' + (
                                 req.status.name() == 'NEW'                     ? 'bg-secondary' :
                                 req.status.name() == 'PENDING_APPROVAL'        ? 'bg-warning text-dark' :

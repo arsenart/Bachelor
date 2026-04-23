@@ -62,7 +62,7 @@
                     <td th:text="${req.id}"></td>
                     <td th:text="${req.title}"></td>
                     <td>
-                        <span th:text="${req.type}"
+                        <span th:text="#{type.request.__${req.type.name().toLowerCase()}__}"
                               th:classappend="${req.type.name() == 'EXPENSE'} ? 'badge bg-info text-dark' : 'badge bg-secondary'"></span>
                     </td>
                     <td th:text="${#numbers.formatDecimal(req.amount,1,'COMMA',2,'POINT') + ' ' + req.currency}"></td>

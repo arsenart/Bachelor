@@ -44,6 +44,12 @@
             </li>
 
             <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" th:href="@{/admin/requests}"
+                   th:classappend="${currentUri == '/admin/requests'} ? 'active'"
+                   th:text="#{nav.admin.requests}">All Requests</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                 <a class="nav-link" th:href="@{/audit}"
                    th:classappend="${currentUri == '/audit'} ? 'active'"
                    th:text="#{nav.audit}">Audit</a>

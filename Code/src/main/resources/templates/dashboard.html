@@ -26,7 +26,7 @@
                         <div class="small" th:text="#{dashboard.card.drafts}">Drafts</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/requests}" class="text-white text-decoration-none small"
+                        <a th:href="@{/requests(status='NEW')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <div class="small" th:text="#{dashboard.card.pending}">Pending Approval</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/requests}" class="text-dark text-decoration-none small"
+                        <a th:href="@{/requests(status='PENDING_APPROVAL')}" class="text-dark text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="small" th:text="#{dashboard.card.returned}">Returned for Revision</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/requests}" class="text-white text-decoration-none small"
+                        <a th:href="@{/requests(status='RETURNED_FOR_REVISION')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <div class="small" th:text="#{dashboard.card.approved}">Approved</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/requests}" class="text-white text-decoration-none small"
+                        <a th:href="@{/requests(status='APPROVED')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                         <div class="small" th:text="#{dashboard.card.doc_drafts}">Draft Documents</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                        <a th:href="@{/accounting(status='NEW')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <div class="small" th:text="#{dashboard.card.doc_posted}">Posted</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                        <a th:href="@{/accounting(status='POSTED')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         <div class="small" th:text="#{dashboard.card.doc_paid}">Paid</div>
                     </div>
                     <div class="card-footer">
-                        <a th:href="@{/accounting}" class="text-white text-decoration-none small"
+                        <a th:href="@{/accounting(status='PAID')}" class="text-white text-decoration-none small"
                            th:text="#{dashboard.btn.view}">View →</a>
                     </div>
                 </div>

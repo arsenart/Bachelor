@@ -27,7 +27,7 @@
             <div class="card shadow-sm">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span class="fw-semibold" th:text="'#' + ${doc.id} + ': ' + ${doc.supplierName}"></span>
-                    <span th:text="${doc.status}"
+                    <span th:text="#{status.document.__${doc.status.name().toLowerCase()}__}"
                           th:class="${'badge fs-6 ' + (
                             doc.status.name() == 'NEW'                      ? 'bg-secondary' :
                             doc.status.name() == 'SUBMITTED_TO_ACCOUNTING'  ? 'bg-warning text-dark' :
@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <dl class="row mb-0">
                         <dt class="col-sm-4" th:text="#{accounting.detail.field.type}">Type</dt>
-                        <dd class="col-sm-8" th:text="${doc.type}"></dd>
+                        <dd class="col-sm-8" th:text="#{type.document.__${doc.type.name().toLowerCase()}__}"></dd>
 
                         <dt class="col-sm-4" th:text="#{accounting.detail.field.amount_no_vat}">Amount w/o VAT</dt>
                         <dd class="col-sm-8 fw-bold"
