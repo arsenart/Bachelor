@@ -129,11 +129,11 @@ public class WebAccountingController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
 
         if (!doc.getSubmittedBy().getId().equals(currentUser.getId())) {
-            redirectAttributes.addFlashAttribute("error", "You can only edit your own documents.");
+            redirectAttributes.addFlashAttribute("error", msg("error.document.not_owner"));
             return "redirect:/accounting";
         }
         if (!doc.isEditable()) {
-            redirectAttributes.addFlashAttribute("error", "This document cannot be edited.");
+            redirectAttributes.addFlashAttribute("error", msg("error.document.not_editable"));
             return "redirect:/accounting/" + id;
         }
 

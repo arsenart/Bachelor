@@ -171,10 +171,11 @@ public class AccountingDocumentServiceImpl implements AccountingDocumentService 
             throw new BusinessRuleViolationException("Document #" + id + " must be posted or paid before closing.");
         }
 
+        String oldStatus = doc.getStatus().name();
         doc.setStatus(DocumentStatus.CLOSED);
         documentRepository.save(doc);
         auditLogService.log("AccountingDocument", id, "CLOSED",
-                user, doc.getStatus().name(), DocumentStatus.CLOSED.name(), null);
+                user, oldStatus, DocumentStatus.CLOSED.name(), null);
     }
 
     @Override

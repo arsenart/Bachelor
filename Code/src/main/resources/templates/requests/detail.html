@@ -99,6 +99,7 @@
                           method="post"
                           th:action="@{/requests/{id}/realize(id=${request.id})}">
                         <button type="submit" class="btn btn-sm btn-success"
+                                onclick="return confirm('Opravdu chcete označit žádost jako realizovanou?')"
                                 th:text="#{request.detail.btn.realize}">Mark as Realized</button>
                     </form>
 
@@ -111,6 +112,7 @@
                           method="post"
                           th:action="@{/requests/{id}/close(id=${request.id})}">
                         <button type="submit" class="btn btn-sm btn-dark"
+                                onclick="return confirm('Opravdu chcete uzavřít tuto žádost?')"
                                 th:text="#{request.detail.btn.close}">Close</button>
                     </form>
 

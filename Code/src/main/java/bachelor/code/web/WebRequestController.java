@@ -127,11 +127,13 @@ public class WebRequestController {
         User currentUser = userService.findByEmail(userDetails.getUsername());
 
         if (!request.getRequestedBy().getId().equals(currentUser.getId())) {
-            redirectAttributes.addFlashAttribute("error", "You can only edit your own requests.");
+            redirectAttributes.addFlashAttribute("error",
+                messageSource.getMessage("error.request.not_owner", null, LocaleContextHolder.getLocale()));
             return "redirect:/requests";
         }
         if (!request.isEditable()) {
-            redirectAttributes.addFlashAttribute("error", "This request cannot be edited in its current status.");
+            redirectAttributes.addFlashAttribute("error",
+                messageSource.getMessage("error.request.not_editable", null, LocaleContextHolder.getLocale()));
             return "redirect:/requests/" + id;
         }
 

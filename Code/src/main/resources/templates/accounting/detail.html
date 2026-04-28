@@ -138,40 +138,46 @@
                         <form method="post" th:action="@{/accounting/{id}/post(id=${doc.id})}">
                             <input type="hidden" name="pohodaNumber" id="pohodaHidden">
                             <button type="submit" class="btn btn-primary"
-                                    onclick="document.getElementById('pohodaHidden').value=document.getElementById('pohodaField').value"
+                                    onclick="if(!confirm('Opravdu chcete zaúčtovat tento doklad?')) return false; document.getElementById('pohodaHidden').value=document.getElementById('pohodaField').value"
                                     th:text="#{accounting.action.post}">Post</button>
                         </form>
 
                         <form method="post" th:action="@{/accounting/{id}/return(id=${doc.id})}">
                             <input type="hidden" name="comment" id="returnHidden">
                             <button type="submit" class="btn btn-warning text-dark"
-                                    onclick="document.getElementById('returnHidden').value=document.getElementById('returnComment').value"
+                                    onclick="if(!confirm('Opravdu chcete vrátit doklad k doplnění?')) return false; document.getElementById('returnHidden').value=document.getElementById('returnComment').value"
                                     th:text="#{accounting.action.return}">Return</button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Pay / Close actions -->
+            <!-- Pay / Close actions (POSTED) -->
             <div class="card shadow-sm mt-3"
                  th:if="${isAccountant and doc.status.name() == 'POSTED'}">
-                <div class="card-footer d-flex gap-2">
+                <div class="card-header fw-semibold" th:text="#{accounting.action.title}">Accounting Actions</div>
+                <div class="card-body d-flex gap-2 flex-wrap">
                     <form method="post" th:action="@{/accounting/{id}/pay(id=${doc.id})}">
                         <button type="submit" class="btn btn-success"
+                                onclick="return confirm('Opravdu chcete označit doklad jako proplacený?')"
                                 th:text="#{accounting.action.pay}">Mark as Paid</button>
                     </form>
                     <form method="post" th:action="@{/accounting/{id}/close(id=${doc.id})}">
                         <button type="submit" class="btn btn-dark"
+                                onclick="return confirm('Opravdu chcete uzavřít tento doklad?')"
                                 th:text="#{accounting.action.close}">Close</button>
                     </form>
                 </div>
             </div>
 
+            <!-- Close action (PAID) -->
             <div class="card shadow-sm mt-3"
                  th:if="${isAccountant and doc.status.name() == 'PAID'}">
-                <div class="card-footer">
+                <div class="card-header fw-semibold" th:text="#{accounting.action.title}">Accounting Actions</div>
+                <div class="card-body">
                     <form method="post" th:action="@{/accounting/{id}/close(id=${doc.id})}">
                         <button type="submit" class="btn btn-dark"
+                                onclick="return confirm('Opravdu chcete uzavřít tento doklad?')"
                                 th:text="#{accounting.action.close}">Close</button>
                     </form>
                 </div>
