@@ -6,31 +6,35 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 @Service
 public class EmailServiceImpl implements EmailService {
 
     private static final Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
+    private static final String BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
 
-    private final JavaMailSender mailSender;
+    private final RestTemplate restTemplate = new RestTemplate();
     private final MessageSource messageSource;
     private final String appBaseUrl;
     private final String mailFrom;
+    private final String brevoApiKey;
 
-    public EmailServiceImpl(JavaMailSender mailSender,
-                            MessageSource messageSource,
+    public EmailServiceImpl(MessageSource messageSource,
                             @Value("${app.base-url}") String appBaseUrl,
-                            @Value("${app.mail.from:noreply@medicton.com}") String mailFrom) {
-        this.mailSender = mailSender;
+                            @Value("${app.mail.from:noreply@medicton.com}") String mailFrom,
+                            @Value("${app.mail.brevo-api-key:}") String brevoApiKey) {
         this.messageSource = messageSource;
         this.appBaseUrl = appBaseUrl;
         this.mailFrom = mailFrom;
+        this.brevoApiKey = brevoApiKey;
     }
 
     @Override
@@ -95,13 +99,24 @@ public class EmailServiceImpl implements EmailService {
     }
 
     private void send(String to, String subject, String text) {
+        if (brevoApiKey == null || brevoApiKey.isBlank()) {
+            log.warn("BREVO_API_KEY not configured — skipping email to {}", to);
+            return;
+        }
         try {
-            SimpleMailMessage msg = new SimpleMailMessage();
-            msg.setFrom(mailFrom);
-            msg.setTo(to);
-            msg.setSubject(subject);
-            msg.setText(text);
-            mailSender.send(msg);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set("api-key", brevoApiKey);
+
+            Map<String, Object> body = Map.of(
+                    "sender", Map.of("name", "Systém správy nákupů", "email", mailFrom),
+                    "to", List.of(Map.of("email", to)),
+                    "subject", subject,
+                    "textContent", text
+            );
+
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+            restTemplate.postForEntity(BREVO_API_URL, request, String.class);
             log.info("Email sent to {} | subject: {}", to, subject);
         } catch (Exception e) {
             log.error("Failed to send email to {} | subject: {} | error: {}", to, subject, e.getMessage());
