@@ -12,6 +12,9 @@ public class SetupPasswordRequest {
     @Size(min = 8, max = 128)
     private String newPassword;
 
+    @NotEmpty
+    private String confirmPassword;
+
     // getters and setters
     public String getToken() {
         return token;
@@ -27,5 +30,13 @@ public class SetupPasswordRequest {
 
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
