@@ -1,0 +1,257 @@
+%% ============================================================
+%%  Bakalářská práce — ČVUT FEL
+%%  Šablona: CTUstyle3 / LaTeX (babel + lmodern)
+%%
+%%  Kompilace:  pdflatex main.tex
+%%              (2× pro správné reference a TOC)
+%% ============================================================
+
+\documentclass[
+  a4paper,          % formát papíru A4
+  11pt,             % velikost základního písma
+  twoside,          % oboustranná sazba
+  openright         % kapitoly začínají na pravé (liché) straně
+]{report}
+
+%% ── Kódování a jazyk ─────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+
+%% ── Písmo: Latin Modern (požadavek ČVUT) ─────────────────────
+\usepackage{lmodern}
+
+%% ── Geometrie stránky ────────────────────────────────────────
+%% Vnitřní okraj 30 mm (pro pevnou vazbu), ostatní ~25 mm
+\usepackage[
+  a4paper,
+  inner=30mm,
+  outer=20mm,
+  top=25mm,
+  bottom=25mm,
+  headheight=15pt
+]{geometry}
+
+%% ── Barva CTU blue ───────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CTUblue}{HTML}{0065BD}   % Pantone 300 C
+
+%% ── Formátování nadpisů — modré dle CTUstyle ─────────────────
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{CTUblue}}
+  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{CTUblue}}
+  {\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{CTUblue!80!black}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsubsection}{1em}{}
+
+%% ── Řádkování ────────────────────────────────────────────────
+\usepackage{setspace}
+\onehalfspacing      % 1,5-násobné řádkování (obvyklé pro závěrečné práce)
+
+%% ── Kolontituly ──────────────────────────────────────────────
+%% V záhlaví: číslo + název kapitoly | V patičce: číslo stránky u vnějšího okraje
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\small\leftmark}   % sudá vlevo / lichá vpravo: název kapitoly
+\fancyfoot[LE,RO]{\thepage}          % číslo stránky u vnějšího okraje
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% ── Obrázky a tabulky ────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+
+%% ── Seznamy ──────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=4pt}
+
+%% ── Hypertextové odkazy (PDF bookmarks) ──────────────────────
+\usepackage[
+  colorlinks=true,
+  linkcolor=CTUblue,
+  citecolor=CTUblue,
+  urlcolor=CTUblue,
+  pdftitle={Software pro podporu digitalizace schvalovacího procesu v malé firmě},
+  pdfauthor={Arseniy Artem},   %% <-- DOPLŇTE JMÉNO
+  pdfsubject={Bakalářská práce, ČVUT FEL}
+]{hyperref}
+
+%% ── Zdrojové kódy ────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  commentstyle=\color{gray},
+  keywordstyle=\color{CTUblue}\bfseries
+}
+
+%% ── Misc ─────────────────────────────────────────────────────
+\usepackage{microtype}   % lepší sazba textu
+\usepackage{csquotes}    % české uvozovky pomocí \enquote{}
+\usepackage{url}
+
+%% ============================================================
+%%  METADATA — DOPLŇTE SVÉ ÚDAJE
+%% ============================================================
+\newcommand{\ThesisTitle}{Software pro podporu digitalizace schvalovacího procesu v malé firmě}
+\newcommand{\ThesisTitleEN}{Software to support the digitalization of the approval process in a small business company}
+\newcommand{\ThesisAuthor}{Arseniy Artem}          %% <-- DOPLŇTE
+\newcommand{\ThesisSupervisor}{Ing. ???}            %% <-- DOPLŇTE vedoucího práce
+\newcommand{\ThesisFaculty}{Fakulta elektrotechnická}
+\newcommand{\ThesisDepartment}{Katedra kybernetiky} %% <-- DOPLŇTE katedru
+\newcommand{\ThesisDate}{Květen 2026}               %% <-- DOPLŇTE měsíc
+
+%% ============================================================
+%%  ZAČÁTEK DOKUMENTU
+%% ============================================================
+\begin{document}
+
+%% ── Titulní strana ───────────────────────────────────────────
+\begin{titlepage}
+  \thispagestyle{empty}
+  \begin{center}
+    \vspace*{2cm}
+
+    %% Logo ČVUT — vložte soubor logo_cvut.pdf do složky thesis/
+    %% \includegraphics[width=5cm]{logo_cvut.pdf}\\[1cm]
+
+    {\Large\textbf{České vysoké učení technické v Praze}}\\[0.3cm]
+    {\large\ThesisFaculty}\\[0.1cm]
+    {\large\ThesisDepartment}\\[3cm]
+
+    {\huge\bfseries\color{CTUblue}\ThesisTitle}\\[0.5cm]
+    {\large\ThesisTitleEN}\\[3cm]
+
+    {\large Bakalářská práce}\\[2cm]
+
+    \begin{flushleft}
+      \textbf{Autor:} \ThesisAuthor\\[0.3cm]
+      \textbf{Vedoucí práce:} \ThesisSupervisor\\[0.3cm]
+      \textbf{Datum:} \ThesisDate
+    \end{flushleft}
+  \end{center}
+\end{titlepage}
+
+%% ── Strana 2 (prázdná nebo zadání) ──────────────────────────
+\cleardoublepage
+
+%% ── Prohlášení ───────────────────────────────────────────────
+\chapter*{Prohlášení}
+\addcontentsline{toc}{chapter}{Prohlášení}
+\thispagestyle{plain}
+
+Prohlašuji, že jsem předloženou práci vypracoval samostatně a že jsem uvedl veškeré
+použité informační zdroje v souladu s Metodickým pokynem o dodržování etických principů
+při přípravě vysokoškolských závěrečných prací.
+
+\vspace{3cm}
+\noindent V Praze dne \underline{\hspace{4cm}}
+\hfill
+Podpis: \underline{\hspace{5cm}}
+
+\cleardoublepage
+
+%% ── Poděkování ───────────────────────────────────────────────
+\chapter*{Poděkování}
+\addcontentsline{toc}{chapter}{Poděkování}
+\thispagestyle{plain}
+
+%% TODO: Doplňte text poděkování
+Rád bych poděkoval vedoucímu práce \ThesisSupervisor{} za odborné vedení a cenné rady
+při zpracování této bakalářské práce. Dále děkuji společnosti Medicton Group za poskytnutí
+interních podkladů a umožnění analýzy jejich procesů.
+
+\cleardoublepage
+
+%% ── Abstrakt česky ───────────────────────────────────────────
+\chapter*{Abstrakt}
+\addcontentsline{toc}{chapter}{Abstrakt}
+\thispagestyle{plain}
+
+%% TODO: Napište abstrakt (cca 150–250 slov)
+Tato bakalářská práce se zabývá analýzou a implementací softwarového řešení pro podporu
+digitalizace schvalovacího procesu v malé obchodní společnosti. Práce vychází z reálného
+prostředí firmy Medicton Group, která v oblasti zdravotnické techniky využívá sdílené tabulky
+pro řízení interních nákupů a předávání účetních dokladů ke zpracování. Cílem práce je
+navrhnout a implementovat online systém, který tyto procesy standardizuje, automatizuje
+a zajistí auditní stopu rozhodnutí.
+
+V analytické části je popsána organizační struktura společnosti, používané informační systémy
+a aktuální podoba AS-IS procesů. Dále jsou analyzována existující softwarová řešení na trhu.
+Na základě analýzy je navržen cílový TO-BE model schvalovacích workflow a datová architektura
+systému. Implementační část popisuje technické řešení postavené na technologiích Spring Boot,
+Spring Security, PostgreSQL a Thymeleaf, nasazené v cloudovém prostředí Railway.
+
+\vspace{0.5cm}
+\noindent\textbf{Klíčová slova:} digitalizace, schvalovací proces, workflow, Spring Boot,
+PostgreSQL, bakalářská práce
+
+\cleardoublepage
+
+%% ── Abstract in English ──────────────────────────────────────
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\thispagestyle{plain}
+
+%% TODO: Translate your abstract to English
+This bachelor's thesis deals with the analysis and implementation of a software solution
+to support the digitalization of the approval process in a small business company.
+The work is based on the real environment of Medicton Group, a company in the medical
+equipment sector that uses shared spreadsheets for managing internal purchases and
+passing accounting documents for processing. The goal of the thesis is to design and
+implement an online system that standardizes and automates these processes while providing
+a full audit trail of decisions.
+
+The analytical part describes the company's organizational structure, the information systems
+in use, and the current AS-IS process model. Existing software solutions on the market are
+also analyzed. Based on this analysis, a target TO-BE model of approval workflows and the
+system's data architecture are proposed. The implementation section describes the technical
+solution built on Spring Boot, Spring Security, PostgreSQL, and Thymeleaf, deployed in
+the Railway cloud environment.
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords:} digitalization, approval process, workflow, Spring Boot,
+PostgreSQL, bachelor's thesis
+
+\cleardoublepage
+
+%% ── Číslování stránek: римские цифры для введения ───────────
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+%% ── Obsah (Table of Contents) ────────────────────────────────
+\tableofcontents
+\cleardoublepage
+
+%% ── Přechod na arabské číslování od kapitoly 1 ───────────────
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%% ============================================================
+%%  HLAVNÍ TEXT PRÁCE
+%% ============================================================
+\input{chapters}
+
+%% ── Příloha A: Zadání práce ──────────────────────────────────
+\appendix
+\chapter{Zadání práce}
+\label{app:zadani}
+
+%% Sem vložte scan zadání nebo přepište text zadání.
+\textit{(Vložte scan zadání práce)}
+
+\end{document}
