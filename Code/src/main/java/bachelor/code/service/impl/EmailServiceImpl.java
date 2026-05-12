@@ -19,22 +19,22 @@ import java.util.Map;
 public class EmailServiceImpl implements EmailService {
 
     private static final Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
-    private static final String BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
+    private static final String RESEND_API_URL = "https://api.resend.com/emails";
 
     private final RestTemplate restTemplate = new RestTemplate();
     private final MessageSource messageSource;
     private final String appBaseUrl;
     private final String mailFrom;
-    private final String brevoApiKey;
+    private final String resendApiKey;
 
     public EmailServiceImpl(MessageSource messageSource,
                             @Value("${app.base-url}") String appBaseUrl,
-                            @Value("${app.mail.from:noreply@medicton.com}") String mailFrom,
-                            @Value("${app.mail.brevo-api-key:}") String brevoApiKey) {
+                            @Value("${app.mail.from:onboarding@resend.dev}") String mailFrom,
+                            @Value("${app.mail.resend-api-key:}") String resendApiKey) {
         this.messageSource = messageSource;
         this.appBaseUrl = appBaseUrl;
         this.mailFrom = mailFrom;
-        this.brevoApiKey = brevoApiKey;
+        this.resendApiKey = resendApiKey;
     }
 
     @Override
@@ -99,24 +99,24 @@ public class EmailServiceImpl implements EmailService {
     }
 
     private void send(String to, String subject, String text) {
-        if (brevoApiKey == null || brevoApiKey.isBlank()) {
-            log.warn("BREVO_API_KEY not configured — skipping email to {}", to);
+        if (resendApiKey == null || resendApiKey.isBlank()) {
+            log.warn("RESEND_API_KEY not configured — skipping email to {}", to);
             return;
         }
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.set("api-key", brevoApiKey);
+            headers.setBearerAuth(resendApiKey);
 
             Map<String, Object> body = Map.of(
-                    "sender", Map.of("name", "Systém správy nákupů", "email", mailFrom),
-                    "to", List.of(Map.of("email", to)),
+                    "from", mailFrom,
+                    "to", List.of(to),
                     "subject", subject,
-                    "textContent", text
+                    "text", text
             );
 
             HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
-            restTemplate.postForEntity(BREVO_API_URL, request, String.class);
+            restTemplate.postForEntity(RESEND_API_URL, request, String.class);
             log.info("Email sent to {} | subject: {}", to, subject);
         } catch (Exception e) {
             log.error("Failed to send email to {} | subject: {} | error: {}", to, subject, e.getMessage());
