@@ -67,20 +67,20 @@ public class ApprovalRoutingServiceImpl implements ApprovalRoutingService {
             approver = rule.getApprover();
         } else if (rule.getApproverRole() != null) {
             approver = userRepository
-                    .findFirstByRolesContainingAndActiveTrue(rule.getApproverRole())
+                    .findFirstByRolesContainingAndActiveTrueAndIdNot(rule.getApproverRole(), requester.getId())
                     .orElseThrow(() -> new BusinessRuleViolationException(
-                            "No active user with role " + rule.getApproverRole()
-                            + " found to process this request."));
+                            "Nelze najít schvalovatele pro tuto žádost. "
+                            + "Kontaktujte administrátora pro úpravu pravidel schvalování."));
         } else {
             throw new BusinessRuleViolationException(
-                    "ApprovalRule (id=" + rule.getId() + ") has neither approver nor approverRole set.");
+                    "ApprovalRule (id=" + rule.getId() + ") nemá nastaveného schvalovatele ani roli.");
         }
 
-        // Requester cannot be their own approver
+        // Requester cannot be their own approver (for direct approver_id rules)
         if (approver.getId().equals(requester.getId())) {
             throw new BusinessRuleViolationException(
-                    "The configured approver is the same as the requester. "
-                    + "Please contact the administrator to update the approval rules.");
+                    "Nakonfigurovaný schvalovatel je stejný jako žadatel. "
+                    + "Kontaktujte administrátora pro úpravu pravidel schvalování.");
         }
 
         return approver;
