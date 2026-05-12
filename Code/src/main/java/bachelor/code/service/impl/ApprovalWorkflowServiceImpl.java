@@ -86,7 +86,7 @@ public class ApprovalWorkflowServiceImpl implements ApprovalWorkflowService {
     @Transactional
     public void reject(Long requestId, User approver, String comment) {
         if (comment == null || comment.isBlank()) {
-            throw new BusinessRuleViolationException("A comment is required when rejecting a request.");
+            throw new BusinessRuleViolationException("Komentář je povinný při zamítnutí žádosti.");
         }
 
         ApprovalRequest request = loadAndValidate(requestId, approver);
@@ -114,7 +114,7 @@ public class ApprovalWorkflowServiceImpl implements ApprovalWorkflowService {
     @Transactional
     public void returnForRevision(Long requestId, User approver, String comment) {
         if (comment == null || comment.isBlank()) {
-            throw new BusinessRuleViolationException("A comment is required when returning a request for revision.");
+            throw new BusinessRuleViolationException("Komentář je povinný při vrácení žádosti k revizi.");
         }
 
         ApprovalRequest request = loadAndValidate(requestId, approver);
@@ -157,15 +157,15 @@ public class ApprovalWorkflowServiceImpl implements ApprovalWorkflowService {
 
         if (request.getStatus() != RequestStatus.PENDING_APPROVAL) {
             throw new BusinessRuleViolationException(
-                    "Request #" + requestId + " is not pending approval (status: " + request.getStatus() + ").");
+                    "Žádost #" + requestId + " není ve stavu čekající na schválení (stav: " + request.getStatus() + ").");
         }
 
         ApprovalStep activeStep = request.getActiveStep();
         if (activeStep == null) {
-            throw new BusinessRuleViolationException("No active approval step found for request #" + requestId);
+            throw new BusinessRuleViolationException("Pro žádost #" + requestId + " nebyl nalezen aktivní krok schválení.");
         }
         if (!activeStep.getApprover().getId().equals(approver.getId())) {
-            throw new BusinessRuleViolationException("You are not the designated approver for this step.");
+            throw new BusinessRuleViolationException("Nejste určeným schvalovatelem pro tento krok.");
         }
 
         return request;
