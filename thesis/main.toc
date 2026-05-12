@@ -39,19 +39,19 @@
 \contentsline {section}{\numberline {5.2}Architektura aplikace}{20}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Implementace datového modelu}{20}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Implementace schvalovacího procesu}{21}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Workflow účetních dokladů}{21}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Uživatelské rozhraní}{21}{section.5.6}%
+\contentsline {section}{\numberline {5.5}Workflow účetních dokladů}{22}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Uživatelské rozhraní}{22}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Zabezpečení}{22}{section.5.7}%
-\contentsline {section}{\numberline {5.8}E-mailové notifikace}{22}{section.5.8}%
+\contentsline {section}{\numberline {5.8}E-mailové notifikace}{23}{section.5.8}%
 \contentsline {section}{\numberline {5.9}Auditní záznamy}{23}{section.5.9}%
 \contentsline {section}{\numberline {5.10}Administrace systému}{23}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Inicializace dat}{23}{section.5.11}%
-\contentsline {chapter}{\numberline {6}Testování systému}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Strategie testování}{25}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Testovací scénáře}{25}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Testování schvalovacích pravidel}{27}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Testování řízení přístupu}{27}{section.6.4}%
+\contentsline {section}{\numberline {5.11}Inicializace dat}{24}{section.5.11}%
+\contentsline {chapter}{\numberline {6}Ověření funkčnosti systému}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Strategie ověřování}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Ověřovací scénáře}{25}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Ověření schvalovacích pravidel}{27}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Ověření řízení přístupu}{28}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Ověření s~představitelem společnosti}{28}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Shrnutí výsledků testování}{28}{section.6.6}%
+\contentsline {section}{\numberline {6.6}Shrnutí výsledků ověření}{28}{section.6.6}%
 \contentsline {chapter}{\numberline {7}Závěr}{29}{chapter.7}%
 \contentsline {chapter}{\numberline {A}Zadání práce}{33}{chapter.A}%

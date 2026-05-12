@@ -359,7 +359,7 @@ Pro perzistenci dat byl zvolen objektově-relační mapper Hibernate 7.2 integro
 
 Uživatelské rozhraní bylo sestaveno pomocí CSS rámce Bootstrap 5.3 načítaného z CDN. Volba Bootstrapu zajišťuje responzivní chování stránek na různých zařízeních a jednotný vizuální jazyk bez nutnosti psát vlastní CSS.
 
-Zasílání e-mailových notifikací je řešeno prostřednictvím knihovny Spring Boot Starter Mail s SMTP připojením ke Google Workspace, který firma Medicton Group aktuálně využívá.
+Zasílání e-mailových notifikací je realizováno prostřednictvím HTTP API služby Brevo (dříve Sendinblue) volaného třídou RestTemplate. Toto řešení bylo zvoleno z důvodu, že produkční nasazení aplikace v platformě Railway blokuje odchozí provoz na standardních SMTP portech (25, 465, 587), takže klasický JavaMailSender nelze v této infrastruktuře použít. Brevo poskytuje transakční e-mailové API dostupné na portu 443 (HTTPS) a jeho bezplatný plán pokrývá objem provozu odpovídající interní komunikaci malé firmy.
 
 
 \section{Architektura aplikace}
@@ -392,7 +392,13 @@ Veškeré vztahy mezi entitami jsou definovány pomocí JPA anotací (@ManyToOne
 
 Schvalovací workflow je implementováno ve třídě ApprovalRequestService a odráží víceúrovňový model definovaný v analytické části práce.
 
-Po odeslání žádosti žadatelem (přechod ze stavu NEW do PENDING\_APPROVAL) metoda assignApprovers vyhodnotí typ žádosti a výši částky a vytvoří odpovídající záznamy ApprovalStep. Pro výdajové žádosti (EXPENSE) do 3 000 Kč je vytvořen jeden krok přiřazený jakémukoli uživateli s rolí APPROVER (úroveň L1). Pro výdaje v rozsahu 3 001--50 000 Kč jsou vytvořeny dva kroky -- L1 a L2, kde L2 je přiřazen řediteli Dobiášovi. Výdaje přesahující 50 000 Kč procházejí třemi kroky (L1, L2 a L3), přičemž L3 je přiřazen jednateli Fabiánovi. Žádosti o nákup (PURCHASE) vždy vyžadují schválení vedoucím skladu Materou (L1) a jednatelem Fabiánem (L2).
+Po odeslání žádosti žadatelem (přechod ze stavu NEW do PENDING\_APPROVAL) servisní vrstva deleguje sestavení schvalovacích kroků na třídu ApprovalRoutingServiceImpl. Ta načte z~databázové tabulky \texttt{approval\_rules} všechna aktivní pravidla pro daný typ žádosti, seřazená podle pořadí kroku, a~vyfiltruje ta, jejichž rozsah částky odpovídá výši žádosti. Pro každé vyhovující pravidlo je vytvořen záznam ApprovalStep s~odkazem na konkrétního schvalovatele.
+
+Schvalovací pravidla nejsou zapsána přímo v~kódu, ale uložena jako entity v~databázi, a~lze je tedy upravovat za běhu systému prostřednictvím administrátorského rozhraní. Každé pravidlo obsahuje typ žádosti, dolní a~horní mez částky, pořadí kroku a~buď konkrétního uživatele jako schvalovatele, nebo roli, podle níž se schvalovatel vyhledá dynamicky. Tato datově řízená architektura umožňuje pohodlně rozšířit nebo přenastavit workflow bez nutnosti zásahu vývojáře -- například při personální změně v~managementu firmy nebo při úpravě finančních limitů.
+
+Při počáteční inicializaci databáze (třída DataInitializer) jsou vložena výchozí pravidla odpovídající interně definovanému modelu firmy. Pro běžné výdaje (EXPENSE) do 3\,000\,Kč je vytvořen jeden krok přiřazený dynamicky libovolnému uživateli s~rolí APPROVER (úroveň L1, typicky vedoucí skupiny). Pro výdaje v~rozsahu 3\,001--50\,000\,Kč je vytvořen jeden krok přiřazený finančnímu řediteli. Výdaje přesahující 50\,000\,Kč prochází dvěma kroky -- nejprve finančním ředitelem, poté jednatelem společnosti. Pro nákup zboží (PURCHASE) jsou bez ohledu na výši definovány dva kroky -- nejprve manažer nákupu, poté jednatel společnosti. Konkrétní osoby jsou v~seed datech přiřazeny dle stávající organizační struktury společnosti Medicton Group, avšak nejde o~natvrdo zakódované jméno -- administrátor je může kdykoli změnit v~uživatelském rozhraní pro správu pravidel.
+
+Pro ochranu proti konfliktu zájmů obsahuje ApprovalRoutingServiceImpl validaci, která zabraňuje tomu, aby byl žadatel zároveň schvalovatelem vlastní žádosti. Pokud taková situace nastane v~konfiguraci, systém vyhodí výjimku BusinessRuleViolationException s~výzvou k~úpravě pravidel.
 
 Při schválení nebo zamítnutí kroku metoda zkontroluje, zda zbývají další nevyřízené kroky. Jsou-li všechny kroky schváleny, žádost přechází do stavu APPROVED. V případě zamítnutí libovolného kroku je celá žádost okamžitě označena jako REJECTED. Schvalovatel může žádost rovněž vrátit k přepracování (RETURNED\_FOR\_REVISION), čímž se umožňuje žadateli žádost opravit a znovu odeslat.
 
@@ -436,7 +442,7 @@ Hesla uživatelů jsou ukládána výhradně jako hash generovaný algoritmem BC
 
 Systém zasílá e-mailové notifikace v klíčových bodech workflow. Po odeslání žádosti ke schválení obdrží přiřazený schvalovatel zprávu s názvem žádosti, výší a přímým odkazem na detail. Po schválení, zamítnutí nebo vrácení k přepracování je informován žadatel. Při vytvoření nového účtu obdrží uživatel e-mail s jednorázovým odkazem pro nastavení hesla.
 
-Odesílání e-mailů je zapouzdřeno ve třídě EmailService, která využívá JavaMailSender z knihovny Spring Boot Starter Mail. Konfigurační parametry (SMTP server, port, přihlašovací údaje) jsou externalizovány do souboru application.properties, resp. do proměnných prostředí, takže nedochází k uložení citlivých údajů v kódu aplikace.
+Odesílání e-mailů je zapouzdřeno ve třídě EmailServiceImpl. Tato třída sestaví JSON tělo dotazu obsahující odesílatele, příjemce, předmět a obsah zprávy, a~odešle jej metodou POST na endpoint \texttt{https://api.brevo.com/v3/smtp/email}. Autentizace vůči službě Brevo je řešena pomocí API klíče v~hlavičce HTTP požadavku. Konfigurační parametry (API klíč, adresa odesílatele, základní URL aplikace) jsou externalizovány prostřednictvím proměnných prostředí, takže nedochází k~uložení citlivých údajů v~kódu aplikace. Pokud API klíč není v~prostředí nastaven, EmailServiceImpl odesílání přeskočí a~zapíše varování do logu, takže lze aplikaci provozovat i~bez funkčního e-mailového kanálu (např. ve vývojovém prostředí).
 
 
 \section{Auditní záznamy}
@@ -465,40 +471,52 @@ Inicializace proběhne pouze tehdy, neexistuje-li v databázi dosud žádný už
 
 
 %% ============================================================
-\chapter{Testování systému}
+\chapter{Ověření funkčnosti systému}
 %% ============================================================
 
-Tato kapitola popisuje průběh a výsledky testování implementovaného systému.
-Cílem testování bylo ověřit, zda systém splňuje funkční a nefunkční požadavky
-definované v kapitole~4, a zda implementované workflow odpovídá navrženému
-TO-BE modelu.
+Tato kapitola popisuje průběh a~výsledky manuálního ověření implementovaného
+systému. Cílem ověření bylo prokázat, že systém splňuje funkční a~nefunkční
+požadavky definované v~kapitole~4 a~že implementované workflow odpovídá
+navrženému TO-BE modelu.
 
-\section{Strategie testování}
+Vzhledem k~povaze této bakalářské práce, jejímž primárním cílem byla
+analýza, návrh a~implementace funkčního prototypu pro konkrétní firmu,
+nebylo součástí zadání vytvoření rozsáhlé automatizované testovací sady
+(jednotkové ani integrační testy). Projekt obsahuje pouze základní
+ověřovací test \texttt{contextLoads()} potvrzující správné sestavení
+Spring kontextu při startu aplikace. Případné rozšíření o~automatizované
+testy je uvedeno jako doporučení pro další rozvoj systému v~závěru práce.
+Funkční ověření systému bylo proto provedeno \emph{manuálně} v~nasazeném
+prostředí, což odpovídá běžné praxi pro studentské prototypové projekty
+zaměřené na byznysovou logiku.
 
-Testování bylo prováděno ve dvou fázích. V~první fázi byly provedeny
-\textbf{funkční testy}, jejichž cílem bylo ověřit správné chování systému
-v~definovaných scénářích. Každý scénář byl testován ručně v~prostředí
-nasazené aplikace na platformě Railway s~připojenou PostgreSQL databází.
-Ve druhé fázi proběhlo \textbf{ověření s~představitelem společnosti}
-Medicton Group, při němž bylo posouzeno, zda systém odpovídá
-skutečným procesním potřebám firmy.
+\section{Strategie ověřování}
 
-Testovací prostředí odpovídalo produkční konfiguraci: aplikace byla
+Ověřování bylo prováděno ve dvou fázích. V~první fázi byly provedeny
+\textbf{manuální funkční zkoušky}, jejichž cílem bylo ověřit správné
+chování systému v~definovaných ověřovacích scénářích. Každý scénář
+byl projit ručně v~prostředí nasazené aplikace na platformě Railway
+s~připojenou PostgreSQL databází. Ve druhé fázi proběhla
+\textbf{konzultace s~představitelem společnosti} Medicton Group,
+při níž byla posouzena shoda systému se skutečnými procesními
+potřebami firmy.
+
+Ověřovací prostředí odpovídalo produkční konfiguraci: aplikace byla
 dostupná prostřednictvím veřejné URL, e-mailové notifikace byly
-odesílány přes službu Brevo a databáze byla sdílená mezi testovacími
-uživateli. Pro testování rolí bylo využito více prohlížečů souběžně
+odesílány přes službu Brevo a~databáze byla sdílená mezi ověřovacími
+uživateli. Pro ověření rolí bylo využito více prohlížečů souběžně
 (standardní okno a anonymní okno), čímž bylo možné simulovat akce
 různých uživatelů bez odhlašování.
 
-\section{Testovací scénáře}
+\section{Ověřovací scénáře}
 
-Níže je uveden přehled testovaných scénářů spolu s~výsledky. Každý
-scénář byl proveden minimálně jedenkrát; v~případě opravy chyby byl
-zopakován.
+Níže je uveden přehled provedených manuálních ověřovacích scénářů
+spolu s~výsledky. Každý scénář byl projit minimálně jedenkrát;
+v~případě nalezené nesrovnalosti byl po opravě zopakován.
 
 \begin{table}[H]
 \centering
-\caption{Přehled testovacích scénářů a výsledků}
+\caption{Přehled manuálních ověřovacích scénářů a výsledků}
 \label{tab:testy}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabularx}{\textwidth}{|c|X|c|c|}
@@ -515,13 +533,13 @@ T04 & Použití vypršelého odkazu pro nastavení hesla & Zobrazení chyby o~ne
 \hline
 T05 & Vytvoření žádosti o~výdaj do 3\,000\,Kč & Žádost vytvořena, přiřazen schvalovatel L1 & \textbf{OK} \\
 \hline
-T06 & Vytvoření žádosti o~výdaj 3\,001--50\,000\,Kč & Přiřazeni schvalovatelé L1 a L2 & \textbf{OK} \\
+T06 & Vytvoření žádosti o~výdaj 3\,001--50\,000\,Kč & Přiřazen schvalovatel -- finanční ředitel & \textbf{OK} \\
 \hline
-T07 & Vytvoření žádosti o~výdaj nad 50\,000\,Kč & Přiřazeni schvalovatelé L1, L2 a L3 & \textbf{OK} \\
+T07 & Vytvoření žádosti o~výdaj nad 50\,000\,Kč & Přiřazeni dva schvalovatelé -- finanční ředitel a~jednatel & \textbf{OK} \\
 \hline
 T08 & Vytvoření žádosti typu PURCHASE & Přiřazeni schvalovatelé dle pravidla pro nákup zboží & \textbf{OK} \\
 \hline
-T09 & Schválení žádosti schvalovatelem L1 & Žádost postoupena na L2, odeslána notifikace & \textbf{OK} \\
+T09 & Schválení prvního kroku víceúrovňové žádosti & Žádost postoupena dalšímu schvalovateli, odeslána notifikace & \textbf{OK} \\
 \hline
 T10 & Zamítnutí žádosti schvalovatelem & Žádost označena jako REJECTED, notifikace žadateli & \textbf{OK} \\
 \hline
@@ -548,17 +566,18 @@ T20 & E-mailová notifikace po odeslání žádosti & Schvalovatel obdrží e-ma
 \end{tabularx}
 \end{table}
 
-Všechny testované scénáře byly úspěšně ověřeny. Během testování byly
-odhaleny a opraveny dvě chyby: nesprávné zachytávání původního stavu
-v~auditním záznamu při uzavření účetního dokladu a drobná nekonzistence
+Všechny ověřovací scénáře byly úspěšně projity. Během ověřování byly
+odhaleny a~opraveny dvě chyby: nesprávné zachytávání původního stavu
+v~auditním záznamu při uzavření účetního dokladu a~drobná nekonzistence
 v~zobrazení tlačítek akce pro roli ACCOUNTANT. Obě chyby byly opraveny
 před finálním nasazením.
 
-\section{Testování schvalovacích pravidel}
+\section{Ověření schvalovacích pravidel}
 
 Klíčovou součástí systému je správné přiřazení schvalovatelů podle
-výše žádosti a jejího typu. Níže jsou popsány čtyři hlavní scénáře
-testování workflow.
+výše žádosti a~jejího typu. Níže jsou popsány hlavní ověřovací
+scénáře workflow odpovídající seedovaným pravidlům v~tabulce
+\texttt{approval\_rules}.
 
 \subsection*{Scénář A: Výdaj do 3\,000\,Kč (úroveň L1)}
 
@@ -568,29 +587,41 @@ systém automaticky přiřadil jednoho schvalovatele s~rolí APPROVER
 do stavu APPROVED, aniž by bylo vyžadováno další kolo schvalování.
 Chování odpovídá navrženým pravidlům TO-BE modelu.
 
-\subsection*{Scénář B: Výdaj 3\,001--50\,000\,Kč (úrovně L1 a L2)}
+\subsection*{Scénář B: Výdaj 3\,001--50\,000\,Kč (jeden krok)}
 
-Výdajová žádost na 25\,000\,Kč byla přiřazena dvěma schvalovatelům:
-vedoucímu skupiny (L1) a finančnímu řediteli (L2). Po schválení
-prvního kroku se workflow automaticky posunulo na schvalovatele L2,
-který obdržel e-mailové upozornění. Teprve po jeho schválení přešla
-žádost do stavu APPROVED.
+Výdajová žádost na 25\,000\,Kč byla podle databázových pravidel
+přiřazena jedinému schvalovateli -- finančnímu řediteli. Po jeho
+schválení přešla žádost přímo do stavu APPROVED. Chování odpovídá
+seedovaným pravidlům v~tabulce \texttt{approval\_rules} (jedno aktivní
+pravidlo pro tento rozsah částky).
 
-\subsection*{Scénář C: Výdaj nad 50\,000\,Kč (úrovně L1, L2 a L3)}
+\subsection*{Scénář C: Výdaj nad 50\,000\,Kč (dva kroky)}
 
-Žádost na 75\,000\,Kč prošla třemi schvalovacími kroky. Systém
-po schválení každého kroku automaticky notifikoval dalšího
-schvalovatele. Celý průběh byl zaznamenán v~auditním logu
-s~časovými razítky a komentáři jednotlivých schvalovatelů.
+Žádost na 75\,000\,Kč prošla dvěma schvalovacími kroky podle seedovaných
+pravidel: nejprve byla přiřazena finančnímu řediteli a~po jeho schválení
+automaticky postoupena jednateli společnosti, který obdržel e-mailovou
+notifikaci. Teprve po schválení druhého kroku přešla žádost do stavu
+APPROVED. Celý průběh byl zaznamenán v~auditním logu s~časovými razítky
+a~komentáři jednotlivých schvalovatelů.
 
 \subsection*{Scénář D: Nákup zboží (PURCHASE)}
 
 Žádost typu PURCHASE, bez ohledu na výši částky, byla přiřazena
-manažerovi nákupu (L1) a jednateli společnosti (L2). Toto chování
-odpovídá interně definovanému pravidlu firmy pro nákupy zboží
-a bylo ověřeno jako funkční.
+ve dvou krocích: nejprve manažerovi nákupu, poté jednateli společnosti.
+Toto chování odpovídá pravidlu PURCHASE seedovanému v~tabulce
+\texttt{approval\_rules} a~bylo ověřeno jako funkční.
 
-\section{Testování řízení přístupu}
+\subsection*{Scénář E: Změna pravidla za běhu}
+
+Pro ověření datově řízené architektury byl proveden test, při němž
+administrátor v~rozhraní pro správu pravidel změnil schvalovatele
+pro určitý rozsah částek na jiného uživatele. Nově vytvořená žádost
+spadající do tohoto rozsahu byla správně směrována novému schvalovateli
+bez nutnosti restartu aplikace či zásahu do kódu. Tento test potvrdil,
+že schvalovací logika je skutečně konfigurovatelná v~administrátorském
+rozhraní, jak bylo deklarováno v~kapitole o~implementaci.
+
+\section{Ověření řízení přístupu}
 
 Správné fungování rolového modelu bylo ověřeno přihlášením
 různých uživatelů a pokusem o~přístup k~funkcím, ke kterým
@@ -624,19 +655,22 @@ označeno zejména automatické zasílání notifikací, přehled
 stavů na řídicím panelu a auditní záznamy umožňující zpětnou
 dohledatelnost rozhodnutí.
 
-\section{Shrnutí výsledků testování}
+\section{Shrnutí výsledků ověření}
 
-Testování potvrdilo, že implementovaný systém splňuje všechny
-funkční požadavky definované v~kapitole~4. Všech 20~testovacích
-scénářů bylo úspěšně ověřeno. Dvě odhalené chyby byly opraveny
+Manuální ověření potvrdilo, že implementovaný systém splňuje všechny
+funkční požadavky definované v~kapitole~4. Všech 20~ověřovacích
+scénářů bylo úspěšně projito. Dvě odhalené chyby byly opraveny
 před finálním nasazením.
 
-Systém správně implementuje víceúrovňové schvalovací workflow,
-rolový model přístupu, e-mailové notifikace a auditní záznamy.
-Ověřením s~představitelem společnosti bylo potvrzeno, že řešení
-odpovídá reálným procesním potřebám firmy a představuje
-použitelnou alternativu k~dosavadní správě pomocí sdílených
-tabulek.
+Systém správně implementuje víceúrovňové schvalovací workflow řízené
+konfigurovatelnými pravidly v~databázi, rolový model přístupu,
+e-mailové notifikace a~auditní záznamy. Konzultací s~představitelem
+společnosti bylo potvrzeno, že řešení odpovídá reálným procesním
+potřebám firmy a~představuje použitelnou alternativu k~dosavadní
+správě pomocí sdílených tabulek. Doporučením pro další rozvoj systému
+je doplnění automatizované testovací sady, zejména jednotkových testů
+servisních tříd a~integračních testů schvalovacího workflow s~použitím
+in-memory databáze.
 
 %% ============================================================
 \chapter{Závěr}
@@ -665,14 +699,18 @@ rolí, schvalovacích pravidel a požadavků na systém. Navržená architektura
 počítá s~budoucí integrací na existující systémy INTUO a Pohoda.
 
 Implementovaný systém je realizován jako webová aplikace postavená na technologiích
-Spring Boot, Spring Security, Hibernate, PostgreSQL a Thymeleaf. Systém byl
-nasazen v~cloudovém prostředí Railway a je dostupný přes webový prohlížeč.
-Implementuje víceúrovňové schvalovací workflow odpovídající interně definovaným
-finančním limitům, rolový model přístupu, e-mailové notifikace a auditní záznamy.
+Spring Boot, Spring Security, Hibernate, PostgreSQL a~Thymeleaf. Systém byl
+nasazen v~cloudovém prostředí Railway a~je dostupný přes webový prohlížeč.
+Implementuje víceúrovňové schvalovací workflow řízené konfigurovatelnými pravidly
+uloženými v~databázi, rolový model přístupu, e-mailové notifikace prostřednictvím
+HTTP API služby Brevo a~úplné auditní záznamy. Datově řízená architektura
+schvalovacích pravidel umožňuje administrátorovi upravovat finanční limity,
+typy žádostí i~konkrétní schvalovatele přímo v~uživatelském rozhraní bez nutnosti
+zásahu do zdrojového kódu.
 
-Testování potvrdilo správnou funkčnost všech klíčových scénářů. Ověření
-s~představitelem společnosti prokázalo, že systém odpovídá reálným procesním
-potřebám firmy a představuje prakticky využitelné řešení oproti dosavadní
+Manuální ověření potvrdilo správnou funkčnost všech klíčových scénářů. Konzultace
+s~představitelem společnosti prokázala, že systém odpovídá reálným procesním
+potřebám firmy a~představuje prakticky využitelné řešení oproti dosavadní
 správě pomocí sdílených tabulek.
 
 Hlavním přínosem práce je funkční softwarový nástroj, který centralizuje
