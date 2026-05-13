@@ -41,7 +41,9 @@ public class WebDashboardController {
     public String dashboard(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         User currentUser = userService.findByEmail(userDetails.getUsername());
 
-        if (currentUser.getRoles().contains(RoleType.REQUESTER)) {
+        boolean isAdmin = currentUser.getRoles().contains(RoleType.ADMIN);
+
+        if (currentUser.getRoles().contains(RoleType.REQUESTER) || isAdmin) {
             model.addAttribute("myNewCount",
                     requestService.countByRequesterAndStatus(currentUser, RequestStatus.NEW));
             model.addAttribute("myPendingCount",
@@ -52,19 +54,19 @@ public class WebDashboardController {
                     requestService.countByRequesterAndStatus(currentUser, RequestStatus.APPROVED));
         }
 
-        if (currentUser.getRoles().contains(RoleType.APPROVER)
-                || currentUser.getRoles().contains(RoleType.ADMIN)) {
+        if (currentUser.getRoles().contains(RoleType.APPROVER) || isAdmin) {
             model.addAttribute("pendingApprovalsCount",
                     workflowService.countPendingForApprover(currentUser));
         }
 
-        if (currentUser.getRoles().contains(RoleType.ACCOUNTANT)) {
+        if (currentUser.getRoles().contains(RoleType.ACCOUNTANT) || isAdmin) {
             model.addAttribute("pendingDocumentsCount",
                     documentService.countPendingForAccountant());
         }
 
         if (currentUser.getRoles().contains(RoleType.REQUESTER)
-                || currentUser.getRoles().contains(RoleType.ACCOUNTANT)) {
+                || currentUser.getRoles().contains(RoleType.ACCOUNTANT)
+                || isAdmin) {
             model.addAttribute("myDocsNewCount",
                     documentService.countBySubmitterAndStatus(currentUser, DocumentStatus.NEW));
             model.addAttribute("myDocsPostedCount",
