@@ -52,7 +52,8 @@ public class WebDashboardController {
                     requestService.countByRequesterAndStatus(currentUser, RequestStatus.APPROVED));
         }
 
-        if (currentUser.getRoles().contains(RoleType.APPROVER)) {
+        if (currentUser.getRoles().contains(RoleType.APPROVER)
+                || currentUser.getRoles().contains(RoleType.ADMIN)) {
             model.addAttribute("pendingApprovalsCount",
                     workflowService.countPendingForApprover(currentUser));
         }

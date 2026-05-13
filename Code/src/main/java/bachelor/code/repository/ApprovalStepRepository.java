@@ -24,4 +24,11 @@ public interface ApprovalStepRepository extends JpaRepository<ApprovalStep, Long
             @Param("status") StepStatus status);
 
     long countByApproverAndStatus(User approver, StepStatus status);
+
+    // Count DISTINCT requests where this user has a pending step — used for dashboard card
+    @Query("SELECT COUNT(DISTINCT s.request) FROM ApprovalStep s " +
+           "WHERE s.approver = :approver AND s.status = :status")
+    long countDistinctRequestsByApproverAndStatus(
+            @Param("approver") User approver,
+            @Param("status") StepStatus status);
 }

@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="as-is" name="AS-IS proces">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="start" value="Vznikne potřeba&#10;nákupu" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t1" value="Žadatel vyplní řádek&#10;v Google Sheet" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t2" value="Vedoucí oddělení&#10;posoudí požadavek" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="130" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g1" value="Částka&#10;&gt; 3 000 Kč?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="530" y="125" width="100" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t3" value="Vedoucí schválí&#10;v komentáři / e-mailu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="670" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t4" value="Finanční ředitel&#10;posoudí žádost" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="670" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g2" value="Částka&#10;&gt; 50 000 Kč?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="880" y="215" width="100" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t5" value="Jednatel posoudí&#10;a schválí" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="220" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t6" value="Žadatel objedná&#10;u dodavatele" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="130" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t7" value="Žadatel předá&#10;doklad účetní" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="380" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t8" value="Účetní zaúčtuje&#10;v systému Pohoda" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="380" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="end" value="Konec" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="830" y="390" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=classic;html=1;" edge="1" parent="1" source="start" target="t1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=classic;html=1;" edge="1" parent="1" source="t1" target="t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=classic;html=1;" edge="1" parent="1" source="t2" target="g1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" value="Ne" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" edge="1" parent="1" source="g1" target="t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="Ano" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="g1" target="t4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=classic;html=1;" edge="1" parent="1" source="t4" target="g2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="Ano" style="endArrow=classic;html=1;" edge="1" parent="1" source="g2" target="t5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="Ne" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="g2" target="t6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="t5" target="t6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="t3" target="t6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="endArrow=classic;html=1;" edge="1" parent="1" source="t6" target="t7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="endArrow=classic;html=1;" edge="1" parent="1" source="t7" target="t8"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" style="endArrow=classic;html=1;" edge="1" parent="1" source="t8" target="end"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

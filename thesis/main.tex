@@ -66,7 +66,9 @@
 
 %% ── Obrázky a tabulky ────────────────────────────────────────
 \usepackage{graphicx}
+\graphicspath{{images/}{images/screenshots/}}
 \usepackage{float}
+\usepackage{amssymb}  % \checkmark
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{caption}
@@ -149,6 +151,10 @@
 %% ── Strana 2 (prázdná nebo zadání) ──────────────────────────
 \cleardoublepage
 
+%% ── Římské číslování pro úvodní část (Prohlášení, Poděkování, Abstrakt, TOC) ──
+\pagenumbering{roman}
+\setcounter{page}{1}
+
 %% ── Prohlášení ───────────────────────────────────────────────
 \chapter*{Prohlášení}
 \addcontentsline{toc}{chapter}{Prohlášení}
@@ -229,15 +235,11 @@ PostgreSQL, bachelor's thesis
 
 \cleardoublepage
 
-%% ── Číslování stránek: римские цифры для введения ───────────
-\pagenumbering{roman}
-\setcounter{page}{1}
-
 %% ── Obsah (Table of Contents) ────────────────────────────────
 \tableofcontents
 \cleardoublepage
 
-%% ── Přechod na arabské číslování od kapitoly 1 ───────────────
+%% ── Přechod na arabské číslování od kapitoly 1 (Úvod) ─────────
 \pagenumbering{arabic}
 \setcounter{page}{1}
 

@@ -1,0 +1,89 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="to-be-approval" name="TO-BE Schvalovací proces">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="start" value="Vznikne potřeba&#10;nákupu / výdaje" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t1" value="Žadatel vyplní&#10;žádost ve formuláři" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="160" y="250" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t2" value="Žadatel odešle&#10;žádost ke schválení" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t3" value="Systém vyhodnotí&#10;pravidla podle typu&#10;a částky" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="540" y="245" width="160" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t4" value="Schvalovatel obdrží&#10;e-mailovou notifikaci" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="740" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t5" value="Schvalovatel L1&#10;rozhodne o žádosti" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="940" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g1" value="Rozhodnutí?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="240" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="endRej" value="REJECTED" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="80" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tRet" value="Žádost vrácena&#10;žadateli k úpravě" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="700" y="430" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g2" value="Vyžaduje&#10;2. krok?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="240" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t6" value="Schvalovatel L2&#10;rozhodne o žádosti" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="430" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="g3" value="Schváleno?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="440" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="endApp" value="APPROVED" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="endRej2" value="REJECTED" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="440" width="80" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tAudit" value="Audit log:&#10;záznam akce" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="430" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=classic;html=1;" edge="1" parent="1" source="start" target="t1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=classic;html=1;" edge="1" parent="1" source="t1" target="t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=classic;html=1;" edge="1" parent="1" source="t2" target="t3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=classic;html=1;" edge="1" parent="1" source="t3" target="t4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="endArrow=classic;html=1;" edge="1" parent="1" source="t4" target="t5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=classic;html=1;" edge="1" parent="1" source="t5" target="g1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="Zamítnuto" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="g1" target="endRej"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" value="Vráceno k revizi" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0;" edge="1" parent="1" source="g1" target="tRet"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8b" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="tRet" target="t1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="Schváleno" style="endArrow=classic;html=1;" edge="1" parent="1" source="g1" target="g2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="Ne" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="g2" target="endApp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="Ano" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="g2" target="t6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="endArrow=classic;html=1;" edge="1" parent="1" source="t6" target="g3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" value="Ano" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=1;entryY=0.5;" edge="1" parent="1" source="g3" target="endApp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" value="Ne" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="g3" target="endRej2"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="eAudit" style="endArrow=none;html=1;dashed=1;strokeColor=#666666;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="t5" target="tAudit"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

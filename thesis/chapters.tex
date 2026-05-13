@@ -85,6 +85,13 @@ Zásadní vlastností tohoto procesu je skutečnost, že jeho jednotlivé kroky 
 
 Současně je důležité uvést, že interní materiály již definují základní schvalovací logiku podle finančních limitů. Pro běžné výdaje je navrženo schvalování v úrovních L1 až L3: do 3 000 Kč vedoucí skupiny, od 3 001 Kč do 50 000 Kč finanční ředitel a nad 50 000 Kč vedení společnosti. Specifickou kategorií je nákup zboží, u něhož mají schvalovat manažer nákupu a vedení společnosti. To ukazuje, že firma již má připravené konkrétní business pravidlo, které však dosud není promítnuto do automatizovaného workflow systému.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{15-as-is-process.png}
+\caption{Schéma současného (AS-IS) schvalovacího procesu ve společnosti Medicton Group -- proces se odehrává napříč nástroji (Google Sheet, e-mail, SharePoint, Pohoda) bez centralizovaného workflow.}
+\label{fig:as-is-process}
+\end{figure}
+
 
 \subsection{Předkládání dokladů k zaúčtování nebo proplacení}
 
@@ -191,6 +198,41 @@ Pro potřeby zkoumané společnosti a této bakalářské práce se proto jako n
 
 Pro větší přehlednost lze hlavní závěry shrnout i tabulkově:
 
+\begin{table}[H]
+\centering
+\caption{Srovnání analyzovaných řešení podle hlavních kritérií.}
+\label{tab:srovnani-reseni}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
+\hline
+\textbf{Kritérium} & \textbf{Power Automate} & \textbf{Business Central} & \textbf{Oracle} & \textbf{Odoo} & \textbf{Vlastní řešení} \\
+\hline
+Víceúrovňové schvalování & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+Limity podle částky & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+Role-based přiřazování & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+Auditní stopa & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+E-mailové notifikace & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\hline
+Vhodné pro malou firmu & částečně & ne & ne & částečně & \checkmark \\
+\hline
+Komplexita nasazení & nízká & vysoká & velmi vysoká & střední & nízká \\
+\hline
+Pořizovací náklady & střední (M365) & vysoké & velmi vysoké & střední & nízké \\
+\hline
+Vlastní úpravy procesu & omezené & omezené & omezené & ano (kód) & plné \\
+\hline
+Závislost na ekosystému & M365 & Dynamics & Oracle ERP & Odoo platforma & žádná \\
+\hline
+\end{tabularx}
+\end{table}
+
+Z~tabulky vyplývá, že komerční platformy splňují většinu funkčních požadavků, ale jejich nasazení v~prostředí malé firmy je nepřiměřeně nákladné a~vyžaduje akceptaci závislosti na konkrétním dodavatelském ekosystému. Vlastní řešení implementované specificky pro Medicton Group umožňuje pokrýt všechny klíčové funkce při zachování plné kontroly nad zdrojovým kódem, datovým modelem i~budoucím rozvojem aplikace.
+
 
 %% ============================================================
 \chapter{Návrh řešení pro společnost}
@@ -273,6 +315,13 @@ Navržený stavový model pro tento proces je následující:
 
 \textbf{Nový → Čeká na schválení → K doplnění / Schváleno / Zamítnuto → Realizováno → Uzavřeno}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{16-to-be-approval.png}
+\caption{Navrhovaný (TO-BE) schvalovací proces -- centralizovaný workflow s~automatickým směrováním na základě typu žádosti a~výše částky, s~možnostmi schválení, zamítnutí nebo vrácení k~revizi.}
+\label{fig:to-be-approval}
+\end{figure}
+
 
 \subsection{TO-BE proces předkládání dokladů k zaúčtování nebo proplacení}
 
@@ -287,6 +336,13 @@ Je-li doklad úplný, účetní jej zaeviduje v systému Pohoda a doplní přís
 Navržený stavový model druhého procesu je:
 
 \textbf{Nový → Předáno účetnímu oddělení → K doplnění / Zaúčtováno → Proplaceno → Uzavřeno}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{17-to-be-accounting.png}
+\caption{Navrhovaný (TO-BE) proces zpracování účetních dokladů -- centralizovaná evidence s~přechody mezi stavy NEW $\rightarrow$ SUBMITTED\_TO\_ACCOUNTING $\rightarrow$ POSTED $\rightarrow$ PAID $\rightarrow$ CLOSED.}
+\label{fig:to-be-accounting}
+\end{figure}
 
 
 \subsection{Přínosy navrženého TO-BE procesu}
@@ -333,7 +389,14 @@ Pro zachycení auditní historie bude sloužit entita \textbf{Auditní záznam} 
 
 Pro vazbu na externí dokumenty lze doplnit entitu \textbf{Příloha} nebo \textbf{Odkaz na dokument}, která umožní uchovávat URL odkaz na dokument uložený v SharePointu.
 
-Pro větší přehlednost lze základní datový model shrnout i tabulkově:
+Pro větší přehlednost je navržený datový model znázorněn na entitně-relačním diagramu (obrázek~\ref{fig:er-diagram}). Diagram zachycuje hlavní entity systému, jejich atributy, primární a~cizí klíče i~kardinality vztahů mezi nimi.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{18-er-diagram.png}
+\caption{Entitně-relační diagram datového modelu systému -- centrální entitou je \texttt{users}, na kterou se vážou žádosti (\texttt{approval\_requests}), schvalovací kroky (\texttt{approval\_steps}), pravidla schvalování (\texttt{approval\_rules}), účetní doklady (\texttt{accounting\_documents}) i~auditní záznamy (\texttt{audit\_log}).}
+\label{fig:er-diagram}
+\end{figure}
 
 Logika systému bude založena na těchto pravidlech. Požadavek může vytvořit pouze přihlášený uživatel. Po odeslání požadavku systém určí schvalovatele podle nastavených pravidel. Změny stavů budou omezeny podle rolí a typu záznamu. Schvalovatel bude oprávněn měnit stav požadavku na schváleno, zamítnuto nebo k doplnění, zatímco účetní bude oprávněna měnit stav dokladu na zaúčtováno nebo proplaceno. Požadavek nebude možné odeslat ke schválení, pokud nebudou vyplněna všechna povinná pole. Doklad nebude možné označit jako zaúčtovaný, pokud nebude obsahovat všechny potřebné údaje.
 
@@ -404,12 +467,61 @@ Při schválení nebo zamítnutí kroku metoda zkontroluje, zda zbývají dalš�
 
 Po každé stavové změně je prostřednictvím EmailService odesláno e-mailové upozornění relevantním stranám -- žadateli v případě rozhodnutí o jeho žádosti a schvalovateli při přiřazení nové žádosti k posouzení.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{04-request-form.png}
+\caption{Formulář pro vytvoření nové žádosti -- typ (výdaj/nákup), částka v~CZK, dodavatel, oddělení a~zdůvodnění.}
+\label{fig:request-form}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{05-requests-list.png}
+\caption{Seznam vlastních žádostí žadatele s~filtry podle stavu, typu a~textovým vyhledáváním.}
+\label{fig:requests-list}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{06-approvals-list.png}
+\caption{Seznam žádostí čekajících na schválení -- z~pohledu schvalovatele.}
+\label{fig:approvals-list}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{07-approval-detail.png}
+\caption{Detail žádosti s~atributy, protokolem aktivity a~rozhodovacími tlačítky (Schválit, Zamítnout, Vrátit k~revizi).}
+\label{fig:approval-detail}
+\end{figure}
+
 
 \section{Workflow účetních dokladů}
 
 Účetní doklady procházejí vlastním životním cyklem řízeným třídou AccountingDocumentService. Nový doklad je vytvořen ve stavu NEW. Žadatel nebo účetní jej může odeslat ke zpracování přechodem do stavu SUBMITTED\_TO\_ACCOUNTING. Účetní oddělení doklad zkontroluje a buď jej zaúčtuje (POSTED), označí jako uhrazený (PAID), nebo vrátí k doplnění (RETURNED\_FOR\_COMPLETION). Konečným stavem je CLOSED.
 
 Systém podporuje následující typy dokladů: zálohová faktura (ADVANCE\_INVOICE), přijatá faktura (INVOICE), pokladní příjem (CASH\_RECEIPT), pokladní výdaj (CASH\_REIMBURSEMENT), ostatní závazek (OTHER\_LIABILITY) a jiný doklad (OTHER). Tato typizace umožňuje účetnímu oddělení doklady kategorizovat a filtrovat dle potřeby.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{08-accounting-list.png}
+\caption{Přehled účetních dokladů s~rozdělením na doklady čekající na zpracování a~vlastní doklady uživatele.}
+\label{fig:accounting-list}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{09-accounting-detail.png}
+\caption{Detail účetního dokladu z~pohledu účetní -- formulář pro zaúčtování s~přiřazením čísla v~účetním systému Pohoda.}
+\label{fig:accounting-detail}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{10-accounting-posted.png}
+\caption{Zaúčtovaný doklad s~kompletní historií zpracování a~možností označit jako proplacený.}
+\label{fig:accounting-posted}
+\end{figure}
 
 
 \section{Uživatelské rozhraní}
@@ -418,7 +530,21 @@ Uživatelské rozhraní bylo navrženo s důrazem na přehlednost a minimální 
 
 Přihlašovací stránka umožňuje autentizaci pomocí e-mailové adresy a hesla. Nový uživatel obdrží po vytvoření účtu administrátorem e-mail s jednorázovým odkazem pro nastavení hesla. Platnost odkazu je časově omezena; po uplynutí lhůty může administrátor vygenerovat nový odkaz.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{01-login.png}
+\caption{Přihlašovací stránka aplikace s~podporou přepínání jazyka.}
+\label{fig:login}
+\end{figure}
+
 Řídicí panel (dashboard) zobrazuje po přihlášení přehled klíčových ukazatelů přizpůsobených roli uživatele. Žadatel vidí počty vlastních žádostí v jednotlivých stavech (nová, čekající, vrácená, schválená). Schvalovatel je informován o počtu žádostí čekajících na jeho rozhodnutí. Účetní sleduje počty dokladů v jednotlivých fázích zpracování. Každá statistická karta je opatřena odkazem, který přes filtrovaný URL parametr přechází přímo na příslušný filtrovaný seznam.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{03-dashboard.png}
+\caption{Řídicí panel uživatele s~rolemi žadatele a~schvalovatele -- karty s~přehledem žádostí, schvalování a~účetních dokladů.}
+\label{fig:dashboard}
+\end{figure}
 
 Stránky se seznamy žádostí, schválení a dokladů nabízejí filtrování podle stavu, typu a textového vyhledávání v názvu, dodavateli a jménu žadatele. Filtry jsou implementovány jako HTTP GET parametry zpracovávané v řadičích a předávané do šablony pro zachování výběru po obnovení stránky.
 
@@ -437,6 +563,13 @@ Ochrana proti útoku CSRF (Cross-Site Request Forgery) je aktivní pro všechny 
 
 Hesla uživatelů jsou ukládána výhradně jako hash generovaný algoritmem BCrypt se zátěžovým faktorem 10, nikdy v plaintextové podobě. Při ověřování přihlašovacích údajů Spring Security automaticky provede hash zadaného hesla a porovná jej s uloženým hashem.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{02-setup-password.png}
+\caption{Formulář pro nastavení hesla nového uživatele -- otevírá se jednorázovým odkazem z~e-mailu s~platností 24~hodin.}
+\label{fig:setup-password}
+\end{figure}
+
 
 \section{E-mailové notifikace}
 
@@ -453,6 +586,13 @@ Auditní log je implementován prostřednictvím třídy AuditLogService, její�
 
 Auditní záznamy jsou v systému uchovávány trvale a nelze je mazat ani upravovat prostřednictvím uživatelského rozhraní, čímž je zajištěna integrita auditní stopy.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{14-audit-log.png}
+\caption{Protokol auditních záznamů -- chronologický přehled všech stavových změn žádostí a~účetních dokladů s~odkazem na zodpovědného uživatele.}
+\label{fig:audit-log}
+\end{figure}
+
 
 \section{Administrace systému}
 
@@ -461,6 +601,27 @@ Administrátorské rozhraní poskytuje přehled všech uživatelů a funkcionali
 Stránka přehledu všech žádostí umožňuje administrátorovi zobrazit a filtrovat veškeré žádosti v systému bez ohledu na jejich autora. Tato funkce slouží jako nástroj pro dohled nad provozem systému a řešení eskalovaných situací.
 
 Vytváření a editace uživatelů je ošetřena validací vstupních dat prostřednictvím Bean Validation (anotace @NotBlank, @Email, @Size). Chybové zprávy jsou lokalizovány a zobrazovány inline v příslušném formuláři.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{11-admin-users.png}
+\caption{Administrátorské rozhraní pro správu uživatelů -- seznam všech účtů s~oddělením, rolemi a~stavem aktivace.}
+\label{fig:admin-users}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{12-admin-user-edit.png}
+\caption{Formulář pro úpravu uživatele -- e-mail je readonly, lze měnit jméno, oddělení a~přiřazené role.}
+\label{fig:admin-user-edit}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{13-admin-all-requests.png}
+\caption{Administrátorský přehled všech žádostí v~systému bez ohledu na autora -- nástroj pro dohled a~řešení eskalovaných situací.}
+\label{fig:admin-all-requests}
+\end{figure}
 
 
 \section{Inicializace dat}

@@ -147,7 +147,7 @@ public class ApprovalWorkflowServiceImpl implements ApprovalWorkflowService {
     @Override
     @Transactional(readOnly = true)
     public long countPendingForApprover(User approver) {
-        return stepRepository.countByApproverAndStatus(approver, StepStatus.PENDING);
+        return stepRepository.countDistinctRequestsByApproverAndStatus(approver, StepStatus.PENDING);
     }
 
     // Load request, verify it's in PENDING_APPROVAL, verify the caller is the active step's approver

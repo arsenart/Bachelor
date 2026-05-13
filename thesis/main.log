@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  11 MAY 2026 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  13 MAY 2026 20:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -212,6 +212,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks24
 \@floatcapt=\box55
 )
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks25
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
 (/Users/arsenart/Library/texmf/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen165
@@ -240,7 +252,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen178
 \ar@mcellbox=\box56
 \extrarowheight=\dimen179
-\NC@list=\toks25
+\NC@list=\toks26
 \extratabsurround=\skip67
 \backup@length=\skip68
 \ar@cellbox=\box57
@@ -251,7 +263,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \TX@target=\dimen183
 \TX@delta=\dimen184
 \TX@cols=\count295
-\TX@ftn=\toks26
+\TX@ftn=\toks27
 )
 (/Users/arsenart/Library/texmf/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
@@ -276,7 +288,7 @@ Package caption Info: float package is loaded.
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip69
 \enit@outerparindent=\dimen193
-\enit@toks=\toks27
+\enit@toks=\toks28
 \enit@inbox=\box58
 \enit@count@id=\count298
 \enitdp@description=\count299
@@ -411,7 +423,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (/Users/arsenart/Library/texmf/tex/latex/listings/listings.sty
 \lst@mode=\count312
 \lst@gtempboxa=\box59
-\lst@token=\toks28
+\lst@token=\toks29
 \lst@length=\count313
 \lst@currlwidth=\dimen198
 \lst@column=\count314
@@ -444,12 +456,12 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
 (/Users/arsenart/Library/texmf/tex/latex/microtype/microtype.sty
 Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
-\MT@toks=\toks29
+\MT@toks=\toks30
 \MT@tempbox=\box61
 \MT@count=\count320
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
 LaTeX Info: Redefining \leftprotrusion on input line 1085.
-\MT@prot@toks=\toks30
+\MT@prot@toks=\toks31
 LaTeX Info: Redefining \rightprotrusion on input line 1104.
 LaTeX Info: Redefining \textls on input line 1449.
 \MT@outer@kern=\dimen258
@@ -479,7 +491,7 @@ Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
 \csq@qlevel=\count325
 \csq@maxlvl=\count326
 \csq@tshold=\count327
-\csq@ltx@everypar=\toks31
+\csq@ltx@everypar=\toks32
 
 (/Users/arsenart/Library/texmf/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
@@ -495,7 +507,7 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'czech'.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
-1.
+3.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -510,24 +522,24 @@ Package babel Info: 'czech' activates 'czech' shorthands.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
-LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 123.
+LaTeX Font Info:    ... okay on input line 123.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -570,12 +582,12 @@ LaTeX Font Info:    ... okay on input line 121.
 \scratchbox=\box62
 \nofMPsegments=\count330
 \nofMParguments=\count331
-\everyMPshowfont=\toks32
+\everyMPshowfont=\toks33
 \MPscratchCnt=\count332
 \MPscratchDim=\dimen260
 \MPnumerator=\count333
 \makeMPintoPDFobject=\count334
-\everyMPtoPDFconversion=\toks33
+\everyMPtoPDFconversion=\toks34
 )
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
 ty
@@ -591,22 +603,22 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 121.
+Package hyperref Info: Link coloring ON on input line 123.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 \c@lstlisting=\count335
-LaTeX Info: Redefining \microtypecontext on input line 121.
+LaTeX Info: Redefining \microtypecontext on input line 123.
 
 
-Package microtype Warning: Unable to apply patch `item' on input line 121.
+Package microtype Warning: Unable to apply patch `item' on input line 123.
 
-Package microtype Info: Applying patch `toc' on input line 121.
-Package microtype Info: Applying patch `eqnum' on input line 121.
-Package microtype Info: Applying patch `footnote' on input line 121.
-Package microtype Info: Applying patch `verbatim' on input line 121.
-LaTeX Info: Redefining \microtypesetup on input line 121.
+Package microtype Info: Applying patch `toc' on input line 123.
+Package microtype Info: Applying patch `eqnum' on input line 123.
+Package microtype Info: Applying patch `footnote' on input line 123.
+Package microtype Info: Applying patch `verbatim' on input line 123.
+LaTeX Info: Redefining \microtypesetup on input line 123.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -627,41 +639,62 @@ r/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2
 
 ]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-62.
+68.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-62.
+68.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-162.
+168.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-162.
+168.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 162.
+(Font)              <10.95> on input line 168.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 162.
+(Font)              <8> on input line 168.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 162.
- [3
+(Font)              <6> on input line 168.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 168
+.
 
-] [4
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/Users/arsenart/Library/texmf/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 168
+.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/Users/arsenart/Library/texmf/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [1
+
+] [2
+
+] [3
 
 ]
-[5
+[4
+
+] [5
 
 ] [6
 
@@ -669,19 +702,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ] [8
 
-] [9
-
-] [10
-
-] (./main.toc [1
+] (./main.toc [9
 
 ])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
 Package babel Info: 'czech' activates 'czech' shorthands.
-(babel)             Reported on input line 238.
- [2] (./chapters.tex
+(babel)             Reported on input line 240.
+ [10] (./chapters.tex
 Kapitola 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -700,78 +729,61 @@ been already used, duplicate ignored
 l.20 \chapter
              {Anal√Ωza souƒçasn√©ho stavu ve spoleƒçnosti} [2]
 Kapitola 2.
+[3
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.35 
-      [3
+] [4] [5] [6]
+<images/screenshots/15-as-is-process.png, id=364, 1305.87875pt x 433.62pt>
+File: images/screenshots/15-as-is-process.png Graphic file (type png)
+<use images/screenshots/15-as-is-process.png>
+Package pdftex.def Info: images/screenshots/15-as-is-process.png  used on input
+ line 90.
+(pdftex.def)             Requested size: 455.24411pt x 151.16055pt.
+ [7 <./images/screenshots/15-as-is-process.png>] [8] [9]
+[10
 
 ]
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.50 
-      [4]
-pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.65 
-      [5]
-pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.83 
-      [6]
-pdfTeX warning (ext4): destination with the same identifier (name{page.7}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.101 
-       [7]
-pdfTeX warning (ext4): destination with the same identifier (name{page.8}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.119 \chapter
-              {Anal√Ωza existuj√≠c√≠ch ≈ôe≈°en√≠} [8]
 Kapitola 3.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.9}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.141 
-       [9
-
-]
-pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.166 
-       [10] [11] [12
-
-]
+[11] [12] [13] [14]
 Kapitola 4.
-[13] [14]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-74.
+[15
+
+] [16]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+16.
  (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-[15{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-[16] [17] [18]
-Kapitola 5.
-[19
+<images/screenshots/16-to-be-approval.png, id=412, 1718.42pt x 444.66125pt>
+File: images/screenshots/16-to-be-approval.png Graphic file (type png)
+<use images/screenshots/16-to-be-approval.png>
+Package pdftex.def Info: images/screenshots/16-to-be-approval.png  used on inpu
+t line 320.
+(pdftex.def)             Requested size: 455.24411pt x 117.79395pt.
 
-] [20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+<images/screenshots/17-to-be-accounting.png, id=418, 1446.40375pt x 422.57875pt
+>
+File: images/screenshots/17-to-be-accounting.png Graphic file (type png)
+<use images/screenshots/17-to-be-accounting.png>
+Package pdftex.def Info: images/screenshots/17-to-be-accounting.png  used on in
+put line 342.
+(pdftex.def)             Requested size: 455.24411pt x 133.00339pt.
+
+Underfull \vbox (badness 1968) has occurred while \output is active []
+
+ [18{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} 
+<./images/screenshots/16-to-be-approval.png> <./images/screenshots/17-to-be-acc
+ounting.png>] [19]
+<images/screenshots/18-er-diagram.png, id=435, 1245.65375pt x 1044.90375pt>
+File: images/screenshots/18-er-diagram.png Graphic file (type png)
+<use images/screenshots/18-er-diagram.png>
+Package pdftex.def Info: images/screenshots/18-er-diagram.png  used on input li
+ne 396.
+(pdftex.def)             Requested size: 455.24411pt x 381.87299pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-95.
+97.
  (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -780,454 +792,574 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-[21]
-Overfull \hbox (36.22691pt too wide) in paragraph at lines 412--413
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+[21 <./images/screenshots/18-er-diagram.png>] [22
+
+]
+Kapitola 5.
+[23] [24]
+<images/screenshots/04-request-form.png, id=459, 1927.2pt x 1084.05pt>
+File: images/screenshots/04-request-form.png Graphic file (type png)
+<use images/screenshots/04-request-form.png>
+Package pdftex.def Info: images/screenshots/04-request-form.png  used on input 
+line 472.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+ [25]
+<images/screenshots/05-requests-list.png, id=465, 1927.2pt x 1084.05pt>
+File: images/screenshots/05-requests-list.png Graphic file (type png)
+<use images/screenshots/05-requests-list.png>
+Package pdftex.def Info: images/screenshots/05-requests-list.png  used on input
+ line 479.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+<images/screenshots/06-approvals-list.png, id=466, 1927.2pt x 1084.05pt>
+File: images/screenshots/06-approvals-list.png Graphic file (type png)
+<use images/screenshots/06-approvals-list.png>
+Package pdftex.def Info: images/screenshots/06-approvals-list.png  used on inpu
+t line 486.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26 <./images/screenshots/04-request-form.png> <./images/screenshots/05-reques
+ts-list.png>]
+<images/screenshots/07-approval-detail.png, id=475, 1927.2pt x 1084.05pt>
+File: images/screenshots/07-approval-detail.png Graphic file (type png)
+<use images/screenshots/07-approval-detail.png>
+Package pdftex.def Info: images/screenshots/07-approval-detail.png  used on inp
+ut line 493.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+ [27 <./images/screenshots/06-approvals-list.png> <./images/screenshots/07-appr
+oval-detail.png>]
+Overfull \hbox (36.22691pt too wide) in paragraph at lines 503--504
 \T1/lmr/m/n/10.95 (-20) fak-tura (IN-VOICE), po-kladnÌ p∞Ì-jem (CASH_RECEIPT), 
 po-kladnÌ v˝-daj (CASH_REIMBURSEMENT),
  []
 
-[22] [23] [24]
+<images/screenshots/08-accounting-list.png, id=484, 1927.2pt x 1084.05pt>
+File: images/screenshots/08-accounting-list.png Graphic file (type png)
+<use images/screenshots/08-accounting-list.png>
+Package pdftex.def Info: images/screenshots/08-accounting-list.png  used on inp
+ut line 507.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+<images/screenshots/09-accounting-detail.png, id=485, 1927.2pt x 1084.05pt>
+File: images/screenshots/09-accounting-detail.png Graphic file (type png)
+<use images/screenshots/09-accounting-detail.png>
+Package pdftex.def Info: images/screenshots/09-accounting-detail.png  used on i
+nput line 514.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28 <./images/screenshots/08-accounting-list.png>]
+<images/screenshots/10-accounting-posted.png, id=492, 1927.2pt x 1084.05pt>
+File: images/screenshots/10-accounting-posted.png Graphic file (type png)
+<use images/screenshots/10-accounting-posted.png>
+Package pdftex.def Info: images/screenshots/10-accounting-posted.png  used on i
+nput line 521.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+ [29 <./images/screenshots/09-accounting-detail.png> <./images/screenshots/10-a
+ccounting-posted.png>]
+<images/screenshots/01-login.png, id=501, 1927.2pt x 1084.05pt>
+File: images/screenshots/01-login.png Graphic file (type png)
+<use images/screenshots/01-login.png>
+Package pdftex.def Info: images/screenshots/01-login.png  used on input line 53
+5.
+(pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
+<images/screenshots/03-dashboard.png, id=502, 1927.2pt x 1084.05pt>
+File: images/screenshots/03-dashboard.png Graphic file (type png)
+<use images/screenshots/03-dashboard.png>
+Package pdftex.def Info: images/screenshots/03-dashboard.png  used on input lin
+e 544.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+ [30 <./images/screenshots/01-login.png> <./images/screenshots/03-dashboard.png
+>]
+<images/screenshots/02-setup-password.png, id=511, 1927.2pt x 1084.05pt>
+File: images/screenshots/02-setup-password.png Graphic file (type png)
+<use images/screenshots/02-setup-password.png>
+Package pdftex.def Info: images/screenshots/02-setup-password.png  used on inpu
+t line 568.
+(pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
+ [31 <./images/screenshots/02-setup-password.png>]
+<images/screenshots/14-audit-log.png, id=519, 1927.2pt x 1084.05pt>
+File: images/screenshots/14-audit-log.png Graphic file (type png)
+<use images/screenshots/14-audit-log.png>
+Package pdftex.def Info: images/screenshots/14-audit-log.png  used on input lin
+e 591.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+<images/screenshots/11-admin-users.png, id=524, 1927.2pt x 1084.05pt>
+File: images/screenshots/11-admin-users.png Graphic file (type png)
+<use images/screenshots/11-admin-users.png>
+Package pdftex.def Info: images/screenshots/11-admin-users.png  used on input l
+ine 607.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33 <./images/screenshots/14-audit-log.png>]
+<images/screenshots/12-admin-user-edit.png, id=531, 1927.2pt x 1084.05pt>
+File: images/screenshots/12-admin-user-edit.png Graphic file (type png)
+<use images/screenshots/12-admin-user-edit.png>
+Package pdftex.def Info: images/screenshots/12-admin-user-edit.png  used on inp
+ut line 614.
+(pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
+<images/screenshots/13-admin-all-requests.png, id=532, 1927.2pt x 1084.05pt>
+File: images/screenshots/13-admin-all-requests.png Graphic file (type png)
+<use images/screenshots/13-admin-all-requests.png>
+Package pdftex.def Info: images/screenshots/13-admin-all-requests.png  used on 
+input line 621.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34 <./images/screenshots/11-admin-users.png> <./images/screenshots/12-admin-u
+ser-edit.png>] [35 <./images/screenshots/13-admin-all-requests.png>] [36
+
+]
 Kapitola 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/bx/n/10.95 (+20) Popis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/bx/n/10.95 (+20) scÈ-
  []
 
 
-Overfull \hbox (8.24782pt too wide) in paragraph at lines 566--566
+Overfull \hbox (8.24782pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) P∞ihl·≤enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) s plat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) n˝m
  []
 
 
-Overfull \hbox (8.24782pt too wide) in paragraph at lines 566--566
+Overfull \hbox (8.24782pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) P∞ihl·≤enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) n˝m
  []
 
 
-Overfull \hbox (7.46114pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.46114pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) NastavenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) hesla
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) p∞es
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) jed-no-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) r·-zov˝
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (+20) Pou∫itÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) vy-pr-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ≤e-lÈho
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) od-kazu
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 566--566
+Underfull \hbox (badness 2042) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) pro na-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) sta-venÌ
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Vytvo∞enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) o v˝-
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 566--566
+Underfull \hbox (badness 7064) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) daj do
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Vytvo∞enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) 3001--
  []
 
 
-Overfull \hbox (5.10205pt too wide) in paragraph at lines 566--566
+Overfull \hbox (5.10205pt too wide) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (-20) 50000K£| 
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Vytvo∞enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) o v˝-
  []
 
 
-Overfull \hbox (5.10205pt too wide) in paragraph at lines 566--566
+Overfull \hbox (5.10205pt too wide) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (-20) 50000K£| 
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Vytvo∞enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) typu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) PUR-
  []
 
 
-Overfull \hbox (4.70633pt too wide) in paragraph at lines 566--566
+Overfull \hbox (4.70633pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Schv·lenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) prv-nÌho
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) kroku
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) vÌ-ce-˙-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) rov-¨ovÈ
  []
 
 
-Overfull \hbox (8.30103pt too wide) in paragraph at lines 566--566
+Overfull \hbox (8.30103pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) ZamÌtnutÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) schva-lo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (+20) Vr·cenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 566--566
+Underfull \hbox (badness 3471) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) k do-pl-
  []
 
 
-Overfull \hbox (4.70633pt too wide) in paragraph at lines 566--566
+Overfull \hbox (4.70633pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Schv·lenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) v≤ech
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) krok∑
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) work-
  []
 
 
-Overfull \hbox (4.43277pt too wide) in paragraph at lines 566--566
+Overfull \hbox (4.43277pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Ozna£enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) schv·-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) lenÈ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫·-dosti
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Vytvo∞enÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ˙£et-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) nÌho
  []
 
 
-Overfull \hbox (2.10762pt too wide) in paragraph at lines 566--566
+Overfull \hbox (2.10762pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Odesl·nÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ˙£et-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) nÌmu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) od-d•-
  []
 
 
-Overfull \hbox (12.76068pt too wide) in paragraph at lines 566--566
+Overfull \hbox (12.76068pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) Za˙£tov·nÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (+20) Vr·cenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) k do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) pl-n•nÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (+20) P∞Ìstup
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ∫a-da-
  []
 
 
-Underfull \hbox (badness 3009) in paragraph at lines 566--566
+Underfull \hbox (badness 3009) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) tele na
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) ad-mi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) nis-tr·-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) tor-skÈ
  []
 
 
-Overfull \hbox (7.44298pt too wide) in paragraph at lines 566--566
+Overfull \hbox (7.44298pt too wide) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (-20) ZobrazenÌ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) au-dit-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) nÌho
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) z·-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) znamu
  []
 
 
-Underfull \hbox (badness 4556) in paragraph at lines 566--566
+Underfull \hbox (badness 4556) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) po sta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) vovÈ
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 []|\T1/lmr/m/n/10.95 (+20) E-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) mailov·
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) no-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) fi-kace
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--566
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
 \T1/lmr/m/n/10.95 (+20) sl·nÌ
  []
 
-[25
-
-]
+[37]
 Overfull \vbox (1230.09425pt too high) has occurred while \output is active []
 
 
-[26] [27] [28]
+[38] [39] [40]
 Kapitola 7.
-[29
+[41
 
-] [30] [31
+] [42] [43
 
-]) [32]
+]) [44]
 P\v {r}\'{\i }loha A.
-[33
+[45
 
 ] (./main.aux)
  ***********
@@ -1238,11 +1370,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0A2700C3104A8BC9D963DB32C7643277;10901.
  ) 
 Here is how much of TeX's memory you used:
- 17888 strings out of 469006
- 290310 string characters out of 5454813
- 780085 words of memory out of 5000000
- 46097 multiletter control sequences out of 15000+600000
- 684674 words of font info for 145 fonts, out of 8000000 for 9000
+ 18736 strings out of 469006
+ 305714 string characters out of 5454813
+ 784912 words of memory out of 5000000
+ 46854 multiletter control sequences out of 15000+600000
+ 699063 words of font info for 177 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,13n,95p,1286b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
@@ -1250,11 +1382,13 @@ sr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/te
 xlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/
 2026basic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2026b
-asic/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (45 pages, 284432 bytes).
+asic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/
+texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (57 pages, 1719087 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 117 named destinations out of 1000 (max. 500000)
- 33729 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 692 PDF objects out of 1000 (max. 8388607)
+ 574 compressed objects within 6 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 40475 words of extra memory for PDF output out of 42996 (max. 10000000)
 

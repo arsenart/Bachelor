@@ -1,8 +1,8 @@
 \babel@toc {czech}{}\relax 
-\contentsline {chapter}{Prohlášení}{3}{chapter*.1}%
-\contentsline {chapter}{Poděkování}{5}{chapter*.2}%
-\contentsline {chapter}{Abstrakt}{7}{chapter*.3}%
-\contentsline {chapter}{Abstract}{9}{chapter*.4}%
+\contentsline {chapter}{Prohlášení}{i}{chapter*.1}%
+\contentsline {chapter}{Poděkování}{iii}{chapter*.2}%
+\contentsline {chapter}{Abstrakt}{v}{chapter*.3}%
+\contentsline {chapter}{Abstract}{vii}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Úvod}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Analýza současného stavu ve společnosti}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Charakteristika společnosti}{3}{section.2.1}%
@@ -11,47 +11,47 @@
 \contentsline {section}{\numberline {2.4}Popis současného schvalovacího procesu (AS-IS)}{6}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Schvalovací proces (nákupy nad stanovenou hodnotu)}{6}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Předkládání dokladů k zaúčtování nebo proplacení}{7}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Shrnutí AS-IS modelu}{7}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}Shrnutí AS-IS modelu}{8}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}Identifikace problémů a dopadů}{8}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Analýza existujících řešení}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Principy digitalizace schvalovacích procesů}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Kritéria hodnocení systémů}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Analýza vybraných řešení}{10}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Microsoft Power Automate}{10}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Microsoft Dynamics 365 Business Central}{10}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Oracle Invoice Approval Workflow}{11}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Odoo}{11}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Srovnání řešení}{11}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Návrh řešení pro společnost}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Požadavky na systém}{13}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Funkční požadavky}{13}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Nefunkční požadavky}{14}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Návrh schvalovacího procesu (TO-BE)}{14}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Východiska cílového řešení}{14}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Role v navrhovaném procesu}{15}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}TO-BE proces schvalování nákupu a výdaje}{15}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}TO-BE proces předkládání dokladů k zaúčtování nebo proplacení}{15}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Přínosy navrženého TO-BE procesu}{16}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Architektura řešení}{16}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Datový model a logika systému}{17}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Implementace systému}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Zvolené technologie}{19}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Architektura aplikace}{20}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Implementace datového modelu}{20}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Implementace schvalovacího procesu}{21}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Workflow účetních dokladů}{22}{section.5.5}%
-\contentsline {section}{\numberline {5.6}Uživatelské rozhraní}{22}{section.5.6}%
-\contentsline {section}{\numberline {5.7}Zabezpečení}{22}{section.5.7}%
-\contentsline {section}{\numberline {5.8}E-mailové notifikace}{23}{section.5.8}%
-\contentsline {section}{\numberline {5.9}Auditní záznamy}{23}{section.5.9}%
-\contentsline {section}{\numberline {5.10}Administrace systému}{23}{section.5.10}%
-\contentsline {section}{\numberline {5.11}Inicializace dat}{24}{section.5.11}%
-\contentsline {chapter}{\numberline {6}Ověření funkčnosti systému}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Strategie ověřování}{25}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Ověřovací scénáře}{25}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Ověření schvalovacích pravidel}{27}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Ověření řízení přístupu}{28}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Ověření s~představitelem společnosti}{28}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Shrnutí výsledků ověření}{28}{section.6.6}%
-\contentsline {chapter}{\numberline {7}Závěr}{29}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Zadání práce}{33}{chapter.A}%
+\contentsline {chapter}{\numberline {3}Analýza existujících řešení}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Principy digitalizace schvalovacích procesů}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kritéria hodnocení systémů}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Analýza vybraných řešení}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Microsoft Power Automate}{12}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Microsoft Dynamics 365 Business Central}{12}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Oracle Invoice Approval Workflow}{13}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Odoo}{13}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Srovnání řešení}{13}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Návrh řešení pro společnost}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Požadavky na systém}{15}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Funkční požadavky}{15}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Nefunkční požadavky}{16}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Návrh schvalovacího procesu (TO-BE)}{16}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Východiska cílového řešení}{16}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Role v navrhovaném procesu}{17}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}TO-BE proces schvalování nákupu a výdaje}{17}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}TO-BE proces předkládání dokladů k zaúčtování nebo proplacení}{18}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Přínosy navrženého TO-BE procesu}{19}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Architektura řešení}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Datový model a logika systému}{19}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Implementace systému}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Zvolené technologie}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Architektura aplikace}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Implementace datového modelu}{24}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Implementace schvalovacího procesu}{25}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Workflow účetních dokladů}{27}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Uživatelské rozhraní}{29}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Zabezpečení}{31}{section.5.7}%
+\contentsline {section}{\numberline {5.8}E-mailové notifikace}{32}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Auditní záznamy}{32}{section.5.9}%
+\contentsline {section}{\numberline {5.10}Administrace systému}{33}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Inicializace dat}{35}{section.5.11}%
+\contentsline {chapter}{\numberline {6}Ověření funkčnosti systému}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Strategie ověřování}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Ověřovací scénáře}{37}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Ověření schvalovacích pravidel}{39}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Ověření řízení přístupu}{40}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Ověření s~představitelem společnosti}{40}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Shrnutí výsledků ověření}{40}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Závěr}{41}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Zadání práce}{45}{chapter.A}%
