@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  13 MAY 2026 20:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  14 MAY 2026 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -731,52 +731,43 @@ l.20 \chapter
 Kapitola 2.
 [3
 
-] [4] [5] [6]
-<images/screenshots/15-as-is-process.png, id=364, 1305.87875pt x 433.62pt>
+] [4] [5]
+<images/screenshots/15-as-is-process.png, id=399, 1305.87875pt x 433.62pt>
 File: images/screenshots/15-as-is-process.png Graphic file (type png)
 <use images/screenshots/15-as-is-process.png>
 Package pdftex.def Info: images/screenshots/15-as-is-process.png  used on input
- line 90.
+ line 72.
 (pdftex.def)             Requested size: 455.24411pt x 151.16055pt.
- [7 <./images/screenshots/15-as-is-process.png>] [8] [9]
-[10
+ [6 <./images/screenshots/15-as-is-process.png>] [7] [8
 
 ]
 Kapitola 3.
-[11] [12] [13] [14]
+[9] [10] [11] [12]
 Kapitola 4.
-[15
-
-] [16]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-16.
- (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ts1lmr.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+38.
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-<images/screenshots/16-to-be-approval.png, id=412, 1718.42pt x 444.66125pt>
+) [13
+
+{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [14]
+<images/screenshots/16-to-be-approval.png, id=470, 1718.42pt x 444.66125pt>
 File: images/screenshots/16-to-be-approval.png Graphic file (type png)
 <use images/screenshots/16-to-be-approval.png>
 Package pdftex.def Info: images/screenshots/16-to-be-approval.png  used on inpu
-t line 320.
+t line 319.
 (pdftex.def)             Requested size: 455.24411pt x 117.79395pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [17{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<images/screenshots/17-to-be-accounting.png, id=418, 1446.40375pt x 422.57875pt
+<images/screenshots/17-to-be-accounting.png, id=471, 1446.40375pt x 422.57875pt
 >
 File: images/screenshots/17-to-be-accounting.png Graphic file (type png)
 <use images/screenshots/17-to-be-accounting.png>
 Package pdftex.def Info: images/screenshots/17-to-be-accounting.png  used on in
 put line 342.
 (pdftex.def)             Requested size: 455.24411pt x 133.00339pt.
-
-Underfull \vbox (badness 1968) has occurred while \output is active []
-
- [18{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} 
+ [15{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} 
 <./images/screenshots/16-to-be-approval.png> <./images/screenshots/17-to-be-acc
-ounting.png>] [19]
-<images/screenshots/18-er-diagram.png, id=435, 1245.65375pt x 1044.90375pt>
+ounting.png>] [16]
+<images/screenshots/18-er-diagram.png, id=487, 1245.65375pt x 1044.90375pt>
 File: images/screenshots/18-er-diagram.png Graphic file (type png)
 <use images/screenshots/18-er-diagram.png>
 Package pdftex.def Info: images/screenshots/18-er-diagram.png  used on input li
@@ -794,568 +785,641 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20]
-[21 <./images/screenshots/18-er-diagram.png>] [22
+ [17]
+[18 <./images/screenshots/18-er-diagram.png>]
+Kapitola 5.
+[19
 
 ]
-Kapitola 5.
-[23] [24]
-<images/screenshots/04-request-form.png, id=459, 1927.2pt x 1084.05pt>
+<images/screenshots/22-deployment.png, id=507, 1434.35875pt x 543.02875pt>
+File: images/screenshots/22-deployment.png Graphic file (type png)
+<use images/screenshots/22-deployment.png>
+Package pdftex.def Info: images/screenshots/22-deployment.png  used on input li
+ne 444.
+(pdftex.def)             Requested size: 455.24411pt x 172.34756pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+[21 <./images/screenshots/22-deployment.png>]
+<images/screenshots/19-sequence-approval.png, id=520, 1707.37875pt x 1066.98625
+pt>
+File: images/screenshots/19-sequence-approval.png Graphic file (type png)
+<use images/screenshots/19-sequence-approval.png>
+Package pdftex.def Info: images/screenshots/19-sequence-approval.png  used on i
+nput line 483.
+(pdftex.def)             Requested size: 455.24411pt x 284.49207pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+<images/screenshots/20-state-approval-request.png, id=527, 1376.14125pt x 402.5
+0375pt>
+File: images/screenshots/20-state-approval-request.png Graphic file (type png)
+<use images/screenshots/20-state-approval-request.png>
+Package pdftex.def Info: images/screenshots/20-state-approval-request.png  used
+ on input line 490.
+(pdftex.def)             Requested size: 455.24411pt x 133.15215pt.
+
+Underfull \hbox (badness 3919) in paragraph at lines 491--491
+[]\T1/lmr/bx/n/10 (+20) Obrázek 5.3: |\T1/lmr/m/n/10 (+20) Sta-vový di-a-gram e
+n-tity \T1/lmtt/m/n/10 ApprovalRequest \T1/lmr/m/n/10 (+20) -- ºá-dost pro-cház
+í stavy \T1/lmtt/m/n/10 NEW $\OMS/lmsy/m/n/10 !$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--491
+\T1/lmtt/m/n/10 PENDING_APPROVAL $\OMS/lmsy/m/n/10 !$ \T1/lmtt/m/n/10 {APPROVED
+, REJECTED, RETURNED_FOR_REVISION} $\OMS/lmsy/m/n/10 !$ \T1/lmtt/m/n/10 REALIZE
+D $\OMS/lmsy/m/n/10 !$ \T1/lmtt/m/n/10 CLOSED
+ []
+
+<images/screenshots/04-request-form.png, id=528, 1927.2pt x 1084.05pt>
 File: images/screenshots/04-request-form.png Graphic file (type png)
 <use images/screenshots/04-request-form.png>
 Package pdftex.def Info: images/screenshots/04-request-form.png  used on input 
-line 472.
-(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
- [25]
-<images/screenshots/05-requests-list.png, id=465, 1927.2pt x 1084.05pt>
-File: images/screenshots/05-requests-list.png Graphic file (type png)
-<use images/screenshots/05-requests-list.png>
-Package pdftex.def Info: images/screenshots/05-requests-list.png  used on input
- line 479.
-(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
-<images/screenshots/06-approvals-list.png, id=466, 1927.2pt x 1084.05pt>
-File: images/screenshots/06-approvals-list.png Graphic file (type png)
-<use images/screenshots/06-approvals-list.png>
-Package pdftex.def Info: images/screenshots/06-approvals-list.png  used on inpu
-t line 486.
+line 497.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26 <./images/screenshots/04-request-form.png> <./images/screenshots/05-reques
+ [23 <./images/screenshots/19-sequence-approval.png> <./images/screenshots/20-s
+tate-approval-request.png>]
+<images/screenshots/05-requests-list.png, id=535, 1927.2pt x 1084.05pt>
+File: images/screenshots/05-requests-list.png Graphic file (type png)
+<use images/screenshots/05-requests-list.png>
+Package pdftex.def Info: images/screenshots/05-requests-list.png  used on input
+ line 504.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+<images/screenshots/06-approvals-list.png, id=536, 1927.2pt x 1084.05pt>
+File: images/screenshots/06-approvals-list.png Graphic file (type png)
+<use images/screenshots/06-approvals-list.png>
+Package pdftex.def Info: images/screenshots/06-approvals-list.png  used on inpu
+t line 511.
+(pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24 <./images/screenshots/04-request-form.png> <./images/screenshots/05-reques
 ts-list.png>]
-<images/screenshots/07-approval-detail.png, id=475, 1927.2pt x 1084.05pt>
+<images/screenshots/07-approval-detail.png, id=545, 1927.2pt x 1084.05pt>
 File: images/screenshots/07-approval-detail.png Graphic file (type png)
 <use images/screenshots/07-approval-detail.png>
 Package pdftex.def Info: images/screenshots/07-approval-detail.png  used on inp
-ut line 493.
+ut line 518.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
- [27 <./images/screenshots/06-approvals-list.png> <./images/screenshots/07-appr
+ [25 <./images/screenshots/06-approvals-list.png> <./images/screenshots/07-appr
 oval-detail.png>]
-Overfull \hbox (36.22691pt too wide) in paragraph at lines 503--504
+Overfull \hbox (36.22691pt too wide) in paragraph at lines 528--529
 \T1/lmr/m/n/10.95 (-20) fak-tura (IN-VOICE), po-kladní p°í-jem (CASH_RECEIPT), 
 po-kladní vý-daj (CASH_REIMBURSEMENT),
  []
 
-<images/screenshots/08-accounting-list.png, id=484, 1927.2pt x 1084.05pt>
+<images/screenshots/21-state-accounting-document.png, id=555, 1376.14125pt x 22
+1.82875pt>
+File: images/screenshots/21-state-accounting-document.png Graphic file (type pn
+g)
+<use images/screenshots/21-state-accounting-document.png>
+Package pdftex.def Info: images/screenshots/21-state-accounting-document.png  u
+sed on input line 532.
+(pdftex.def)             Requested size: 455.24411pt x 73.3831pt.
+<images/screenshots/08-accounting-list.png, id=556, 1927.2pt x 1084.05pt>
 File: images/screenshots/08-accounting-list.png Graphic file (type png)
 <use images/screenshots/08-accounting-list.png>
 Package pdftex.def Info: images/screenshots/08-accounting-list.png  used on inp
-ut line 507.
+ut line 539.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
-<images/screenshots/09-accounting-detail.png, id=485, 1927.2pt x 1084.05pt>
+<images/screenshots/09-accounting-detail.png, id=557, 1927.2pt x 1084.05pt>
 File: images/screenshots/09-accounting-detail.png Graphic file (type png)
 <use images/screenshots/09-accounting-detail.png>
 Package pdftex.def Info: images/screenshots/09-accounting-detail.png  used on i
-nput line 514.
+nput line 546.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [28 <./images/screenshots/08-accounting-list.png>]
-<images/screenshots/10-accounting-posted.png, id=492, 1927.2pt x 1084.05pt>
+ [26 <./images/screenshots/21-state-accounting-document.png> <./images/screensh
+ots/08-accounting-list.png>]
+<images/screenshots/10-accounting-posted.png, id=566, 1927.2pt x 1084.05pt>
 File: images/screenshots/10-accounting-posted.png Graphic file (type png)
 <use images/screenshots/10-accounting-posted.png>
 Package pdftex.def Info: images/screenshots/10-accounting-posted.png  used on i
-nput line 521.
+nput line 553.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
- [29 <./images/screenshots/09-accounting-detail.png> <./images/screenshots/10-a
-ccounting-posted.png>]
-<images/screenshots/01-login.png, id=501, 1927.2pt x 1084.05pt>
+<images/screenshots/01-login.png, id=568, 1927.2pt x 1084.05pt>
 File: images/screenshots/01-login.png Graphic file (type png)
 <use images/screenshots/01-login.png>
-Package pdftex.def Info: images/screenshots/01-login.png  used on input line 53
+Package pdftex.def Info: images/screenshots/01-login.png  used on input line 56
 5.
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
-<images/screenshots/03-dashboard.png, id=502, 1927.2pt x 1084.05pt>
+ [27 <./images/screenshots/09-accounting-detail.png> <./images/screenshots/10-a
+ccounting-posted.png>]
+<images/screenshots/03-dashboard.png, id=578, 1927.2pt x 1084.05pt>
 File: images/screenshots/03-dashboard.png Graphic file (type png)
 <use images/screenshots/03-dashboard.png>
 Package pdftex.def Info: images/screenshots/03-dashboard.png  used on input lin
-e 544.
+e 574.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
- [30 <./images/screenshots/01-login.png> <./images/screenshots/03-dashboard.png
->]
-<images/screenshots/02-setup-password.png, id=511, 1927.2pt x 1084.05pt>
+
+Overfull \hbox (48.22534pt too wide) in paragraph at lines 581--582
+[]\T1/lmr/m/n/10.95 (-20) Stavové i ty-pové po-pisky jsou pln¥ lo-ka-li-zo-vány
+ (\T1/lmtt/m/n/10.95 messages_cs.properties\T1/lmr/m/n/10.95 (-20) , \T1/lmtt/m
+/n/10.95 messages_en.properties\T1/lmr/m/n/10.95 (-20) );
+ []
+
+[28 <./images/screenshots/01-login.png> <./images/screenshots/03-dashboard.png>
+]
+<images/screenshots/02-setup-password.png, id=588, 1927.2pt x 1084.05pt>
 File: images/screenshots/02-setup-password.png Graphic file (type png)
 <use images/screenshots/02-setup-password.png>
 Package pdftex.def Info: images/screenshots/02-setup-password.png  used on inpu
-t line 568.
+t line 633.
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
- [31 <./images/screenshots/02-setup-password.png>]
-<images/screenshots/14-audit-log.png, id=519, 1927.2pt x 1084.05pt>
+ [29]
+<images/screenshots/14-audit-log.png, id=595, 1927.2pt x 1084.05pt>
 File: images/screenshots/14-audit-log.png Graphic file (type png)
 <use images/screenshots/14-audit-log.png>
 Package pdftex.def Info: images/screenshots/14-audit-log.png  used on input lin
-e 591.
+e 652.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32]
-<images/screenshots/11-admin-users.png, id=524, 1927.2pt x 1084.05pt>
+ [30 <./images/screenshots/02-setup-password.png>]
+<images/screenshots/11-admin-users.png, id=603, 1927.2pt x 1084.05pt>
 File: images/screenshots/11-admin-users.png Graphic file (type png)
 <use images/screenshots/11-admin-users.png>
 Package pdftex.def Info: images/screenshots/11-admin-users.png  used on input l
-ine 607.
+ine 664.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33 <./images/screenshots/14-audit-log.png>]
-<images/screenshots/12-admin-user-edit.png, id=531, 1927.2pt x 1084.05pt>
+ [31 <./images/screenshots/14-audit-log.png>]
+<images/screenshots/12-admin-user-edit.png, id=611, 1927.2pt x 1084.05pt>
 File: images/screenshots/12-admin-user-edit.png Graphic file (type png)
 <use images/screenshots/12-admin-user-edit.png>
 Package pdftex.def Info: images/screenshots/12-admin-user-edit.png  used on inp
-ut line 614.
+ut line 671.
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
-<images/screenshots/13-admin-all-requests.png, id=532, 1927.2pt x 1084.05pt>
+<images/screenshots/13-admin-all-requests.png, id=612, 1927.2pt x 1084.05pt>
 File: images/screenshots/13-admin-all-requests.png Graphic file (type png)
 <use images/screenshots/13-admin-all-requests.png>
 Package pdftex.def Info: images/screenshots/13-admin-all-requests.png  used on 
-input line 621.
+input line 678.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34 <./images/screenshots/11-admin-users.png> <./images/screenshots/12-admin-u
-ser-edit.png>] [35 <./images/screenshots/13-admin-all-requests.png>] [36
+ [32 <./images/screenshots/11-admin-users.png> <./images/screenshots/12-admin-u
+ser-edit.png>] [33 <./images/screenshots/13-admin-all-requests.png>]
+Overfull \hbox (32.61458pt too wide) in paragraph at lines 740--750
+\T1/lmr/m/n/10.95 (-20) Pro ú£ely de-mon-strace a tes-to-vání sys-tému jsou im-
+ple-men-to-vány dv¥ ini-ci-a-li-za£ní t°ídy. \T1/lmtt/m/n/10.95 DataInitializer
+
+ []
+
+[34]
+Kapitola 6.
+[35
 
 ]
-Kapitola 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/bx/n/10.95 (+20) Popis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/bx/n/10.95 (+20) scé-
  []
 
 
-Overfull \hbox (8.24782pt too wide) in paragraph at lines 727--727
+Overfull \hbox (8.24782pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) P°ihlá²ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) s plat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ným
  []
 
 
-Overfull \hbox (8.24782pt too wide) in paragraph at lines 727--727
+Overfull \hbox (8.24782pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) P°ihlá²ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ným
  []
 
 
-Overfull \hbox (7.46114pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.46114pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Nastavení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) hesla
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) p°es
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) jed-no-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) rá-zový
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (+20) Pouºití
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) vy-pr-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ²e-lého
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) od-kazu
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 727--727
+Underfull \hbox (badness 2042) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) pro na-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) sta-vení
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Vytvo°ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) o vý-
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 727--727
+Underfull \hbox (badness 7064) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) daj do
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Vytvo°ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) 3001--
  []
 
 
-Overfull \hbox (5.10205pt too wide) in paragraph at lines 727--727
+Overfull \hbox (5.10205pt too wide) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (-20) 50000K£| 
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Vytvo°ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) o vý-
  []
 
 
-Overfull \hbox (5.10205pt too wide) in paragraph at lines 727--727
+Overfull \hbox (5.10205pt too wide) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (-20) 50000K£| 
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Vytvo°ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) typu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) PUR-
  []
 
 
-Overfull \hbox (4.70633pt too wide) in paragraph at lines 727--727
+Overfull \hbox (4.70633pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Schválení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) prv-ního
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) kroku
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ví-ce-ú-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) rov-¬ové
  []
 
 
-Overfull \hbox (8.30103pt too wide) in paragraph at lines 727--727
+Overfull \hbox (8.30103pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Zamítnutí
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) schva-lo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (+20) Vrácení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 727--727
+Underfull \hbox (badness 3471) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) k do-pl-
  []
 
 
-Overfull \hbox (4.70633pt too wide) in paragraph at lines 727--727
+Overfull \hbox (4.70633pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Schválení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) v²ech
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) krok·
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) work-
  []
 
 
-Overfull \hbox (4.43277pt too wide) in paragraph at lines 727--727
+Overfull \hbox (4.43277pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Ozna£ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) schvá-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) lené
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºá-dosti
  []
 
 
-Overfull \hbox (7.12128pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.12128pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Vytvo°ení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ú£et-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ního
  []
 
 
-Overfull \hbox (2.10762pt too wide) in paragraph at lines 727--727
+Overfull \hbox (2.10762pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Odeslání
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ú£et-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) nímu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) od-d¥-
  []
 
 
-Overfull \hbox (12.76068pt too wide) in paragraph at lines 727--727
+Overfull \hbox (12.76068pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Zaú£tování
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (+20) Vrácení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+12) do-kladu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) k do-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) pl-n¥ní
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (+20) P°ístup
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ºa-da-
  []
 
 
-Underfull \hbox (badness 3009) in paragraph at lines 727--727
+Underfull \hbox (badness 3009) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) tele na
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ad-mi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) nis-trá-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) tor-ské
  []
 
 
-Overfull \hbox (7.44298pt too wide) in paragraph at lines 727--727
+Overfull \hbox (7.44298pt too wide) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (-20) Zobrazení
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) au-dit-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) ního
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) zá-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) znamu
  []
 
 
-Underfull \hbox (badness 4556) in paragraph at lines 727--727
+Underfull \hbox (badness 4556) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) po sta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) vové
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 []|\T1/lmr/m/n/10.95 (+20) E-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) mailová
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) no-ti-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) fi-kace
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 727--727
+Underfull \hbox (badness 10000) in paragraph at lines 871--871
 \T1/lmr/m/n/10.95 (+20) slání
  []
 
-[37]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36]
 Overfull \vbox (1230.09425pt too high) has occurred while \output is active []
 
 
-[38] [39] [40]
-Kapitola 7.
-[41
+[37] [38] [39] [40
 
-] [42] [43
+]
+Kapitola 7.
+[41] [42] [43
 
 ]) [44]
 P\v {r}\'{\i }loha A.
@@ -1367,16 +1431,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0A2700C3104A8BC9D963DB32C7643277;10901.
+(rerunfilecheck)             Checksum: E745534F6471286595290642422213E4;11957.
  ) 
 Here is how much of TeX's memory you used:
- 18736 strings out of 469006
- 305714 string characters out of 5454813
- 784912 words of memory out of 5000000
- 46854 multiletter control sequences out of 15000+600000
- 699063 words of font info for 177 fonts, out of 8000000 for 9000
+ 18846 strings out of 469006
+ 308405 string characters out of 5454813
+ 784165 words of memory out of 5000000
+ 46914 multiletter control sequences out of 15000+600000
+ 701169 words of font info for 198 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,13n,95p,1286b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,84p,1286b,660s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
 sr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/te
@@ -1385,10 +1449,10 @@ xlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/
 asic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/
 texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (57 pages, 1719087 bytes).
+Output written on main.pdf (57 pages, 2000133 bytes).
 PDF statistics:
- 692 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
- 156 named destinations out of 1000 (max. 500000)
- 40475 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 763 PDF objects out of 1000 (max. 8388607)
+ 635 compressed objects within 7 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 42583 words of extra memory for PDF output out of 42996 (max. 10000000)
 
