@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="state-document" name="State: AccountingDocument">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="initial" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="60" y="280" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sNew" value="NEW&#10;(Nový)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="260" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sSubmitted" value="SUBMITTED_TO_ACCOUNTING&#10;(Předáno účetnímu)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="260" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sReturned" value="RETURNED_FOR_COMPLETION&#10;(K~doplnění)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sPosted" value="POSTED&#10;(Zaúčtováno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sPaid" value="PAID&#10;(Proplaceno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sClosed" value="CLOSED&#10;(Uzavřeno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final" value="" style="endFill=1;html=1;fillColor=#000000;strokeColor=#000000;perimeter=ellipsePerimeter;shape=endState;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="275" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t1" value="create()" style="endArrow=classic;html=1;" edge="1" parent="1" source="initial" target="sNew"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t2" value="submitToAccounting()" style="endArrow=classic;html=1;" edge="1" parent="1" source="sNew" target="sSubmitted"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t3" value="markAsPosted(pohodaNo)" style="endArrow=classic;html=1;" edge="1" parent="1" source="sSubmitted" target="sPosted"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t4" value="returnForCompletion(comment)" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="sSubmitted" target="sReturned"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t5" value="updateAndResubmit()" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="sReturned" target="sNew"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t6" value="markAsPaid()" style="endArrow=classic;html=1;" edge="1" parent="1" source="sPosted" target="sPaid"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t7" value="close()" style="endArrow=classic;html=1;" edge="1" parent="1" source="sPaid" target="sClosed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t8" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="sClosed" target="final"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

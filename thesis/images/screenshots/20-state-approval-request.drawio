@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="state-request" name="State: ApprovalRequest">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="initial" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="240" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sNew" value="NEW&#10;(Nový)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sPending" value="PENDING_APPROVAL&#10;(Čeká na schválení)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sReturned" value="RETURNED_FOR_REVISION&#10;(K~doplnění)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="80" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sApproved" value="APPROVED&#10;(Schváleno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sRejected" value="REJECTED&#10;(Zamítnuto)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="380" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sRealized" value="REALIZED&#10;(Realizováno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sClosed" value="CLOSED&#10;(Uzavřeno)" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="final" value="" style="endFill=1;html=1;fillColor=#000000;strokeColor=#000000;perimeter=ellipsePerimeter;shape=endState;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="240" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="t1" value="create()" style="endArrow=classic;html=1;" edge="1" parent="1" source="initial" target="sNew"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t2" value="submit() /&#10;[přiřazení schvalovatelů]" style="endArrow=classic;html=1;" edge="1" parent="1" source="sNew" target="sPending"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t3" value="approve()&#10;[všechny kroky OK]" style="endArrow=classic;html=1;" edge="1" parent="1" source="sPending" target="sApproved"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t4" value="reject(comment)" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="sPending" target="sRejected"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t5" value="returnForRevision(comment)" style="endArrow=classic;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="sPending" target="sReturned"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t6" value="updateAndSubmit() /&#10;[přepočet kroků]" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="sReturned" target="sPending"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t7" value="markAsRealized()" style="endArrow=classic;html=1;" edge="1" parent="1" source="sApproved" target="sRealized"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t8" value="markAsClosed()" style="endArrow=classic;html=1;" edge="1" parent="1" source="sRealized" target="sClosed"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t9" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="sClosed" target="final"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="t10" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.7;" edge="1" parent="1" source="sRejected" target="final">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1430" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
