@@ -163,6 +163,17 @@
 \pagenumbering{roman}
 \setcounter{page}{1}
 
+%% ── Poděkování ───────────────────────────────────────────────
+\chapter*{Poděkování}
+\addcontentsline{toc}{chapter}{Poděkování}
+\thispagestyle{plain}
+
+Rád bych poděkoval vedoucímu práce \ThesisSupervisor{} za odborné vedení a cenné rady
+při zpracování této bakalářské práce. Dále děkuji společnosti Medicton Group za poskytnutí
+interních podkladů a umožnění analýzy jejich procesů.
+
+\cleardoublepage
+
 %% ── Prohlášení ───────────────────────────────────────────────
 \chapter*{Prohlášení}
 \addcontentsline{toc}{chapter}{Prohlášení}
@@ -176,18 +187,6 @@ při přípravě vysokoškolských závěrečných prací.
 \noindent V Praze dne \underline{\hspace{4cm}}
 \hfill
 Podpis: \underline{\hspace{5cm}}
-
-\cleardoublepage
-
-%% ── Poděkování ───────────────────────────────────────────────
-\chapter*{Poděkování}
-\addcontentsline{toc}{chapter}{Poděkování}
-\thispagestyle{plain}
-
-%% TODO: Doplňte text poděkování
-Rád bych poděkoval vedoucímu práce \ThesisSupervisor{} za odborné vedení a cenné rady
-při zpracování této bakalářské práce. Dále děkuji společnosti Medicton Group za poskytnutí
-interních podkladů a umožnění analýzy jejich procesů.
 
 \cleardoublepage
 
@@ -243,10 +242,35 @@ PostgreSQL, bachelor's thesis
 
 \cleardoublepage
 
-%% ── Seznam zkratek a pojmů ──────────────────────────────────
-\chapter*{Seznam zkratek a pojmů}
-\addcontentsline{toc}{chapter}{Seznam zkratek a pojmů}
-\thispagestyle{plain}
+
+%% ── Obsah (Table of Contents) ────────────────────────────────
+\tableofcontents
+\cleardoublepage
+
+%% ── Seznam obrázků ───────────────────────────────────────────
+\listoffigures
+\addcontentsline{toc}{chapter}{Seznam obrázků}
+\cleardoublepage
+
+%% ── Seznam tabulek ───────────────────────────────────────────
+\listoftables
+\addcontentsline{toc}{chapter}{Seznam tabulek}
+\cleardoublepage
+
+%% ── Přechod na arabské číslování od kapitoly 1 (Úvod) ─────────
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%% ============================================================
+%%  HLAVNÍ TEXT PRÁCE
+%% ============================================================
+\input{chapters}
+
+%% ── Přílohy ───────────────────────────────────────────────────
+\appendix
+
+\chapter{Seznam zkratek a pojmů}
+\label{app:zkratky}
 
 \begin{description}[leftmargin=3.5cm, style=nextline]
   \item[AS-IS / TO-BE] Současný (AS-IS) a~cílový (TO-BE) stav procesu, terminologie business process management.
@@ -285,27 +309,40 @@ PostgreSQL, bachelor's thesis
   \item[XSS] Cross-Site Scripting -- útok vkládáním škodlivého kódu do stránky.
 \end{description}
 
-\cleardoublepage
 
-%% ── Obsah (Table of Contents) ────────────────────────────────
-\tableofcontents
-\cleardoublepage
+\chapter{Obsah přiloženého CD / repozitáře}
+\label{app:cd}
 
-%% ── Přechod na arabské číslování od kapitoly 1 (Úvod) ─────────
-\pagenumbering{arabic}
-\setcounter{page}{1}
+Zdrojové kódy implementovaného systému, text bakalářské práce a~související
+materiály jsou dostupné v~Git repozitáři na adrese
+\url{https://github.com/arsenart/Bachelor} (alternativně na přiloženém CD).
+Struktura adresáře je následující:
 
-%% ============================================================
-%%  HLAVNÍ TEXT PRÁCE
-%% ============================================================
-\input{chapters}
+\begin{description}[leftmargin=2.5cm, style=nextline]
+\item[\texttt{/Code}] Zdrojový kód aplikace Spring Boot
+\item[\quad\texttt{src/main/java/}] Java zdrojové kódy (controllery, služby, entity, repozitáře)
+\item[\quad\texttt{src/main/resources/}] Konfigurace, Thymeleaf šablony, lokalizace
+\item[\quad\texttt{src/test/java/}] Jednotkové testy (JUnit~5 + Mockito)
+\item[\quad\texttt{pom.xml}] Maven konfigurace projektu a~závislosti
+\item[\quad\texttt{Dockerfile}] Konfigurace pro kontejnerové nasazení
+\item[\quad\texttt{README.md}] Návod ke spuštění a~konfiguraci aplikace
+\item[\texttt{/thesis}] Zdrojové soubory bakalářské práce v~\LaTeX{}u
+\item[\quad\texttt{main.tex}, \texttt{chapters.tex}] Hlavní soubory práce
+\item[\quad\texttt{main.pdf}] Zkompilovaná verze práce ve formátu PDF
+\item[\quad\texttt{images/}] Logo ČVUT, BPMN, UML a~architektonické diagramy
+\item[\quad\texttt{images/screenshots/}] Snímky obrazovky implementované aplikace
+\item[\quad\texttt{zadani.pdf}] Naskenované zadání bakalářské práce
+\end{description}
 
-%% ── Příloha A: Zadání práce ──────────────────────────────────
-\appendix
-\chapter{Zadání práce}
-\label{app:zadani}
+\paragraph{Spuštění aplikace.} Aplikace vyžaduje Javu~17+ a~přístup
+k~PostgreSQL~16. Po naklonování repozitáře a~nastavení proměnných
+prostředí (\texttt{DB\_URL}, \texttt{DB\_USERNAME}, \texttt{DB\_PASSWORD},
+\texttt{RESEND\_API\_KEY}) se aplikace spouští příkazem
+\texttt{./mvnw spring-boot:run}. Detailní pokyny jsou v~souboru
+\texttt{README.md}.
 
-%% Sem vložte scan zadání nebo přepište text zadání.
-\textit{(Vložte scan zadání práce)}
+\paragraph{Online verze.} Funkční nasazení systému je dostupné na adrese
+\url{https://bachelor-production-0dda.up.railway.app} v~rámci platformy
+Railway s~připojenou produkční databází PostgreSQL.
 
 \end{document}

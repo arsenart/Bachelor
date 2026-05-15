@@ -1,0 +1,33 @@
+\babel@toc {czech}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Organizační struktura společnosti Medicton Group -- dvě propojené společnosti se společným vedením (jednatelé), osm vedoucích oddělení středního managementu a~operativní úroveň. Diagram zobrazuje pouze pozice, nikoli konkrétní jména zaměstnanců.}}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Schéma současného (AS-IS) schvalovacího procesu ve společnosti Medicton Group -- proces se odehrává napříč nástroji (Google Sheet, e-mail, SharePoint, Pohoda) bez centralizovaného workflow.}}{6}{figure.caption.9}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Navrhovaný (TO-BE) schvalovací proces -- centralizovaný workflow s~automatickým směrováním na základě typu žádosti a~výše částky, s~možnostmi schválení, zamítnutí nebo vrácení k~revizi.}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Navrhovaný (TO-BE) proces zpracování účetních dokladů -- centralizovaná evidence s~přechody mezi stavy NEW $\rightarrow $ SUBMITTED\_TO\_ACCOUNTING $\rightarrow $ POSTED $\rightarrow $ PAID $\rightarrow $ CLOSED.}}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Entitně-relační diagram datového modelu systému -- centrální entitou je \texttt {users}, na kterou se vážou žádosti (\texttt {approval\_requests}), schvalovací kroky (\texttt {approval\_steps}), pravidla schvalování (\texttt {approval\_rules}), účetní doklady (\texttt {accounting\_documents}) i~auditní záznamy (\texttt {audit\_log}).}}{18}{figure.caption.13}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagram nasazení aplikace -- Spring Boot a~PostgreSQL běží jako oddělené služby v~rámci platformy Railway. Doménový provoz směruje Cloudflare (DNS, TLS, doména \texttt {medicton.uk}), e-mailové notifikace odesílá služba Resend s~ověřením DKIM/SPF/DMARC. Deployment je řízen z~GitHubu přes CI/CD pipeline Railway.}}{21}{figure.caption.14}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sekvenční diagram zachycující komunikaci mezi vrstvami aplikace ve dvou fázích: odeslání žádosti ke schválení (fáze 1) a~rozhodnutí schvalovatele (fáze 2). Poznámky popisují klíčové validace -- výběr schvalovatele, kontrolu vlastnictví a~rollback při výjimce.}}{23}{figure.caption.15}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Stavový diagram entity \texttt {ApprovalRequest} -- žádost prochází stavy \texttt {NEW $\rightarrow $ PENDING\_APPROVAL $\rightarrow $ \{APPROVED, REJECTED, RETURNED\_FOR\_REVISION\} $\rightarrow $ REALIZED $\rightarrow $ CLOSED} podle volaných servisních metod.}}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Formulář pro vytvoření nové žádosti -- typ (výdaj/nákup), částka v~CZK, dodavatel, oddělení a~zdůvodnění.}}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Seznam vlastních žádostí žadatele s~filtry podle stavu, typu a~textovým vyhledáváním.}}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Seznam žádostí čekajících na schválení -- z~pohledu schvalovatele.}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Detail žádosti s~atributy, protokolem aktivity a~rozhodovacími tlačítky (Schválit, Zamítnout, Vrátit k~revizi).}}{25}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Stavový diagram entity \texttt {AccountingDocument} -- doklad prochází od stavu NEW přes SUBMITTED\_TO\_ACCOUNTING (s~možností vrácení k~doplnění) až po POSTED, PAID a~CLOSED. Přechod do POSTED vyžaduje číslo dokladu v~Pohodě.}}{26}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Přehled účetních dokladů s~rozdělením na doklady čekající na zpracování a~vlastní doklady uživatele.}}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Detail účetního dokladu z~pohledu účetní -- formulář pro zaúčtování s~přiřazením čísla v~účetním systému Pohoda.}}{27}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Zaúčtovaný doklad s~kompletní historií zpracování a~možností označit jako proplacený.}}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Přihlašovací stránka aplikace s~podporou přepínání jazyka.}}{28}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Řídicí panel uživatele s~rolemi žadatele a~schvalovatele -- karty s~přehledem žádostí, schvalování a~účetních dokladů.}}{28}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Formulář pro nastavení hesla nového uživatele -- otevírá se jednorázovým odkazem z~e-mailu s~platností 24~hodin.}}{30}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Protokol auditních záznamů -- chronologický přehled všech stavových změn žádostí a~účetních dokladů s~odkazem na zodpovědného uživatele.}}{31}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Administrátorské rozhraní pro správu uživatelů -- seznam všech účtů s~oddělením, rolemi a~stavem aktivace.}}{32}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Formulář pro úpravu uživatele -- e-mail je readonly, lze měnit jméno, oddělení a~přiřazené role.}}{32}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Administrátorský přehled všech žádostí v~systému bez ohledu na autora -- nástroj pro dohled a~řešení eskalovaných situací.}}{33}{figure.caption.31}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

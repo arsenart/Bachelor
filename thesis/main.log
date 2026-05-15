@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  15 MAY 2026 22:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.10)  15 MAY 2026 22:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,7 +696,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-<images/LogoCVUT.pdf, id=253, 198.7425pt x 158.5925pt>
+<images/LogoCVUT.pdf, id=261, 198.7425pt x 158.5925pt>
 File: images/LogoCVUT.pdf Graphic file (type pdf)
 <use images/LogoCVUT.pdf>
 Package pdftex.def Info: images/LogoCVUT.pdf  used on input line 133.
@@ -706,12 +706,12 @@ Package pdftex.def Info: images/LogoCVUT.pdf  used on input line 133.
 {/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
 r/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} <./images/Lo
 goCVUT.pdf>]
-<zadani.pdf, id=267, 597.50829pt x 845.0471pt>
+<zadani.pdf, id=275, 597.50829pt x 845.0471pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf>
 Package pdftex.def Info: zadani.pdf  used on input line 158.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
-<zadani.pdf, id=269, page=1, 597.50829pt x 845.0471pt>
+<zadani.pdf, id=277, page=1, 597.50829pt x 845.0471pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 1>
 Package pdftex.def Info: zadani.pdf , page1 used on input line 158.
@@ -742,7 +742,7 @@ Package pdftex.def Info: zadani.pdf , page1 used on input line 158.
  [1
 
  <./zadani.pdf>]
-<zadani.pdf, id=313, page=2, 597.50829pt x 845.0471pt>
+<zadani.pdf, id=321, page=2, 597.50829pt x 845.0471pt>
 File: zadani.pdf Graphic file (type pdf)
 <use zadani.pdf, page 2>
 Package pdftex.def Info: zadani.pdf , page2 used on input line 158.
@@ -757,38 +757,41 @@ Package pdftex.def Info: zadani.pdf , page2 used on input line 158.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [2
 
- <./zadani.pdf>]
+ <./zadani.pdf>] [1
+
+
+]
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-76.
+87.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-76.
+87.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-176.
+187.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-176.
+187.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 176.
+(Font)              <10.95> on input line 187.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 176.
+(Font)              <8> on input line 187.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 176.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 176
+(Font)              <6> on input line 187.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 187
 .
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -797,7 +800,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/Users/arsenart/Library/texmf/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 176
+LaTeX Font Info:    Trying to load font information for U+msb on input line 187
 .
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -805,23 +808,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/Users/arsenart/Library/texmf/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1
-
-
-] [2
+) [2
 
 
 ] [3
 
 
+] [4
+
+
 ]
-[4
-
-
-] [5
-
-
-] [6] (./main.toc [7
+(./main.toc [5
 
 
 ])
@@ -829,8 +826,55 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout4 = `main.toc'.
 
 Package babel Info: 'czech' activates 'czech' shorthands.
-(babel)             Reported on input line 292.
- [8] (./chapters.tex
+(babel)             Reported on input line 248.
+ [6] (./main.lof
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+0.
+
+(/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (6.71992pt too wide) in paragraph at lines 10--10
+ \T1/lmr/m/n/10.95 (-20) kte-rou se vá-ºou ºá-dosti (\T1/lmtt/m/n/10.95 approva
+l_requests\T1/lmr/m/n/10.95 (-20) ), schva-lo-vací kroky (\T1/lmtt/m/n/10.95 ap
+proval_steps\T1/lmr/m/n/10.95 (-20) ), 
+ []
+
+
+Overfull \hbox (53.19518pt too wide) in paragraph at lines 14--14
+ [][] [][][]\T1/lmr/m/n/10.95 (-20) Stavový di-a-gram en-tity \T1/lmtt/m/n/10.9
+5 ApprovalRequest \T1/lmr/m/n/10.95 (-20) -- ºá-dost pro-chází stavy \T1/lmtt/m
+/n/10.95 NEW $\OMS/lmsy/m/n/10.95 !$ \T1/lmtt/m/n/10.95 PENDING_APPROVAL 
+ []
+
+
+Overfull \hbox (3.55997pt too wide) in paragraph at lines 14--14
+ \OMS/lmsy/m/n/10.95 !$ \T1/lmtt/m/n/10.95 {APPROVED, REJECTED, RETURNED_FOR_RE
+VISION} $\OMS/lmsy/m/n/10.95 !$ \T1/lmtt/m/n/10.95 REALIZED $\OMS/lmsy/m/n/10.9
+5 !$ \T1/lmtt/m/n/10.95 CLOSED 
+ []
+
+[7
+
+
+{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+
+[8] (./main.lot)
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+ [9
+
+
+] (./chapters.tex
 Kapitola 1.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -852,14 +896,14 @@ Kapitola 2.
 [3
 
 ]
-<images/screenshots/23-org-chart.png, id=431, 1787.67876pt x 472.76625pt>
+<images/screenshots/23-org-chart.png, id=529, 1787.67876pt x 472.76625pt>
 File: images/screenshots/23-org-chart.png Graphic file (type png)
 <use images/screenshots/23-org-chart.png>
 Package pdftex.def Info: images/screenshots/23-org-chart.png  used on input lin
 e 43.
 (pdftex.def)             Requested size: 455.24411pt x 120.39148pt.
  [4 <./images/screenshots/23-org-chart.png>] [5]
-<images/screenshots/15-as-is-process.png, id=453, 1305.87875pt x 433.62pt>
+<images/screenshots/15-as-is-process.png, id=551, 1305.87875pt x 433.62pt>
 File: images/screenshots/15-as-is-process.png Graphic file (type png)
 <use images/screenshots/15-as-is-process.png>
 Package pdftex.def Info: images/screenshots/15-as-is-process.png  used on input
@@ -878,51 +922,40 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [13
 
 {/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [14]
-<images/screenshots/16-to-be-approval.png, id=523, 1718.42pt x 444.66125pt>
+<images/screenshots/16-to-be-approval.png, id=619, 1718.42pt x 444.66125pt>
 File: images/screenshots/16-to-be-approval.png Graphic file (type png)
 <use images/screenshots/16-to-be-approval.png>
 Package pdftex.def Info: images/screenshots/16-to-be-approval.png  used on inpu
 t line 326.
 (pdftex.def)             Requested size: 455.24411pt x 117.79395pt.
-<images/screenshots/17-to-be-accounting.png, id=524, 1446.40375pt x 422.57875pt
+<images/screenshots/17-to-be-accounting.png, id=620, 1446.40375pt x 422.57875pt
 >
 File: images/screenshots/17-to-be-accounting.png Graphic file (type png)
 <use images/screenshots/17-to-be-accounting.png>
 Package pdftex.def Info: images/screenshots/17-to-be-accounting.png  used on in
 put line 349.
 (pdftex.def)             Requested size: 455.24411pt x 133.00339pt.
- [15{/usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} 
-<./images/screenshots/16-to-be-approval.png> <./images/screenshots/17-to-be-acc
-ounting.png>] [16]
-<images/screenshots/18-er-diagram.png, id=540, 1245.65375pt x 1044.90375pt>
+ [15 <./images/screenshots/16-to-be-approval.png> <./images/screenshots/17-to-b
+e-accounting.png>] [16]
+<images/screenshots/18-er-diagram.png, id=633, 1245.65375pt x 1044.90375pt>
 File: images/screenshots/18-er-diagram.png Graphic file (type png)
 <use images/screenshots/18-er-diagram.png>
 Package pdftex.def Info: images/screenshots/18-er-diagram.png  used on input li
 ne 403.
 (pdftex.def)             Requested size: 455.24411pt x 381.87299pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-04.
- (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [17]
-[18 <./images/screenshots/18-er-diagram.png>]
+ [17] [18 <./images/screenshots/18-er-diagram.png>]
 Kapitola 5.
 [19
 
 ]
-<images/screenshots/22-deployment.png, id=559, 1434.35875pt x 543.02875pt>
+<images/screenshots/22-deployment.png, id=651, 1434.35875pt x 543.02875pt>
 File: images/screenshots/22-deployment.png Graphic file (type png)
 <use images/screenshots/22-deployment.png>
 Package pdftex.def Info: images/screenshots/22-deployment.png  used on input li
 ne 451.
 (pdftex.def)             Requested size: 455.24411pt x 172.34756pt.
  [20] [21 <./images/screenshots/22-deployment.png>]
-<images/screenshots/19-sequence-approval.png, id=573, 1707.37875pt x 1066.98625
+<images/screenshots/19-sequence-approval.png, id=663, 1707.37875pt x 1066.98625
 pt>
 File: images/screenshots/19-sequence-approval.png Graphic file (type png)
 <use images/screenshots/19-sequence-approval.png>
@@ -930,7 +963,7 @@ Package pdftex.def Info: images/screenshots/19-sequence-approval.png  used on i
 nput line 490.
 (pdftex.def)             Requested size: 455.24411pt x 284.49207pt.
  [22]
-<images/screenshots/20-state-approval-request.png, id=580, 1376.14125pt x 402.5
+<images/screenshots/20-state-approval-request.png, id=668, 1376.14125pt x 402.5
 0375pt>
 File: images/screenshots/20-state-approval-request.png Graphic file (type png)
 <use images/screenshots/20-state-approval-request.png>
@@ -951,7 +984,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 498--498
 D $\OMS/lmsy/m/n/10 !$ \T1/lmtt/m/n/10 CLOSED
  []
 
-<images/screenshots/04-request-form.png, id=581, 1927.2pt x 1084.05pt>
+<images/screenshots/04-request-form.png, id=669, 1927.2pt x 1084.05pt>
 File: images/screenshots/04-request-form.png Graphic file (type png)
 <use images/screenshots/04-request-form.png>
 Package pdftex.def Info: images/screenshots/04-request-form.png  used on input 
@@ -959,13 +992,13 @@ line 504.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 [23 <./images/screenshots/19-sequence-approval.png> <./images/screenshots/20-st
 ate-approval-request.png>]
-<images/screenshots/05-requests-list.png, id=588, 1927.2pt x 1084.05pt>
+<images/screenshots/05-requests-list.png, id=676, 1927.2pt x 1084.05pt>
 File: images/screenshots/05-requests-list.png Graphic file (type png)
 <use images/screenshots/05-requests-list.png>
 Package pdftex.def Info: images/screenshots/05-requests-list.png  used on input
  line 511.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
-<images/screenshots/06-approvals-list.png, id=589, 1927.2pt x 1084.05pt>
+<images/screenshots/06-approvals-list.png, id=677, 1927.2pt x 1084.05pt>
 File: images/screenshots/06-approvals-list.png Graphic file (type png)
 <use images/screenshots/06-approvals-list.png>
 Package pdftex.def Info: images/screenshots/06-approvals-list.png  used on inpu
@@ -973,7 +1006,7 @@ t line 518.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
  [24 <./images/screenshots/04-request-form.png> <./images/screenshots/05-reques
 ts-list.png>]
-<images/screenshots/07-approval-detail.png, id=599, 1927.2pt x 1084.05pt>
+<images/screenshots/07-approval-detail.png, id=684, 1927.2pt x 1084.05pt>
 File: images/screenshots/07-approval-detail.png Graphic file (type png)
 <use images/screenshots/07-approval-detail.png>
 Package pdftex.def Info: images/screenshots/07-approval-detail.png  used on inp
@@ -986,7 +1019,7 @@ Overfull \hbox (36.22691pt too wide) in paragraph at lines 535--536
 po-kladní vý-daj (CASH_REIMBURSEMENT),
  []
 
-<images/screenshots/21-state-accounting-document.png, id=608, 1376.14125pt x 22
+<images/screenshots/21-state-accounting-document.png, id=692, 1376.14125pt x 22
 1.82875pt>
 File: images/screenshots/21-state-accounting-document.png Graphic file (type pn
 g)
@@ -994,13 +1027,13 @@ g)
 Package pdftex.def Info: images/screenshots/21-state-accounting-document.png  u
 sed on input line 539.
 (pdftex.def)             Requested size: 455.24411pt x 73.3831pt.
-<images/screenshots/08-accounting-list.png, id=609, 1927.2pt x 1084.05pt>
+<images/screenshots/08-accounting-list.png, id=693, 1927.2pt x 1084.05pt>
 File: images/screenshots/08-accounting-list.png Graphic file (type png)
 <use images/screenshots/08-accounting-list.png>
 Package pdftex.def Info: images/screenshots/08-accounting-list.png  used on inp
 ut line 546.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
-<images/screenshots/09-accounting-detail.png, id=610, 1927.2pt x 1084.05pt>
+<images/screenshots/09-accounting-detail.png, id=694, 1927.2pt x 1084.05pt>
 File: images/screenshots/09-accounting-detail.png Graphic file (type png)
 <use images/screenshots/09-accounting-detail.png>
 Package pdftex.def Info: images/screenshots/09-accounting-detail.png  used on i
@@ -1008,13 +1041,13 @@ nput line 553.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
 [26 <./images/screenshots/21-state-accounting-document.png> <./images/screensho
 ts/08-accounting-list.png>]
-<images/screenshots/10-accounting-posted.png, id=620, 1927.2pt x 1084.05pt>
+<images/screenshots/10-accounting-posted.png, id=701, 1927.2pt x 1084.05pt>
 File: images/screenshots/10-accounting-posted.png Graphic file (type png)
 <use images/screenshots/10-accounting-posted.png>
 Package pdftex.def Info: images/screenshots/10-accounting-posted.png  used on i
 nput line 560.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
-<images/screenshots/01-login.png, id=622, 1927.2pt x 1084.05pt>
+<images/screenshots/01-login.png, id=703, 1927.2pt x 1084.05pt>
 File: images/screenshots/01-login.png Graphic file (type png)
 <use images/screenshots/01-login.png>
 Package pdftex.def Info: images/screenshots/01-login.png  used on input line 57
@@ -1022,7 +1055,7 @@ Package pdftex.def Info: images/screenshots/01-login.png  used on input line 57
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
  [27 <./images/screenshots/09-accounting-detail.png> <./images/screenshots/10-a
 ccounting-posted.png>]
-<images/screenshots/03-dashboard.png, id=632, 1927.2pt x 1084.05pt>
+<images/screenshots/03-dashboard.png, id=710, 1927.2pt x 1084.05pt>
 File: images/screenshots/03-dashboard.png Graphic file (type png)
 <use images/screenshots/03-dashboard.png>
 Package pdftex.def Info: images/screenshots/03-dashboard.png  used on input lin
@@ -1037,34 +1070,34 @@ Overfull \hbox (48.22534pt too wide) in paragraph at lines 588--589
 
 [28 <./images/screenshots/01-login.png> <./images/screenshots/03-dashboard.png>
 ]
-<images/screenshots/02-setup-password.png, id=642, 1927.2pt x 1084.05pt>
+<images/screenshots/02-setup-password.png, id=719, 1927.2pt x 1084.05pt>
 File: images/screenshots/02-setup-password.png Graphic file (type png)
 <use images/screenshots/02-setup-password.png>
 Package pdftex.def Info: images/screenshots/02-setup-password.png  used on inpu
 t line 640.
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
  [29]
-<images/screenshots/14-audit-log.png, id=649, 1927.2pt x 1084.05pt>
+<images/screenshots/14-audit-log.png, id=727, 1927.2pt x 1084.05pt>
 File: images/screenshots/14-audit-log.png Graphic file (type png)
 <use images/screenshots/14-audit-log.png>
 Package pdftex.def Info: images/screenshots/14-audit-log.png  used on input lin
 e 659.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
  [30 <./images/screenshots/02-setup-password.png>]
-<images/screenshots/11-admin-users.png, id=656, 1927.2pt x 1084.05pt>
+<images/screenshots/11-admin-users.png, id=733, 1927.2pt x 1084.05pt>
 File: images/screenshots/11-admin-users.png Graphic file (type png)
 <use images/screenshots/11-admin-users.png>
 Package pdftex.def Info: images/screenshots/11-admin-users.png  used on input l
 ine 671.
 (pdftex.def)             Requested size: 455.24411pt x 256.07509pt.
  [31 <./images/screenshots/14-audit-log.png>]
-<images/screenshots/12-admin-user-edit.png, id=663, 1927.2pt x 1084.05pt>
+<images/screenshots/12-admin-user-edit.png, id=740, 1927.2pt x 1084.05pt>
 File: images/screenshots/12-admin-user-edit.png Graphic file (type png)
 <use images/screenshots/12-admin-user-edit.png>
 Package pdftex.def Info: images/screenshots/12-admin-user-edit.png  used on inp
 ut line 678.
 (pdftex.def)             Requested size: 341.43307pt x 192.0439pt.
-<images/screenshots/13-admin-all-requests.png, id=664, 1927.2pt x 1084.05pt>
+<images/screenshots/13-admin-all-requests.png, id=741, 1927.2pt x 1084.05pt>
 File: images/screenshots/13-admin-all-requests.png Graphic file (type png)
 <use images/screenshots/13-admin-all-requests.png>
 Package pdftex.def Info: images/screenshots/13-admin-all-requests.png  used on 
@@ -1521,34 +1554,49 @@ Kapitola 7.
 P\v {r}\'{\i }loha A.
 [44
 
-] (./main.aux)
+] [45]
+P\v {r}\'{\i }loha B.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 322.
+
+Overfull \hbox (34.35518pt too wide) in paragraph at lines 344--347
+[] []\T1/lmr/bx/n/10.95 (-20) On-line verze.[] \T1/lmr/m/n/10.95 (-20) Funk£ní 
+na-sa-zení sys-tému je do-stupné na ad-rese [][]$\T1/lmtt/m/n/10.95 https : / /
+ bachelor-[]production-[]0dda .
+ []
+
+[46
+
+] [47] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 729DD4BC1A025F88AEA2AE4E75F987E1;12124.
+(rerunfilecheck)             Checksum: 395C0CF554A15FF8508360F792F5D14A;12485.
  ) 
 Here is how much of TeX's memory you used:
- 19768 strings out of 469006
- 325037 string characters out of 5454813
- 801048 words of memory out of 5000000
- 47808 multiletter control sequences out of 15000+600000
- 701299 words of font info for 199 fonts, out of 8000000 for 9000
+ 19806 strings out of 469006
+ 325482 string characters out of 5454813
+ 804119 words of memory out of 5000000
+ 47826 multiletter control sequences out of 15000+600000
+ 704777 words of font info for 203 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  75i,17n,84p,1286b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
 sr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/te
 xlive/2026basic/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/
-2026basic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2026b
-asic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/
-texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf
--dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (55 pages, 2704874 bytes).
+2026basic/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2026bas
+ic/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2026basic/te
+xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2026basic/texmf-d
+ist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2026basic/texmf-dist/f
+onts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (59 pages, 2757754 bytes).
 PDF statistics:
- 812 PDF objects out of 1000 (max. 8388607)
- 668 compressed objects within 7 object streams
- 164 named destinations out of 1000 (max. 500000)
- 42621 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 912 PDF objects out of 1000 (max. 8388607)
+ 759 compressed objects within 8 object streams
+ 172 named destinations out of 1000 (max. 500000)
+ 45197 words of extra memory for PDF output out of 51595 (max. 10000000)
 

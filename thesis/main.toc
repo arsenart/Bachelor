@@ -1,9 +1,10 @@
 \babel@toc {czech}{}\relax 
-\contentsline {chapter}{Prohlášení}{i}{chapter*.1}%
-\contentsline {chapter}{Poděkování}{ii}{chapter*.2}%
+\contentsline {chapter}{Poděkování}{i}{chapter*.1}%
+\contentsline {chapter}{Prohlášení}{ii}{chapter*.2}%
 \contentsline {chapter}{Abstrakt}{iii}{chapter*.3}%
 \contentsline {chapter}{Abstract}{iv}{chapter*.4}%
-\contentsline {chapter}{Seznam zkratek a pojmů}{v}{chapter*.5}%
+\contentsline {chapter}{Seznam obrázků}{viii}{chapter*.6}%
+\contentsline {chapter}{Seznam tabulek}{ix}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Úvod}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Analýza současného stavu ve společnosti}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Charakteristika společnosti}{3}{section.2.1}%
@@ -60,4 +61,7 @@
 \contentsline {section}{\numberline {6.6}Ověření s~představitelem společnosti}{38}{section.6.6}%
 \contentsline {section}{\numberline {6.7}Shrnutí výsledků ověření}{39}{section.6.7}%
 \contentsline {chapter}{\numberline {7}Závěr}{40}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Zadání práce}{44}{chapter.A}%
+\contentsline {chapter}{\numberline {A}Seznam zkratek a pojmů}{44}{chapter.A}%
+\contentsline {chapter}{\numberline {B}Obsah přiloženého CD / repozitáře}{46}{chapter.B}%
+\contentsline {paragraph}{Spuštění aplikace.}{46}{paragraph*.34}%
+\contentsline {paragraph}{Online verze.}{47}{paragraph*.35}%
