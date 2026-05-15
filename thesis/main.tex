@@ -9,8 +9,8 @@
 \documentclass[
   a4paper,          % formát papíru A4
   11pt,             % velikost základního písma
-  twoside,          % oboustranná sazba
-  openright         % kapitoly začínají na pravé (liché) straně
+  oneside,          % jednostranná sazba (bez prázdných stránek mezi kapitolami)
+  openany           % kapitoly začínají na libovolné straně
 ]{report}
 
 %% ── Kódování a jazyk ─────────────────────────────────────────
@@ -67,6 +67,7 @@
 %% ── Obrázky a tabulky ────────────────────────────────────────
 \usepackage{graphicx}
 \graphicspath{{images/}{images/screenshots/}}
+\usepackage{pdfpages}    % vkládání zadání jako PDF
 \usepackage{float}
 \usepackage{amssymb}  % \checkmark
 \usepackage{booktabs}
@@ -126,17 +127,17 @@
 \begin{titlepage}
   \thispagestyle{empty}
   \begin{center}
-    \vspace*{2cm}
+    \vspace*{1cm}
 
-    %% Logo ČVUT — vložte soubor logo_cvut.pdf do složky thesis/
-    %% \includegraphics[width=5cm]{logo_cvut.pdf}\\[1cm]
+    %% Logo ČVUT
+    \includegraphics[width=4cm]{LogoCVUT.pdf}\\[1cm]
 
     {\Large\textbf{České vysoké učení technické v Praze}}\\[0.3cm]
     {\large\ThesisFaculty}\\[0.1cm]
-    {\large\ThesisDepartment}\\[3cm]
+    {\large\ThesisDepartment}\\[2.5cm]
 
     {\huge\bfseries\color{CTUblue}\ThesisTitle}\\[0.5cm]
-    {\large\ThesisTitleEN}\\[3cm]
+    {\large\ThesisTitleEN}\\[2.5cm]
 
     {\large Bakalářská práce}\\[2cm]
 
@@ -148,7 +149,14 @@
   \end{center}
 \end{titlepage}
 
-%% ── Strana 2 (prázdná nebo zadání) ──────────────────────────
+%% ── Zadání bakalářské práce ─────────────────────────────────
+%% PDF soubor zadani.pdf musí být v adresáři thesis/
+\IfFileExists{zadani.pdf}{%
+  \includepdf[pages=1-2,pagecommand={\thispagestyle{empty}}]{zadani.pdf}%
+}{%
+  \cleardoublepage%
+}
+
 \cleardoublepage
 
 %% ── Římské číslování pro úvodní část (Prohlášení, Poděkování, Abstrakt, TOC) ──
@@ -232,6 +240,50 @@ the Railway cloud environment.
 \vspace{0.5cm}
 \noindent\textbf{Keywords:} digitalization, approval process, workflow, Spring Boot,
 PostgreSQL, bachelor's thesis
+
+\cleardoublepage
+
+%% ── Seznam zkratek a pojmů ──────────────────────────────────
+\chapter*{Seznam zkratek a pojmů}
+\addcontentsline{toc}{chapter}{Seznam zkratek a pojmů}
+\thispagestyle{plain}
+
+\begin{description}[leftmargin=3.5cm, style=nextline]
+  \item[AS-IS / TO-BE] Současný (AS-IS) a~cílový (TO-BE) stav procesu, terminologie business process management.
+  \item[BCrypt] Adaptivní hashovací funkce pro bezpečné ukládání hesel, používá tzv. \emph{salt} a~konfigurovatelný zátěžový faktor.
+  \item[BI] Business Intelligence -- analytický nástroj pro reporting a~controlling.
+  \item[BPMN] Business Process Model and Notation -- grafický standard pro modelování podnikových procesů.
+  \item[CRM] Customer Relationship Management -- systém pro správu vztahů se zákazníky (v~práci INTUO).
+  \item[CRUD] Create, Read, Update, Delete -- základní operace nad datovou entitou.
+  \item[CSRF] Cross-Site Request Forgery -- útok zneužívající přihlášenou session uživatele.
+  \item[DKIM] DomainKeys Identified Mail -- ověření odesílatele e-mailu digitálním podpisem.
+  \item[DMARC] Domain-based Message Authentication, Reporting and Conformance -- pravidla pro nakládání s~e-maily, které selžou v~SPF/DKIM.
+  \item[DTO] Data Transfer Object -- objekt sloužící k~přenosu dat mezi vrstvami aplikace.
+  \item[ERP] Enterprise Resource Planning -- integrovaný informační systém pro řízení podniku.
+  \item[GET / POST] Metody protokolu HTTP pro čtení a~zápis dat.
+  \item[HTTP / HTTPS] HyperText Transfer Protocol (Secure) -- protokol pro komunikaci v~webu.
+  \item[IS] Informační systém.
+  \item[JPA] Jakarta Persistence API (dříve Java Persistence API) -- standard pro objektově-relační mapování v~Javě.
+  \item[JSON] JavaScript Object Notation -- formát pro výměnu dat.
+  \item[L1, L2, L3] Úrovně schvalování ve firmě podle finančních limitů (do~3\,000~Kč, 3\,001--50\,000~Kč, nad~50\,000~Kč).
+  \item[MIS] Manažerský informační systém.
+  \item[MVC] Model-View-Controller -- architektonický vzor oddělující data, prezentaci a~řízení.
+  \item[ORM] Object-Relational Mapping -- překlad mezi objektovým modelem a~relační databází.
+  \item[PaaS] Platform as a~Service -- model cloudových služeb (v~práci Railway).
+  \item[Pohoda] Účetní a~ekonomický systém využívaný společností Medicton Group.
+  \item[RBAC] Role-Based Access Control -- model řízení přístupu na základě rolí.
+  \item[REST] Representational State Transfer -- architektonický styl pro webová API.
+  \item[Resend] Cloudová služba pro transakční e-mailové notifikace.
+  \item[SaaS] Software as a~Service.
+  \item[SMTP] Simple Mail Transfer Protocol -- protokol pro doručování e-mailů.
+  \item[SPF] Sender Policy Framework -- záznam DNS určující servery oprávněné odesílat e-maily z~domény.
+  \item[SQL] Structured Query Language -- jazyk pro práci s~relačními databázemi.
+  \item[TLS] Transport Layer Security -- šifrované spojení (dříve SSL).
+  \item[UI] User Interface -- uživatelské rozhraní.
+  \item[UML] Unified Modeling Language -- standardní jazyk pro modelování softwaru (sekvenční, stavové a~deployment diagramy).
+  \item[Workflow] Sekvence kroků zpracování dokumentu nebo požadavku, řízená pravidly a~rolemi.
+  \item[XSS] Cross-Site Scripting -- útok vkládáním škodlivého kódu do stránky.
+\end{description}
 
 \cleardoublepage
 

@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="org-chart" name="Organizační struktura Medicton Group">
+    <mxGraphModel dx="2400" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="jed1" value="Jednatel&#10;(Medicton CZ, Medicton SK, s-globe)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="40" width="320" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="jed2" value="Jednatel&#10;(Techsan, Medicton SK, s-globe)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="40" width="320" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="busVed" value="Společné vedení" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#82b366;fillColor=none;fontSize=10;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="115" width="920" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manDisp" value="Manažer&#10;dispečinku" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manServ" value="Manažer&#10;servisu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manObch" value="Manažer&#10;obchodu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asist" value="Asistent vedení&#10;společnosti" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ekonom" value="Ekonom" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manJakost" value="Manažer&#10;jakosti" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manICT" value="Manažer&#10;ICT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manNakup" value="Manažer&#10;nákupu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="disp" value="Dispečer&#10;(více pracovníků)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="servTech" value="Servisní technik&#10;(interní)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="220" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metrolog" value="Metrolog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="220" y="390" width="160" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="servTechExt" value="Servisní technik&#10;(externí)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="220" y="450" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obchZast" value="Obchodní zástupce&#10;(interní / SK / ext)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prodSpec" value="Produktový&#10;specialista" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="390" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="obchSpec" value="Obchodní&#10;specialista" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="460" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asistFin" value="Asistent&#10;finančního odd." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="adminServ" value="Administrativní&#10;podpora servisu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="390" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sklad" value="Skladník /&#10;logistik" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="760" y="460" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="dataAn" value="Datový analytik" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="audit" value="Auditor&#10;(externí)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="390" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="consulting" value="Sekce&#10;Consulting" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#d6b656;fillColor=none;fontSize=9;fontStyle=2;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="450" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="Legenda:&#10;&#10;Zelená — nejvyšší vedení (jednatelé)&#10;Modrá — střední management (vedoucí oddělení)&#10;Žlutá — operativní úroveň&#10;&#10;Šedá přerušovaná čára — společné vedení obou firem" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="320" width="320" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_jed1_disp" style="endArrow=none;html=1;exitX=0;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed1" target="manDisp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed1_serv" style="endArrow=none;html=1;exitX=0;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed1" target="manServ"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed1_obch" style="endArrow=none;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed1" target="manObch"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed1_asist" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed1" target="asist"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed1_ekon" style="endArrow=none;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed1" target="ekonom"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed2_jakost" style="endArrow=none;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed2" target="manJakost"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed2_ict" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed2" target="manICT"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_jed2_nakup" style="endArrow=none;html=1;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="jed2" target="manNakup"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e_disp_d" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="manDisp" target="disp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_serv_t1" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="manServ" target="servTech"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_serv_t2" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="servTech" target="metrolog"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_serv_t3" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="metrolog" target="servTechExt"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_obch_z" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="manObch" target="obchZast"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_obch_p" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="obchZast" target="prodSpec"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_obch_s" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="prodSpec" target="obchSpec"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_ekon_a" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ekonom" target="asistFin"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_ekon_ad" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="asistFin" target="adminServ"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_ekon_sk" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="adminServ" target="sklad"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_ict_d" style="endArrow=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="manICT" target="dataAn"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e_ict_a" style="endArrow=none;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="dataAn" target="audit"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

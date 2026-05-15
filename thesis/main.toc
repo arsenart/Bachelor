@@ -1,17 +1,18 @@
 \babel@toc {czech}{}\relax 
 \contentsline {chapter}{Prohlášení}{i}{chapter*.1}%
-\contentsline {chapter}{Poděkování}{iii}{chapter*.2}%
-\contentsline {chapter}{Abstrakt}{v}{chapter*.3}%
-\contentsline {chapter}{Abstract}{vii}{chapter*.4}%
+\contentsline {chapter}{Poděkování}{ii}{chapter*.2}%
+\contentsline {chapter}{Abstrakt}{iii}{chapter*.3}%
+\contentsline {chapter}{Abstract}{iv}{chapter*.4}%
+\contentsline {chapter}{Seznam zkratek a pojmů}{v}{chapter*.5}%
 \contentsline {chapter}{\numberline {1}Úvod}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Analýza současného stavu ve společnosti}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Charakteristika společnosti}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Organizační struktura společnosti}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Používané informační systémy a jejich role}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Používané informační systémy a jejich role}{5}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Popis současného schvalovacího procesu (AS-IS)}{5}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Schvalovací proces (nákupy nad stanovenou hodnotu)}{5}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Předkládání dokladů k zaúčtování nebo proplacení}{6}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Shrnutí AS-IS modelu}{6}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.3}Shrnutí AS-IS modelu}{7}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}Identifikace problémů a dopadů}{7}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Analýza existujících řešení}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Principy digitalizace schvalovacích procesů}{9}{section.3.1}%
@@ -58,5 +59,5 @@
 \contentsline {section}{\numberline {6.5}Ověření řízení přístupu}{38}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Ověření s~představitelem společnosti}{38}{section.6.6}%
 \contentsline {section}{\numberline {6.7}Shrnutí výsledků ověření}{39}{section.6.7}%
-\contentsline {chapter}{\numberline {7}Závěr}{41}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Zadání práce}{45}{chapter.A}%
+\contentsline {chapter}{\numberline {7}Závěr}{40}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Zadání práce}{44}{chapter.A}%
