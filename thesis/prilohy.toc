@@ -1,0 +1,6 @@
+\babel@toc {czech}{}\relax 
+\contentsline {chapter}{\numberline {1}Seznam zkratek a pojmů}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Obsah přiloženého CD / repozitáře}{4}{chapter.2}%
+\contentsline {paragraph}{Spuštění aplikace.}{5}{paragraph*.2}%
+\contentsline {paragraph}{Online verze.}{5}{paragraph*.3}%
+\contentsline {chapter}{\numberline {3}Zadání bakalářské práce}{6}{chapter.3}%
