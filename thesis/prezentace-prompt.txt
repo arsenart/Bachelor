@@ -1,0 +1,305 @@
+================================================================
+   PROMPT + OUTLINE PRO GAMMA.APP
+   Prezentace k obhajobě bakalářské práce
+   Artem Arsenyev, ČVUT FEL, Katedra počítačů, 2026
+================================================================
+
+
+================================================================
+  ČÁST 1: PROMPT pro Gamma "Text to presentation"
+================================================================
+
+Vytvoř profesionální prezentaci na obhajobu bakalářské práce pro Fakultu elektrotechnickou ČVUT, Katedra počítačů.
+
+Téma: Software pro podporu digitalizace schvalovacího procesu v malé firmě
+Autor: Artem Arsenyev
+Vedoucí: Ing. Martin Dobiáš, Ph.D.
+
+Délka prezentace: 12-15 slidů, určená pro 10-12 minutovou obhajobu.
+Styl: profesionální akademický, modrá ČVUT barva (#0065BD), čistý design.
+Jazyk: čeština.
+
+
+================================================================
+  ČÁST 2: OBSAH SLIDŮ
+================================================================
+
+
+--- SLIDE 1: Titulní ---
+
+Software pro podporu digitalizace schvalovacího procesu v malé firmě
+Bakalářská práce
+
+Autor: Artem Arsenyev
+Vedoucí práce: Ing. Martin Dobiáš, Ph.D.
+ČVUT FEL, Katedra počítačů
+Květen 2026
+
+
+--- SLIDE 2: Motivace a cíle ---
+
+Motivace
+- Malé firmy často řeší interní schvalování pomocí Excel tabulek a e-mailů
+- Chybí auditní stopa, automatické notifikace, jednotné workflow
+- Společnost Medicton Group (zdravotnická technika) řeší tento problém ručně
+
+Cíle práce
+- Analyzovat současný stav (AS-IS) ve společnosti
+- Porovnat existující řešení na trhu
+- Navrhnout TO-BE proces a architekturu
+- Implementovat funkční prototyp
+- Ověřit funkčnost a validovat se zástupcem firmy
+
+
+--- SLIDE 3: Analýza současného stavu (AS-IS) ---
+
+Procesy ve firmě dnes
+- Schvalování nákupů: sdílená XLS tabulka + e-mail + SharePoint
+- Předávání dokladů účetní: ručně přes e-mail / fyzicky
+- Schvalovatelé určováni ad-hoc dle organizační struktury
+
+Identifikované problémy
+- Bez jednotného workflow systému
+- Žádná auditní stopa rozhodnutí
+- Zpožděné zpracování dokladů → neaktuální účetnictví
+- Nejednoznačnost schválení (případ faktur za grafiku bez doložení)
+- Limity L1/L2/L3 definované, ale vynucované manuálně
+
+[OBRAZ: 15-as-is-process.png — BPMN AS-IS]
+
+
+--- SLIDE 4: Analýza řešení na trhu ---
+
+Porovnaná řešení
+- Microsoft Power Automate — cloud workflow, integrace s M365
+- Microsoft Dynamics 365 Business Central — ERP s approval workflow
+- Oracle Invoice Approval Workflow — robustní enterprise řešení
+- Odoo — modulární approval rules
+
+Závěr analýzy
+- Hotové platformy buď příliš rozsáhlé pro malou firmu,
+  nebo neodpovídají specifickým pravidlům Medicton Group
+- Nejvhodnější: vlastní webová aplikace inspirovaná zkoumanými principy
+
+
+--- SLIDE 5: Návrh TO-BE procesu ---
+
+Klíčové vlastnosti návrhu
+- Centralizovaný workflow s automatickým směrováním
+- Datově řízená pravidla (konfigurovatelná za běhu)
+- Víceúrovňové schvalování dle typu a částky:
+  * L1 do 3 000 Kč → vedoucí skupiny
+  * L2 do 50 000 Kč → finanční ředitel
+  * L3 nad 50 000 Kč → finanční ředitel + jednatel
+  * PURCHASE (bez ohledu na částku) → manažer nákupu + jednatel
+- Audit log pro každou stavovou změnu
+- E-mailové notifikace
+
+[OBRAZ: 16-to-be-approval.png — BPMN TO-BE]
+
+
+--- SLIDE 6: Architektura systému ---
+
+Technologický stack
+- Backend: Spring Boot 4.0.3, Java 17
+- Bezpečnost: Spring Security 6 (RBAC, BCrypt)
+- Persistence: PostgreSQL 16, Hibernate / JPA
+- Frontend: Thymeleaf + Bootstrap 5.3
+- E-mail: Resend HTTP API (DKIM/SPF/DMARC)
+- Nasazení: Railway (PaaS), doména medicton.uk přes Cloudflare
+
+Architektonický vzor
+- MVC (Model-View-Controller)
+- Vrstvy: Controller → Service → Repository → DB
+
+[OBRAZ: 22-deployment.png — Deployment diagram]
+
+
+--- SLIDE 7: Datový model ---
+
+Hlavní entity
+- User: uživatel s rolemi (REQUESTER, APPROVER, ACCOUNTANT, ADMIN)
+- ApprovalRequest: žádost o nákup/výdaj
+- ApprovalStep: jednotlivé schvalovací kroky
+- ApprovalRule: konfigurovatelné pravidlo směrování
+- AccountingDocument: účetní doklad
+- AuditLog: záznam každé stavové změny
+
+[OBRAZ: 18-er-diagram.png — ER diagram]
+
+
+--- SLIDE 8: Workflow a RBAC ---
+
+Stavový model ApprovalRequest
+NEW → PENDING_APPROVAL → {APPROVED, REJECTED, RETURNED_FOR_REVISION}
+    → REALIZED → CLOSED
+
+Stavový model AccountingDocument
+NEW → SUBMITTED_TO_ACCOUNTING → {POSTED, RETURNED_FOR_COMPLETION}
+    → PAID → CLOSED
+
+Role-Based Access Control
+- 4 role (M:N — uživatel může mít více rolí)
+- Ochrana proti self-approval na úrovni servisní vrstvy
+- CSRF ochrana, BCrypt hesla, validace vstupů
+
+[OBRAZ: 20-state-approval-request.png — State diagram]
+
+
+--- SLIDE 9: Implementace — ukázka UI ---
+
+Klíčové obrazovky
+- Dashboard přizpůsobený roli uživatele
+- Detail žádosti s historií rozhodnutí
+- Administrátorské rozhraní pro správu pravidel
+- Auditní log
+
+[OBRAZ: 03-dashboard.png + 07-approval-detail.png]
+
+
+--- SLIDE 10: Ověření funkčnosti ---
+
+Trojfázové ověření
+
+1. Automatizované jednotkové testy
+   - JUnit 5 + Mockito
+   - 18 testů (ApprovalRoutingService + ApprovalWorkflowService)
+   - Tests run: 18, Failures: 0, Errors: 0
+
+2. Manuální funkční scénáře
+   - 20 scénářů (login, workflow, RBAC, notifikace)
+   - Ověřeno v produkčním prostředí Railway
+
+3. Konzultace se zástupcem firmy
+   - Validace souladu s reálnými procesními potřebami
+   - Pozitivní zpětná vazba
+
+
+--- SLIDE 11: Přínosy a závěr ---
+
+Splněné cíle zadání
+* Analýza AS-IS procesu ve společnosti
+* Analýza existujících řešení na trhu
+* Návrh TO-BE procesu a architektury
+* Implementace funkčního systému
+* Ověření funkčnosti
+
+Hlavní přínosy
+- Centralizovaná evidence požadavků a dokladů
+- Automatické vynucování schvalovacích pravidel
+- Auditní stopa každého rozhodnutí
+- Eliminace neaktuálního účetnictví a nejasných schválení
+
+Možná budoucí rozšíření
+- Integrace s účetním systémem Pohoda (API)
+- Napojení na SharePoint pro správu příloh
+- Reportovací modul pro controlling
+
+
+--- SLIDE 12: Děkuji za pozornost ---
+
+Děkuji za pozornost
+
+Připraven na otázky
+
+Live demo: https://bachelor-production-0dda.up.railway.app
+Repozitář: https://github.com/arsenart/Bachelor
+
+
+================================================================
+  ČÁST 3: BACKUP SLIDY (pro otázky komise)
+================================================================
+
+
+--- BACKUP 1: Detail schvalovacích pravidel ---
+
+Konfigurovatelná pravidla v tabulce approval_rules
+- request_type: EXPENSE | PURCHASE
+- min_amount, max_amount: rozsah částky
+- step_order: pořadí kroku ve workflow
+- approver: konkrétní uživatel (M:1 na User)
+- approver_role: nebo dynamicky podle role
+
+Self-approval protection
+- ApprovalRoutingService kontroluje approver != requester
+- Pokud by selhalo → BusinessRuleViolationException
+
+
+--- BACKUP 2: Transakční logika ---
+
+Konzistence dat
+- @Transactional na servisních metodách
+- Izolace READ_COMMITTED (PostgreSQL default)
+- Automatický rollback při RuntimeException
+
+Příklad: ApprovalRequestService.submit()
+- Validace → routing → persist steps → audit log → email
+- Vše v jedné transakci
+- Při selhání: nic se neuloží, audit log zůstává konzistentní
+
+
+--- BACKUP 3: Bezpečnost ---
+
+Vrstvy bezpečnosti
+- Spring Security 6 filter chain
+- URL-level autorizace (requestMatchers)
+- Method-level (servisní validace vlastnictví)
+- UI-level (Thymeleaf sec:authorize)
+
+Ochrana
+- BCrypt hash hesel (factor 10)
+- CSRF token v formulářích
+- Parametrizované JPA dotazy (proti SQL injection)
+- Thymeleaf escapování (proti XSS)
+- DKIM/SPF/DMARC pro e-maily
+
+
+--- BACKUP 4: Proč zvolen Spring Boot, ne SPA? ---
+
+Návrhové rozhodnutí: Thymeleaf místo Reactu
+
+Pro Thymeleaf:
+- Jediný deployment artefakt (JAR)
+- Přirozená integrace se Spring Security
+- Žádná duplicitní validace (server + klient)
+- Vhodné pro interní nástroj malého týmu
+
+Proti SPA:
+- Vyžaduje samostatný build pipeline
+- Komplexnější autentizace (JWT)
+- Pro tento use-case zbytečně složité
+
+
+================================================================
+  NÁVOD K POUŽITÍ V GAMMA.APP
+================================================================
+
+1. Otevři https://gamma.app — registrace zdarma
+2. Klikni "Create new" → "Text to presentation"
+3. Vlož "ČÁST 1: PROMPT" do vstupního pole → "Generate outline"
+4. Když Gamma zobrazí outline → klikni "Use this outline"
+5. Postupně vlož obsah jednotlivých slidů z "ČÁST 2"
+6. Gamma vygeneruje design → vyber téma "Modern", "Sleek" nebo "Academic"
+7. Po vygenerování:
+   - Do každého slidu nahraj příslušnou diagramu/screenshot
+     ze složky /Users/arsenart/Bachelor/thesis/images/screenshots/
+   - Uprav text tam, kde Gamma napsala zbytečnosti
+8. Export → PDF nebo PowerPoint pro zálohu
+
+
+================================================================
+  SEZNAM POUŽITÝCH OBRÁZKŮ
+================================================================
+
+Slide 3:  images/screenshots/15-as-is-process.png
+Slide 5:  images/screenshots/16-to-be-approval.png
+Slide 6:  images/screenshots/22-deployment.png
+Slide 7:  images/screenshots/18-er-diagram.png
+Slide 8:  images/screenshots/20-state-approval-request.png
+Slide 9:  images/screenshots/03-dashboard.png
+          images/screenshots/07-approval-detail.png
+
+
+================================================================
+  KONEC
+================================================================

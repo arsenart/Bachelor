@@ -1,0 +1,294 @@
+================================================================
+   PROJEV K OBHAJOBĚ BAKALÁŘSKÉ PRÁCE
+   Artem Arsenyev | ČVUT FEL | Katedra počítačů
+   Téma: Software pro podporu digitalizace schvalovacího procesu
+         v malé firmě
+   Cílová délka: cca 10 minut
+================================================================
+
+POZNÁMKA PRO MLUVÍCÍHO:
+- Mluvte pomalu a sebevědomě
+- Udržujte oční kontakt s komisí, nečtěte slovo od slova
+- Na začátku se nadechněte, představte se jasně
+- Tučně označená slova zdůrazněte hlasem
+- U diagramů krátce ukažte rukou na klíčový prvek
+
+
+================================================================
+  SLIDE 1: TITULNÍ          (cca 30 sekund)
+================================================================
+
+Dobrý den, vážená komise, vážený pane vedoucí, vážený pane oponente.
+
+Jmenuji se Artem Arsenyev a dnes bych Vám rád představil svou
+bakalářskou práci s názvem:
+**"Software pro podporu digitalizace schvalovacího procesu v malé
+firmě"**.
+
+Vedoucím mé práce byl Ing. Martin Dobiáš, Ph.D., a téma jsem
+zpracovával pro Katedru počítačů Fakulty elektrotechnické.
+
+
+================================================================
+  SLIDE 2: MOTIVACE A CÍLE   (cca 1 minuta)
+================================================================
+
+Práce vychází z reálného prostředí společnosti **Medicton Group**,
+která se zabývá zdravotnickou technikou — prodejem zařízení,
+servisem a pravidelnými revizemi.
+
+Ve firmě existují dva každodenní procesy, které jsou dosud řešeny
+prostřednictvím **sdílených Excel tabulek, e-mailové komunikace
+a složek v SharePointu**. Jde o:
+
+1. schvalování interních nákupů a výdajů
+2. předávání účetních dokladů do účetnictví
+
+Tento manuální přístup způsobuje **nejednoznačnost schvalování,
+zpoždění zpracování dokladů a chybějící auditní stopu** rozhodnutí.
+
+Cílem mé práce bylo tedy:
+- analyzovat současný stav,
+- porovnat dostupná řešení na trhu,
+- navrhnout vlastní řešení šité na míru firmě,
+- a toto řešení **implementovat a ověřit**.
+
+
+================================================================
+  SLIDE 3: ANALÝZA AS-IS    (cca 1 minuta)
+================================================================
+
+Na tomto slidu vidíte BPMN diagram **současného stavu** ve firmě.
+
+Žadatel vytvoří záznam v tabulce, požádá nadřízeného o schválení
+e-mailem nebo osobně, a po schválení předá doklad účetní —
+opět buď fyzicky, nebo e-mailem.
+
+Z analýzy jsem identifikoval **čtyři klíčové problémy**:
+
+- **Není jednotné workflow** — informace jsou rozptýleny mezi
+  tabulkou, e-mailem, SharePointem a účetním systémem Pohoda.
+- **Chybí auditní stopa** — interní materiály uvádějí konkrétní
+  případ, kdy účetní obdržela drahé faktury za grafické práce
+  s tvrzením, že byly schváleny, ale skutečnost byla jiná.
+- **Schvalovací limity L1, L2 a L3 jsou definovány, ale vynucovány
+  ručně.**
+- **Zpoždění** mají dopad na aktuálnost účetnictví a tím i na
+  controlling vedení společnosti.
+
+
+================================================================
+  SLIDE 4: ANALÝZA TRHU     (cca 45 sekund)
+================================================================
+
+Analyzoval jsem čtyři řešení: **Power Automate, Business Central,
+Oracle Invoice Approval a Odoo**.
+
+Žádné z nich pro Medicton Group nedávalo smysl ze čtyř důvodů:
+
+- **Vysoké licenční náklady** — všechny tyto platformy se
+  platí měsíčně za každého uživatele. Pro firmu s více než
+  třiceti zaměstnanci by to byly desítky tisíc korun ročně
+  za funkcionalitu, kterou potřebují jen z malé části.
+- **Závislost na jednom dodavateli** — Power Automate funguje
+  pouze v rámci Microsoft 365. Když by firma chtěla v budoucnu
+  změnit poštu nebo úložiště, **celý schvalovací proces by se
+  musel přebudovat**.
+- **Žádné spojení s Pohodou** — hlavní účetní systém firmy
+  není podporovaný ani jednou z těchto platforem. Spojení by
+  tak bylo nutné vyvinout na zakázku — **i v případě, že by
+  firma koupila hotové řešení**.
+- **Příliš velká řešení pro malý úkol** — Business Central
+  a Oracle jsou celé podnikové systémy. Nasadit je jen kvůli
+  schvalovacímu modulu by znamenalo vyměnit polovinu IT
+  infrastruktury firmy.
+
+Závěrem: vlastní webová aplikace je **levnější, přesněji
+přizpůsobená procesům firmy** a nezávislá na jednom dodavateli.
+
+
+================================================================
+  SLIDE 5: NÁVRH TO-BE      (cca 1,5 minuty)
+================================================================
+
+Toto je BPMN diagram **navrženého TO-BE procesu**.
+
+Klíčové vlastnosti návrhu jsou:
+
+- **Centralizovaný workflow** — všechny žádosti, schválení i
+  doklady jsou v jednom systému.
+- **Datově řízená pravidla** — schvalovatelé nejsou natvrdo
+  v kódu, ale konfigurovatelní za běhu administrátorem.
+- **Automatické e-mailové notifikace** v každém kroku.
+- **Úplná auditní stopa** každé stavové změny.
+
+Schvalovací úrovně přímo odpovídají interním pravidlům firmy:
+
+- **L1** do 3 000 Kč jde vedoucímu skupiny
+- **L2** do 50 000 Kč finančnímu řediteli
+- **L3** nad 50 000 Kč prochází dvěma kroky — finanční ředitel
+  a poté jednatel společnosti
+- Speciální workflow pro nákup zboží — manažer nákupu a jednatel
+
+Důležitým rysem je **ochrana proti konfliktu zájmů** — systém
+neumožní, aby žadatel byl zároveň schvalovatelem vlastní žádosti.
+
+
+================================================================
+  SLIDE 6: ARCHITEKTURA     (cca 1 minuta)
+================================================================
+
+Aplikace je realizována jako **třívrstvá webová aplikace** podle
+architektonického vzoru Model-View-Controller.
+
+Backend tvoří **Spring Boot 4** na Javě 17, bezpečnostní vrstvu
+zajišťuje **Spring Security 6**, persistence běží přes JPA
+a Hibernate nad databází **PostgreSQL 16**.
+
+Frontend je realizován pomocí **Thymeleaf šablon a Bootstrap 5**.
+Pro renderování na straně serveru jsem se rozhodl proto, že u
+interního nástroje malého týmu **není přidaná hodnota jednostránkové
+aplikace dostatečná**, aby ospravedlnila její komplexitu.
+
+Aplikace je nasazena na cloudové platformě **Railway**. Doména
+medicton.uk je spravovaná přes Cloudflare a e-mailové notifikace
+posílá služba **Resend**, která má plně nakonfigurované záznamy
+DKIM, SPF a DMARC.
+
+
+================================================================
+  SLIDE 7: DATOVÝ MODEL     (cca 45 sekund)
+================================================================
+
+Datový model tvoří šest hlavních entit, jak vidíte na ER diagramu:
+
+- **User** s rolemi v relaci M:N — uživatel může mít zároveň více
+  rolí, například žadatel a schvalovatel současně
+- **ApprovalRequest** — vlastní žádost
+- **ApprovalStep** — jednotlivé kroky workflow
+- **ApprovalRule** — konfigurovatelné pravidlo pro směrování
+- **AccountingDocument** — účetní doklad navázaný na schválenou žádost
+- **AuditLog** — záznam každé stavové změny v systému
+
+Vztahy jsou definovány pomocí JPA anotací a překládány Hibernate
+do relačního schématu PostgreSQL.
+
+
+================================================================
+  SLIDE 8: WORKFLOW A RBAC  (cca 1 minuta)
+================================================================
+
+Životní cyklus žádosti je modelován stavovým automatem.
+Žádost přechází od stavu NEW přes PENDING_APPROVAL do koncového
+stavu APPROVED, REJECTED nebo RETURNED_FOR_REVISION.
+
+Účetní doklad má vlastní cyklus — od NEW přes SUBMITTED, POSTED
+a PAID až ke CLOSED.
+
+Bezpečnost je řešena **modelem RBAC** — Role-Based Access Control.
+Definovány jsou čtyři role: žadatel, schvalovatel, účetní
+a administrátor.
+
+Autorizace probíhá **na třech úrovních**:
+
+- na úrovni URL ve Spring Security
+- na úrovni servisních metod (kontrola vlastnictví)
+- na úrovni šablon Thymeleaf — uživatel nevidí akce, ke kterým
+  nemá oprávnění
+
+Hesla jsou ukládána výhradně jako **BCrypt hash**, formuláře jsou
+chráněny **CSRF tokenem** a vstupy jsou validovány proti SQL injection
+a XSS útokům.
+
+
+================================================================
+  SLIDE 9: IMPLEMENTACE A OVĚŘENÍ (cca 1,5 minuty)
+================================================================
+
+Implementovaný systém má **plně funkční uživatelské rozhraní** —
+zde vidíte řídicí panel přizpůsobený roli, detail žádosti s historií
+schvalování a administrátorské rozhraní pro správu pravidel.
+
+Funkčnost systému byla ověřena **třemi nezávislými způsoby**:
+
+1. **Jednotkové testy** v JUnit 5 a Mockito — celkem **18 testů**,
+   které pokrývají klíčové servisní třídy. Testy ověřují směrování
+   žádostí, ochranu proti self-approval i validační scénáře.
+   Všechny testy procházejí bez chyb.
+
+2. **Manuální funkční scénáře** — 20 scénářů ověřujících přihlášení,
+   workflow, řízení přístupu a notifikace. Realizováno v produkčním
+   prostředí na Railway.
+
+3. **Konzultace se zástupcem společnosti Medicton Group**, kde
+   bylo potvrzeno, že **systém odpovídá reálným procesním
+   potřebám** firmy.
+
+
+================================================================
+  SLIDE 10: ZÁVĚR           (cca 1 minuta)
+================================================================
+
+Závěrem mohu konstatovat, že **všechny cíle zadání byly splněny**.
+
+Hlavním přínosem práce je **funkční softwarový nástroj**, který:
+
+- Centralizuje evidenci požadavků i dokladů na jedno místo
+- Automaticky vynucuje schvalovací pravidla podle typu a výše částky
+- Zasílá notifikace
+- A uchovává úplnou auditní stopu každého rozhodnutí
+
+Tím systém **přímo odstraňuje problémy** identifikované v analytické
+části — nejednoznačnost schválení, neúplnost podkladů a zpožděné
+zpracování dokladů.
+
+Možnými budoucími rozšířeními jsou:
+
+- přímá integrace s účetním systémem Pohoda přes jeho API,
+- napojení na SharePoint pro správu příloh,
+- a detailnější reportovací modul pro controlling.
+
+
+================================================================
+  SLIDE 11: DĚKUJI ZA POZORNOST  (cca 15 sekund)
+================================================================
+
+Děkuji Vám za pozornost.
+
+Jsem připraven zodpovědět Vaše dotazy.
+
+
+================================================================
+  TIPY PŘED OBHAJOBOU
+================================================================
+
+1. NACVIČTE PROJEV NAHLAS minimálně 3x. Zkraťte/prodlužte podle
+   skutečné délky.
+
+2. POMALU. První dvě věty řekněte velmi pomalu — ukáže to klid.
+
+3. KLÍČOVÁ ČÍSLA si pamatujte zpaměti:
+   - 18 unit testů, 0 chyb
+   - 20 manuálních scénářů
+   - 4 role (REQUESTER, APPROVER, ACCOUNTANT, ADMIN)
+   - 6 entit v datovém modelu
+   - 4 analyzovaná řešení na trhu
+   - 3 schvalovací úrovně (L1, L2, L3)
+   - 8 diagramů v práci (BPMN x3, ER, Sequence, State x2, Deployment)
+
+4. ZADRŽTE V HLAVĚ TŘI NEJSILNĚJŠÍ ARGUMENTY pro otázky:
+   - Datově řízená architektura — pravidla v DB, ne v kódu
+   - Reálný kontext — práce s konkrétní firmou, ne teoretická
+   - Tři vrstvy ověření — auto testy + manual + konzultace s firmou
+
+5. POKUD NEROZUMÍTE OTÁZCE — slušně si vyžádejte zopakování:
+   "Mohl byste prosím otázku upřesnit?"
+
+6. ČAS — 10 minut je doporučení, komise často nedovolí překročit
+   12 minut. Pokud cítíte, že se nestíháte, **vynechejte slide 4
+   (analýza trhu)** — to nejsnáze obhájíte z paměti.
+
+
+================================================================
+  KONEC PROJEVU
+================================================================

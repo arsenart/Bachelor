@@ -1,0 +1,151 @@
+================================================================
+   ODPOVĚDI NA OTÁZKY KOMISE
+   Artem Arsenyev | ČVUT FEL | Katedra počítačů
+================================================================
+
+POZNÁMKA:
+- Cílová délka odpovědi: 1 – 1,5 minuty.
+- Zaměřte se na jedno nejefektivnější řešení a tři klíčové
+  technické detaily — žádné odhady času.
+- Pokud něco nevíte, řekněte: "Toto by si vyžádalo hlubší
+  analýzu, ale můj pohled je…"
+
+
+################################################################
+##   OTÁZKY VEDOUCÍHO (Ing. Martin Dobiáš, Ph.D., A)
+################################################################
+
+
+================================================================
+  OTÁZKA 1 (VEDOUCÍ) — Integrace s Pohodou
+================================================================
+
+**Nejefektivnější cesta: mServer Pohody (HTTP + XML).**
+
+Pohoda nabízí mServer jako oficiální HTTP rozhraní. Po přechodu
+dokladu do stavu POSTED by nová třída `PohodaIntegrationService`
+sestavila XML dle Pohoda schématu, odeslala je přes RestTemplate
+na mServer a uložila vrácené Pohoda ID zpět do AccountingDocument.
+
+**Tři klíčové problémy:**
+
+- **Mapování číselníků** — typy dokladů, střediska a dodavatelé
+  (přes IČO) musí mít synchronizovatelné externí ID.
+- **Konzistence při selhání** — řeší idempotentní operace
+  s retry frontou.
+- **Síťová topologie** — Pohoda běží lokálně, aplikace v cloudu,
+  takže je nutný VPN tunel nebo lokální agent.
+
+
+================================================================
+  OTÁZKA 2 (VEDOUCÍ) — Paralelní schvalování a delegace
+================================================================
+
+Architektura je na obě rozšíření přímo navržena.
+
+**Paralelní schvalování** = povolit více ApprovalStep se stejným
+`stepOrder`. Úprava se týká pouze `getActiveStep()`, která místo
+jednoho kroku vrátí kolekci. Workflow pokračuje až po schválení
+**všech** paralelních kroků daného pořadí.
+
+**Delegace** = nová entita `ApprovalDelegation` (delegující,
+zástupce, období platnosti). `ApprovalRoutingService` při
+sestavování kroků zkontroluje aktivní delegaci a krok přiřadí
+zástupci. **Auditní stopa zaznamená oba** — původního i zástupce.
+
+
+################################################################
+##   OTÁZKY OPONENTA (B)
+################################################################
+
+
+================================================================
+  OTÁZKA 3 (OPONENT) — Metriky efektivity
+================================================================
+
+Hodnotil bych dvěma skupinami metrik, obě sbírané automaticky
+z `audit_log`.
+
+**Doba zpracování end-to-end:**
+
+- Čas od podání žádosti po finální schválení.
+- Doba zpracování dokladu účetní (SUBMITTED → POSTED).
+- Porovnání mediánu a 90. percentilu před a po nasazení.
+
+**Úplnost dat a auditní stopa:**
+
+- Procento žádostí s úplnou auditní stopou (cíl 100 %).
+- Procento žádostí vrácených k doplnění (kvalita UX).
+- Doba dohledání historie — sekundy v UI vs. desítky minut
+  prohledávání e-mailů.
+
+Pro přesné srovnání doporučuji **pilotní nasazení** v jednom
+oddělení a paralelní sběr statistik ze starého procesu.
+
+
+================================================================
+  OTÁZKA 4 (OPONENT) — Provozní bezpečnost
+================================================================
+
+**Zálohování — Point-In-Time Recovery (PITR).** PostgreSQL
+streamuje WAL logy, což umožňuje obnovu do libovolného bodu
+v čase. Doplnil bych denní snapshoty s retencí 30 dní,
+geograficky oddělené úložiště a pravidelné testování obnovy.
+
+**Přístupová práva — RBAC s principem minimálních práv.**
+Stávající model čtyř rolí pokrývá oddělení odpovědností. Pro
+produkci bych doplnil **MFA pro privilegované role** (Spring
+Security to nativně podporuje) a kvartální revizi rolí.
+
+**Citlivé dokumenty — oddělené úložiště.** Aplikace ukládá
+**pouze odkaz**, nikoli samotný soubor. Pro produkci bych
+integroval SharePoint firmy přes Microsoft Graph API —
+SharePoint má nativní řízení přístupů, audit a verzování.
+
+
+================================================================
+  OTÁZKA 5 (OPONENT) — Etapa integrace
+================================================================
+
+Integrace by měla být postupná a postavená na **abstraktní
+integrační vrstvě** (balíček `integration` s rozhraními
+`PohodaConnector`, `IntuoConnector`, `SharePointConnector`).
+Komunikace asynchronní přes Spring `@EventListener`.
+
+**Pohoda** — mServer (HTTP + XML), detaily viz odpověď na
+otázku 1 vedoucího.
+
+**INTUO CRM** — REST API s lookup vazbou: autocomplete
+vyhledání zakázky ve formuláři žádosti, uložení externího ID
+a odkaz zpět do INTUO v detailu.
+
+**SharePoint** — Microsoft Graph API: upload příloh přímo
+z formuláře, automatické přesouvání mezi složkami a OAuth 2.0
+autentizace vůči M365 účtu firmy.
+
+
+################################################################
+##   TIPY PRO ODPOVÍDÁNÍ
+################################################################
+
+1. **Žádné odhady času implementace.** Pokud se zeptají, řekněte:
+   "to záleží na konkrétním rozsahu a požadované integraci".
+
+2. **Maximálně dvě řešení.** Vyberte to nejefektivnější
+   a krátce zdůvodněte volbu.
+
+3. **Tři klíčové termíny na otázku** — zapamatujte si je, zbytek
+   doimprovizujete:
+   - Q1: mServer, retry fronta, VPN tunel
+   - Q2: stepOrder, ApprovalDelegation, audit
+   - Q3: end-to-end doba, audit_log, pilotní nasazení
+   - Q4: PITR, MFA, princip minimálních práv
+   - Q5: mServer, Graph API, balíček integration
+
+4. **Mluvte konkrétně.** Místo "to by šlo nějak vyřešit" řekněte
+   "přidal bych třídu X, která dělá Y".
+
+
+================================================================
+   KONEC
+================================================================

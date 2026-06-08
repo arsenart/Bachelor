@@ -1,0 +1,363 @@
+================================================================
+   SLOVNÍK POJMŮ POUŽITÝCH V PREZENTACI
+   Vysvětlení pro komisi (a pro vlastní kontrolu)
+   Artem Arsenyev | ČVUT FEL | Obhajoba BP
+================================================================
+
+POZNÁMKA:
+Pojmy jsou seskupeny podle oblastí. U každého je krátké
+vysvětlení v rovině, kterou pochopí i člen komise, který
+nepracuje denně s vývojem softwaru.
+
+
+################################################################
+##   1) ARCHITEKTURA APLIKACE
+################################################################
+
+▸ MVC (Model-View-Controller)
+  Architektonický vzor, který rozděluje aplikaci do tří částí:
+  Model = data a logika, View = co uživatel vidí, Controller =
+  spojuje uživatelské akce s daty. Cílem je oddělit zájmy
+  a usnadnit údržbu kódu.
+
+▸ Třívrstvá aplikace
+  Aplikace rozdělená do tří logických vrstev:
+  - Prezentační vrstva (UI, šablony)
+  - Aplikační vrstva (servisní logika, business pravidla)
+  - Datová vrstva (databáze, repozitáře)
+
+▸ Server-side rendering (rendrování na straně serveru)
+  HTML stránka je sestavena serverem a poslána už hotová do
+  prohlížeče. Opak je SPA, kde prohlížeč skládá stránku sám.
+
+▸ Jednostránková aplikace (SPA — Single Page Application)
+  Aplikace typu Gmail nebo Google Docs — načte se jednou
+  a dál si data dotahuje pomocí volání API. V práci jsem ji
+  nepoužil, protože pro interní nástroj malého týmu nepřináší
+  dostatečnou hodnotu.
+
+
+################################################################
+##   2) DIAGRAMY A NOTACE
+################################################################
+
+▸ BPMN (Business Process Model and Notation)
+  Standardní grafický jazyk pro modelování podnikových procesů.
+  Používá se v práci pro AS-IS a TO-BE diagramy schvalovacího
+  procesu.
+
+▸ ER diagram (Entity-Relationship)
+  Grafické znázornění **entit** v databázi a **vztahů** mezi
+  nimi. Ukazuje, jaké tabulky existují a jak jsou propojené.
+
+▸ Stavový diagram (state diagram)
+  Diagram, který ukazuje **všechny stavy**, kterými může entita
+  projít, a **přechody** mezi nimi. Například žádost přechází
+  od stavu NEW přes PENDING_APPROVAL do APPROVED.
+
+▸ Sekvenční diagram (sequence diagram)
+  Diagram zachycující **pořadí volání** mezi vrstvami aplikace
+  v čase. Ukazuje, kdo komu posílá zprávu a v jakém pořadí.
+
+▸ UML (Unified Modeling Language)
+  Standardní jazyk pro modelování softwaru. ER, stavové
+  a sekvenční diagramy jsou jeho součástí.
+
+▸ Diagram nasazení (deployment diagram)
+  Ukazuje, **kde fyzicky** jednotlivé komponenty běží — server
+  v cloudu, databáze, externí služby — a jak spolu komunikují.
+
+
+################################################################
+##   3) BACKEND TECHNOLOGIE
+################################################################
+
+▸ Java 17
+  Programovací jazyk, na kterém je aplikace napsaná. Verze 17 je
+  dlouhodobě podporovaná (LTS), tedy má zaručené bezpečnostní
+  aktualizace minimálně do roku 2029.
+
+▸ Spring Boot
+  Český překlad: "jarní startér". Framework pro Javu, který
+  velmi zjednodušuje stavbu webových aplikací — řeší konfiguraci,
+  webový server, databázové připojení a další.
+
+▸ Spring Security
+  Modul Springu zajišťující bezpečnost — přihlašování,
+  ověřování oprávnění uživatele, ochranu proti útokům.
+
+▸ JPA (Jakarta Persistence API)
+  Standardní rozhraní v Javě pro práci s databází. Říká, jak
+  by se měla databázová logika v Javě psát.
+
+▸ Hibernate
+  Konkrétní knihovna, která JPA implementuje. Překládá
+  objekty Javy na SQL dotazy.
+
+▸ PostgreSQL 16
+  Relační databáze (tabulky propojené vztahy). Open-source,
+  zdarma, profesionální.
+
+▸ Maven
+  Nástroj, který se stará o sestavení projektu — stáhne
+  potřebné knihovny, zkompiluje kód a vytvoří spustitelný JAR.
+
+
+################################################################
+##   4) FRONTEND TECHNOLOGIE
+################################################################
+
+▸ Thymeleaf
+  Šablonovací jazyk pro Javu, který slouží k sestavení HTML
+  stránek na serveru. Lze ho otevřít v prohlížeči i bez
+  spuštění aplikace, což usnadňuje vývoj.
+
+▸ Bootstrap 5
+  CSS framework pro tvorbu moderně vypadajících webů
+  s responzivním designem (přizpůsobí se mobilu i počítači).
+
+▸ HTML / CSS
+  Základní jazyky webu — HTML říká, **co** je na stránce,
+  CSS říká, **jak to vypadá**.
+
+
+################################################################
+##   5) NASAZENÍ A INFRASTRUKTURA
+################################################################
+
+▸ Railway (PaaS — Platform as a Service)
+  Cloudová služba, na které je aplikace nasazená. Stará se
+  o server, databázi i HTTPS, takže není potřeba spravovat
+  vlastní infrastrukturu.
+
+▸ Cloudflare
+  Služba spravující DNS záznamy a HTTPS certifikáty pro doménu
+  medicton.uk. Posílá požadavky uživatelů z internetu na Railway.
+
+▸ Resend
+  Externí služba pro odesílání e-mailových notifikací.
+  Aplikace ji volá přes HTTP API.
+
+▸ HTTPS / TLS
+  Šifrovaná verze HTTP. Vše, co prohlížeč pošle aplikaci, je
+  šifrováno tak, aby to nešlo odposlechnout.
+
+▸ DKIM, SPF, DMARC
+  Tři DNS záznamy, kterými se ověřuje, že e-mail skutečně
+  pochází z naší domény medicton.uk. Bez nich by mohly poštovní
+  servery naše e-maily odmítat jako podvržené.
+
+
+################################################################
+##   6) BEZPEČNOST
+################################################################
+
+▸ RBAC (Role-Based Access Control)
+  Model řízení přístupu, kde **práva nejsou přiřazena uživatelům
+  přímo, ale rolím**. Uživatel získá oprávnění tím, že je
+  přidělen do role (např. APPROVER, ACCOUNTANT).
+
+▸ Princip minimálních práv
+  Bezpečnostní pravidlo: uživatel by měl mít **pouze ta práva,
+  která skutečně potřebuje** pro svou práci.
+
+▸ BCrypt
+  Algoritmus pro bezpečné uložení hesel. Heslo se neukládá
+  v původní podobě, ale jako tzv. **hash** — řetězec znaků,
+  ze kterého se nedá zpětně vypočítat původní heslo.
+
+▸ CSRF (Cross-Site Request Forgery)
+  Typ útoku, při kterém útočník zneužije přihlášenou session
+  uživatele k provedení akce, kterou by sám uživatel neudělal.
+  Ochrana: tajný token v každém formuláři, který útočník nemá.
+
+▸ XSS (Cross-Site Scripting)
+  Útok, při kterém se do stránky vloží škodlivý kód (např.
+  JavaScript). Thymeleaf proti němu chrání automaticky.
+
+▸ SQL injection
+  Útok, kdy útočník vloží do vstupních polí SQL kód a snaží se
+  manipulovat s databází. Použití JPA + parametrizovaných dotazů
+  tomu brání.
+
+▸ MFA (Multi-Factor Authentication)
+  Vícefaktorové ověření — uživatel se přihlašuje **heslem
+  a něčím dalším** (např. SMS kódem, autentizační aplikací).
+
+▸ PITR (Point-In-Time Recovery)
+  Způsob zálohování PostgreSQL, který umožňuje **obnovit
+  databázi do libovolného bodu v čase**, ne jen do okamžiku
+  poslední zálohy.
+
+▸ OAuth 2.0
+  Standardní protokol pro autentizaci přes třetí stranu.
+  Například: "přihlásit se přes Microsoft účet" — uživatel
+  zadá heslo u Microsoftu, ne u nás.
+
+
+################################################################
+##   7) PROTOKOLY A DATOVÉ FORMÁTY
+################################################################
+
+▸ HTTP / HTTPS
+  Protokol, kterým prohlížeč komunikuje s webovým serverem.
+  HTTPS je šifrovaná verze.
+
+▸ REST API
+  Standardní způsob, jak servery vystavují své funkce navenek
+  přes HTTP. Klient pošle POST/GET požadavek a dostane odpověď.
+
+▸ JSON
+  Formát pro výměnu dat mezi aplikacemi. Lehce čitelný,
+  textový, používá ho většina webových API.
+
+▸ XML
+  Starší formát pro výměnu dat. Používá se ho i v účetním
+  systému Pohoda pro výměnu dat.
+
+▸ Microsoft Graph API
+  REST API od Microsoftu, přes které se přistupuje k SharePointu,
+  Outlook kalendáři, OneDrive atd.
+
+▸ IČO
+  Identifikační číslo organizace. V databázi slouží jako
+  jednoznačný identifikátor dodavatele i v Pohodě.
+
+
+################################################################
+##   8) POJMY V APLIKACI A PROCESECH
+################################################################
+
+▸ Workflow
+  Posloupnost kroků, kterými musí dokument nebo žádost projít
+  od svého vzniku po finální vyřízení.
+
+▸ Schvalovací úrovně L1, L2, L3
+  Interní pojmenování ve firmě:
+  - L1 (Level 1) = výdaje do 3 000 Kč → schvaluje vedoucí skupiny
+  - L2 (Level 2) = výdaje 3 001 – 50 000 Kč → finanční ředitel
+  - L3 (Level 3) = výdaje nad 50 000 Kč → finanční ředitel
+    a poté jednatel společnosti
+
+▸ AS-IS / TO-BE
+  Standardní pojmy z business analýzy:
+  - AS-IS = **současný stav** procesu
+  - TO-BE = **navrhovaný cílový stav**
+
+▸ Stavový automat (state machine)
+  Model, podle kterého entita prochází definovanou sadou
+  stavů, a přechody mezi nimi jsou omezené pravidly.
+  Například: žádost ve stavu APPROVED se nemůže vrátit
+  zpět do NEW.
+
+▸ Audit log
+  Záznam o tom, **kdo, kdy a co udělal**. V naší aplikaci se
+  zaznamenává každá stavová změna žádosti i účetního dokladu.
+
+▸ Self-approval (samoschválení)
+  Situace, kdy by žadatel byl zároveň schvalovatelem vlastní
+  žádosti. Systém tomu brání kontrolou v ApprovalRoutingService.
+
+▸ Datově řízená pravidla
+  Schvalovací pravidla nejsou napsaná přímo v kódu, ale uložená
+  v databázi. Administrátor je tak může měnit za běhu
+  aplikace bez nutnosti zásahu vývojáře.
+
+
+################################################################
+##   9) TESTOVÁNÍ
+################################################################
+
+▸ JUnit
+  Standardní knihovna v Javě pro psaní automatizovaných testů.
+
+▸ Mockito
+  Knihovna pro vytváření testovacích náhrad (tzv. mock objektů).
+  Umožňuje testovat jednu třídu izolovaně, bez potřeby spouštět
+  celou aplikaci včetně databáze.
+
+▸ Jednotkový test (unit test)
+  Test, který ověřuje **jednu konkrétní funkci** v izolaci od
+  zbytku systému. Rychlý, deterministický.
+
+▸ Integrační test
+  Test, který ověřuje **spolupráci více komponent** dohromady,
+  například s reálnou databází.
+
+▸ Scénář (test case)
+  Konkrétní situace, kterou test ověřuje — například "schválení
+  žádosti přepne stav do APPROVED a odešle notifikaci".
+
+
+################################################################
+##   10) POJMY V ZÁLOŽNÍCH SLIDECH (otázky komise)
+################################################################
+
+▸ mServer (Pohoda)
+  Oficiální HTTP rozhraní účetního systému Pohoda, přes které
+  může externí aplikace posílat doklady ve formě XML.
+
+▸ Retry fronta (retry queue)
+  Mechanismus, kdy neúspěšná operace je uložena a po čase
+  automaticky zopakována, dokud neproběhne úspěšně.
+
+▸ Idempotentní operace
+  Operace, kterou je možné **bezpečně opakovat** — opakované
+  volání vede ke stejnému výsledku jako jediné volání.
+  Příklad: "nastav stav na POSTED" je idempotentní.
+
+▸ VPN tunel
+  Šifrované spojení mezi dvěma sítěmi přes internet. Umožňuje
+  aplikaci v cloudu komunikovat s lokální sítí firmy tak,
+  jakoby byla její součástí.
+
+▸ stepOrder
+  Atribut v entitě ApprovalStep, který určuje **pořadí
+  schvalovacího kroku** ve workflow. Krok 1 schvaluje nejdřív,
+  pak teprve krok 2.
+
+▸ End-to-end doba
+  Čas mezi **začátkem a koncem** procesu. Například od podání
+  žádosti po její finální schválení.
+
+▸ WAL log (Write-Ahead Log)
+  Mechanismus PostgreSQL, který zaznamenává každou změnu
+  databáze ještě před tím, než je provedena. Umožňuje PITR.
+
+▸ Snapshot (databázová záloha)
+  Úplná kopie stavu databáze v daném okamžiku.
+
+▸ @EventListener (Spring)
+  Mechanismus v Springu, který umožňuje asynchronní reakci
+  na události. Například: "po každé změně stavu pošli
+  notifikaci" — bez blokování hlavního workflow.
+
+▸ Balíček integration
+  Logická skupina tříd v Javě věnovaná integracím s externími
+  systémy (PohodaConnector, IntuoConnector, SharePointConnector).
+  Oddělení od zbytku aplikace zajistí, že selhání jednoho
+  externího systému neovlivní ostatní.
+
+
+################################################################
+##   TIP: NEJČASTĚJI POUŽÍVANÉ POJMY V OBHAJOBĚ
+################################################################
+
+Pokud byste byli ztraceni, naučte se nazpaměť těchto deset
+nejpoužívanějších pojmů:
+
+1.  MVC = Model-View-Controller, oddělení dat, zobrazení, řízení
+2.  RBAC = řízení přístupu podle rolí
+3.  Workflow = posloupnost schvalovacích kroků
+4.  BPMN = grafická notace procesů (AS-IS, TO-BE)
+5.  Stavový diagram = znázornění všech stavů entity
+6.  Audit log = záznam každé změny (kdo, kdy, co)
+7.  AS-IS / TO-BE = současný / cílový stav procesu
+8.  Datově řízená pravidla = pravidla v databázi, ne v kódu
+9.  Self-approval = samoschválení, systém ho brání
+10. PITR = obnova databáze do libovolného bodu v čase
+
+
+================================================================
+   KONEC SLOVNÍKU
+================================================================
