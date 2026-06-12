@@ -1,72 +1,81 @@
 <mxfile host="app.diagrams.net">
-  <diagram id="deployment" name="Deployment diagram">
-    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+  <diagram id="deployment-fixed" name="Deployment diagram (corrected)">
+    <mxGraphModel dx="2200" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
         <mxCell id="user" value="Uživatel&#10;(prohlížeč)" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="80" y="320" width="40" height="60" as="geometry" />
-        </mxCell>
-
-        <mxCell id="cloudflare" value="Cloudflare&#10;(DNS, TLS, doména medicton.uk)" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="220" y="280" width="200" height="120" as="geometry" />
+          <mxGeometry x="80" y="500" width="50" height="80" as="geometry" />
         </mxCell>
 
         <mxCell id="railway" value="Railway (cloudová PaaS)" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#6c8ebf;fillColor=#ffffff;align=left;verticalAlign=top;fontSize=14;fontStyle=1;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
-          <mxGeometry x="500" y="100" width="640" height="540" as="geometry" />
+          <mxGeometry x="380" y="220" width="850" height="640" as="geometry" />
         </mxCell>
 
         <mxCell id="appNode" value="«device»&#10;Spring Boot application" style="shape=mxgraph.bootstrap.rrect;rSize=10;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=left;spacingLeft=10;spacingTop=10;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="160" width="340" height="280" as="geometry" />
+          <mxGeometry x="420" y="290" width="440" height="500" as="geometry" />
         </mxCell>
 
-        <mxCell id="tomcat" value="Embedded Tomcat (port 8080)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="560" y="200" width="300" height="30" as="geometry" />
+        <mxCell id="tomcat" value="Embedded Tomcat&#10;(port 8080)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="340" width="380" height="60" as="geometry" />
         </mxCell>
 
-        <mxCell id="controllers" value="«component» Controllers&#10;(Spring MVC + Thymeleaf)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="560" y="240" width="300" height="40" as="geometry" />
+        <mxCell id="controllers" value="«component» Controllers&#10;Spring MVC + Thymeleaf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="410" width="380" height="60" as="geometry" />
         </mxCell>
 
-        <mxCell id="services" value="«component» Services + Workflow logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="560" y="290" width="300" height="40" as="geometry" />
+        <mxCell id="services" value="«component» Services + Workflow logic&#10;ApprovalRoutingService, ApprovalWorkflowService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="480" width="380" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="security" value="«component» Spring Security (RBAC)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="560" y="340" width="300" height="40" as="geometry" />
+        <mxCell id="security" value="«component» Spring Security&#10;RBAC, BCrypt, CSRF ochrana" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="560" width="380" height="60" as="geometry" />
         </mxCell>
 
-        <mxCell id="jpa" value="«component» Spring Data JPA + Hibernate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="560" y="390" width="300" height="40" as="geometry" />
+        <mxCell id="jpa" value="«component» Spring Data JPA + Hibernate&#10;ORM, transakce, repository" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="630" width="380" height="70" as="geometry" />
         </mxCell>
 
         <mxCell id="dbNode" value="«device»&#10;PostgreSQL 16" style="shape=mxgraph.bootstrap.rrect;rSize=10;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;align=left;spacingLeft=10;spacingTop=10;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="940" y="160" width="180" height="200" as="geometry" />
+          <mxGeometry x="930" y="290" width="270" height="320" as="geometry" />
         </mxCell>
 
-        <mxCell id="dbInner" value="users, approval_requests,&#10;approval_steps, approval_rules,&#10;accounting_documents,&#10;audit_log,&#10;password_setup_tokens" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="960" y="210" width="140" height="130" as="geometry" />
+        <mxCell id="dbInner" value="users, approval_requests,&#10;approval_steps, approval_rules,&#10;accounting_documents,&#10;audit_log,&#10;password_setup_tokens" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="950" y="350" width="230" height="240" as="geometry" />
         </mxCell>
 
-        <mxCell id="resend" value="Resend&#10;(transakční email API)" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="160" width="220" height="120" as="geometry" />
+        <mxCell id="resend" value="Resend&#10;(transakční email API)" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="320" width="280" height="150" as="geometry" />
         </mxCell>
 
-        <mxCell id="mail" value="E-mailový server&#10;příjemce" style="shape=mxgraph.bootstrap.rrect;rSize=10;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="320" width="220" height="60" as="geometry" />
+        <mxCell id="cloudflare" value="Cloudflare&#10;(DNS pro doménu medicton.uk —&#10;DKIM, SPF, DMARC záznamy)" style="shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="580" width="320" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mail" value="E-mailový server&#10;příjemce&#10;(Gmail, Outlook, ČVUT …)" style="shape=mxgraph.bootstrap.rrect;rSize=10;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="850" width="280" height="90" as="geometry" />
         </mxCell>
 
         <mxCell id="github" value="«system»&#10;GitHub (zdrojový kód)" style="shape=mxgraph.bootstrap.rrect;rSize=10;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="540" y="500" width="340" height="60" as="geometry" />
+          <mxGeometry x="440" y="900" width="400" height="80" as="geometry" />
         </mxCell>
 
-        <mxCell id="conn1" value="HTTPS" style="endArrow=classic;html=1;startArrow=classic;" edge="1" parent="1" source="user" target="cloudflare"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="conn2" value="HTTPS&#10;(proxy)" style="endArrow=classic;html=1;" edge="1" parent="1" source="cloudflare" target="appNode"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="conn3" value="JDBC&#10;(internal network)" style="endArrow=classic;html=1;startArrow=classic;" edge="1" parent="1" source="jpa" target="dbNode"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="conn4" value="HTTPS POST&#10;/emails" style="endArrow=classic;html=1;" edge="1" parent="1" source="services" target="resend"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="conn5" value="SMTP&#10;(DKIM/SPF/DMARC)" style="endArrow=classic;html=1;" edge="1" parent="1" source="resend" target="mail"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="conn6" value="git push → CI/CD deploy" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1" source="github" target="appNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="legend" value="Vysvětlivky:&#10;• Plná čára = HTTP/HTTPS/SMTP datová komunikace&#10;• Přerušovaná čára = DNS lookup nebo CI/CD&#10;• Cloudflare není proxy webového provozu — spravuje pouze&#10;DNS záznamy domény medicton.uk pro ověření e-mailů." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#cccccc;fontSize=11;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="900" width="320" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn1" value="HTTPS&#10;bachelor-production-0dda.up.railway.app" style="endArrow=classic;html=1;startArrow=classic;fontSize=11;" edge="1" parent="1" source="user" target="appNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="conn2" value="JDBC&#10;(interní síť Railway)" style="endArrow=classic;html=1;startArrow=classic;fontSize=11;" edge="1" parent="1" source="jpa" target="dbNode"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="conn3" value="HTTPS POST&#10;/emails" style="endArrow=classic;html=1;fontSize=11;" edge="1" parent="1" source="services" target="resend"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="conn4" value="DNS lookup&#10;(DKIM/SPF/DMARC ověření)" style="endArrow=classic;html=1;dashed=1;strokeColor=#9673a6;fontSize=11;" edge="1" parent="1" source="resend" target="cloudflare"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="conn5" value="SMTP&#10;(podepsaná zpráva)" style="endArrow=classic;html=1;fontSize=11;" edge="1" parent="1" source="resend" target="mail"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="conn6" value="git push → CI/CD deploy" style="endArrow=classic;html=1;dashed=1;strokeColor=#666666;fontSize=11;" edge="1" parent="1" source="github" target="appNode"><mxGeometry relative="1" as="geometry" /></mxCell>
 
       </root>
     </mxGraphModel>
